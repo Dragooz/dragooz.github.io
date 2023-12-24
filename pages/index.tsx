@@ -1,3 +1,9 @@
+import { useState } from "react";
+import Menu from "../components/Menu";
+import Home from "../components/Home";
+
 export default function Page() {
-    return <h1>Hello, Next.js!!</h1>;
+    const [isMenu, setIsMenu] = useState(false);
+
+    return isMenu ? <Menu /> : <Home />;
 }
