@@ -19,7 +19,7 @@ body {
     height: 100%;
     position: absolute;
     z-index: -1;
-    background-image: url("../public/images/webpage-bg.png");
+    background-image: url("/images/webpage-bg.png");
     object-fit: cover;
     opacity: 0.3;
     background-repeat: no-repeat;
