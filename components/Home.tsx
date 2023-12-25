@@ -1,11 +1,10 @@
 import React from "react";
+import SectionOne from "./SectionOne";
 
 const Home = () => {
     return (
-        <div className="container">
-            <div id="introduction">
-                Welcome to a place where Code dances with Creativity
-            </div>
+        <div className="container ">
+            <SectionOne />
             <div id="introduction">
                 Meet Yi Chong – a Software Engineer with a zest for
                 problem-solving and logic, and a self-taught artist bringing a
