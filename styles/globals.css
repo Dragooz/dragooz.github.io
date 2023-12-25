@@ -24,6 +24,7 @@ body {
     opacity: 0.3;
     background-repeat: no-repeat;
     background-position: right 40%;
+    background-size: 100vmax;
 }
 
 /* Media query for devices with width up to 768px (common breakpoint for tablets and mobile devices) */
