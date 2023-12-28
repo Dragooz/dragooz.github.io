@@ -13,9 +13,10 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    left: 0px;
+    left: 0;
     top: 0px;
-    opacity: 1;
+    transform: translate(110vw, 110vh);
+    opacity: 0;
     background-color: rgb(225, 225, 225);
 }
 

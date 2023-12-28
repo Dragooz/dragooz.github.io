@@ -7,6 +7,7 @@ const MouseFollower: React.FC = () => {
         // Mouse move handler
         const handleMouseMove = (e: MouseEvent) => {
             if (mouseFollowerRef.current) {
+                mouseFollowerRef.current.style.opacity = "1";
                 const x = e.clientX - mouseFollowerRef.current.offsetWidth / 2;
                 const y = e.clientY - mouseFollowerRef.current.offsetHeight / 2;
                 const keyframes = {
