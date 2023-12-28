@@ -12,11 +12,11 @@ body {
     pointer-events: none;
     width: 20px;
     height: 20px;
+    border-radius: 50%;
     left: 0px;
     top: 0px;
-    opacity: 0;
-    transition: opacity 500ms ease;
-    background-color: rgba(128, 0, 128, 1);
+    opacity: 1;
+    background-color: rgb(225, 225, 225);
 }
 
 /* Home */
@@ -27,19 +27,30 @@ body {
     max-width: 100%;
     position: relative;
     z-index: 1;
+    overflow-x: hidden;
 }
-
 .bgImage {
     width: 100%;
     height: 100%;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     background-image: url("/images/webpage-bg.png");
     object-fit: cover;
     opacity: 0.3;
     background-repeat: no-repeat;
     background-position: right 40%;
     background-size: 100vmax;
+
+    /* Initial blur effect */
+    filter: blur(1px);
+
+    /* Transition for smooth effect */
+    transition: filter 0.5s ease;
+}
+
+.bgImage:hover {
+    /* Remove or reduce blur on hover */
+    filter: blur(0px);
 }
 
 /* Media query for devices with width up to 768px (common breakpoint for tablets and mobile devices) */
