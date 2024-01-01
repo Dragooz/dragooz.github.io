@@ -31,7 +31,7 @@ const MouseFollower: React.FC = () => {
 
     return (
         <>
-            <div id="mouseFollower" ref={mouseFollowerRef} />
+            <div id="mouse-follower" ref={mouseFollowerRef} />
             {/* Additional elements can be added here with similar style but different positions or properties */}
         </>
     );

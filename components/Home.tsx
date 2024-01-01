@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div className="container ">
             <SectionOne />
-            <div id="introduction">
+            <div id="introduction" className={"introduction-content"}>
                 Meet Yi Chong – a Software Engineer with a zest for
                 problem-solving and logic, and a self-taught artist bringing a
                 creative edge to tech solutions.
