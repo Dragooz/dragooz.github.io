@@ -1,0 +1,163 @@
+#introduction {
+    color: white;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#introduction .meet-him {
+    font-weight: bold;
+    font-size: clamp(2rem, 4vw, 4rem);
+}
+
+#introduction .description {
+    margin-top: 10px;
+    /* margin-left: clamp(10rem, 20vw, 20rem); */
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+
+@media (max-width: 447px) {
+    /* Adjust 768px to the breakpoint that suits your design */
+    #introduction .description {
+        margin-left: 8vw;
+    }
+}
+
+/* SECTION 1 */
+#section-one {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 3000ms ease;
+    /* backdrop-filter: blur(3px); */
+}
+
+.shine-text-one {
+    --bg-size: 400%;
+    font-size: clamp(3rem, 3rem, 8rem);
+    background: linear-gradient(
+            135deg,
+            var(--super-light-purple),
+            var(--medium-purple),
+            var(--super-light-purple)
+        )
+        0 0 / var(--bg-size) 10%;
+    /* text-shadow: 0 0 16px var(--light-purple); */
+    color: transparent;
+    background-clip: text;
+    animation: shine 10s linear infinite;
+}
+
+.shine-text-two {
+    --bg-size: 400%;
+    font-size: clamp(3rem, 3rem, 8rem);
+    background: linear-gradient(
+            90deg,
+            var(--medium-purple),
+            var(--super-light-purple),
+            var(--purple),
+            var(--super-light-purple),
+            var(--medium-purple)
+        )
+        0 0 / var(--bg-size) 10%;
+    /* text-shadow: 0 0 16px var(--light-purple); */
+    color: transparent;
+    background-clip: text;
+    animation: shine 10s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: var(--bg-size) 0;
+    }
+}
+
+.animate-purple {
+    animation: purpleToRed 3s linear forwards;
+}
+
+.animate-code {
+    animation-delay: 1.5s; /* Starts halfway through the purple animation */
+    animation: glowBlue 1.5s linear forwards;
+}
+
+.animate-red {
+    animation-delay: 3s; /* Starts after the purple animation finishes */
+    animation: redGlow 3s linear forwards;
+}
+
+@keyframes purpleToRed {
+    0% {
+        color: var(--purple);
+    }
+    50% {
+        color: var(--purple);
+    }
+    100% {
+        color: var(--red);
+    }
+}
+
+@keyframes glowBlue {
+    0%,
+    100% {
+        text-shadow: none;
+    }
+    50% {
+        text-shadow: 0 0 8px #007bff;
+    }
+}
+
+@keyframes redGlow {
+    0%,
+    100% {
+        color: black;
+    }
+    50% {
+        color: var(--red);
+    }
+}
+
+@keyframes glowingBlue {
+    0%,
+    100% {
+        text-shadow: 0 0 1vh #007bff;
+        color: #007bff;
+        opacity: 0.7;
+    }
+    50% {
+        text-shadow: 0 0 2vh #007bff, 0 0 4vh #007bff, 0 0 6vh #007bff,
+            0 0 8vh #007bff, 0 0 10vh #007bff;
+        color: #00bfff; /* Lighter shade for more intense glow */
+        opacity: 1;
+    }
+}
+@keyframes glowingRed {
+    0%,
+    100% {
+        text-shadow: 0 0 1vh var(--red);
+        color: var(--red);
+        opacity: 0.7;
+    }
+    50% {
+        text-shadow: 0 0 2vh var(--red), 0 0 4vh var(--red), 0 0 6vh var(--red),
+            0 0 8vh var(--red), 0 0 10vh var(--red);
+        color: #ff517a; /* Lighter shade for more intense glow */
+        opacity: 1;
+    }
+}
+
+.highlight.blue {
+    color: #007bff;
+    animation: glowingBlue 2s infinite;
+}
+
+.highlight.red {
+    color: var(--red);
+    animation: glowingRed 2s infinite;
+}

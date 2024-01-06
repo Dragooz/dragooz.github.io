@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const SectionOne = () => {
+const SectionOne = ({ className = "" }: { className: string }) => {
     const divRef = useRef<HTMLHeadingElement>(null); // Using useRef to reference the h1 element.
     const intervalRef = useRef<number | null>(null); // Using useRef to keep track of the interval ID.
 
@@ -8,10 +8,12 @@ const SectionOne = () => {
         const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         const targetWords = [
             {
+                id: "code",
                 name: "Code",
                 className: "highlight blue",
             },
             {
+                id: "creativity",
                 name: "Creativity",
                 className: "highlight red",
             },
@@ -41,11 +43,10 @@ const SectionOne = () => {
                 const regex = new RegExp(`\\b${word.name}\\b`, "g");
                 scrambledText = scrambledText.replace(
                     regex,
-                    `<span class="${word.className}">${word.name}</span>`
+                    `<span id=${word.id} class="${word.className}">${word.name}</span>`
                 );
             });
 
-            console.log("scrambledText: ", scrambledText);
             divRef.current.innerHTML = scrambledText;
 
             if (
@@ -73,20 +74,32 @@ const SectionOne = () => {
         };
     }, []);
 
+    // useEffect(() => {
+    //     const script = document.createElement("script");
+    //     script.src =
+    //         "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
+    //     script.type = "module";
+    //     document.body.appendChild(script);
+
+    //     return () => {
+    //         document.body.removeChild(script);
+    //     };
+    // }, []);
+
+    const third_description = "Passionate with Code & Creativity!";
     return (
-        <>
-            <div id="introduction">
-                <div
-                    id="section-one"
-                    className={"introduction-content shine-text"}
-                    data-value="Welcome to a place where Code dances with Creativity"
-                    ref={divRef}
-                >
-                    Welcome to a place where Code dances with Creativity
-                </div>
-                <div className="bg-image animated-element" />
+        <div id="introduction" className={className}>
+            <div>
+                <div className="meet-him shine-text-one">Meet Yi Chong!</div>
+                <span className="description shine-text-two">
+                    —— Full Stack Developer with Expertise in AI
+                </span>
             </div>
-        </>
+
+            {/* <div id="section-one" data-value={third_description} ref={divRef}>
+                {third_description}
+            </div> */}
+        </div>
     );
 };
 

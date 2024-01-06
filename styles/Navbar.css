@@ -1,0 +1,22 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(6px); /* Blur effect */
+    z-index: 1000;
+    display: flex;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    padding: 16px 0px;
+}
+
+.nav-list li {
+    cursor: pointer;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    /* Add more styles as needed */
+}

@@ -1,4 +1,8 @@
 /* general */
+@import "./Navbar.css"; /* Import Navbar styles */
+@import "./SectionOne.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Work+Sans&display=swap");
 
 :root {
     --white: #ffffff;
@@ -14,6 +18,7 @@
 body {
     background-color: rgb(0, 0, 0);
     margin: 0px;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Mouse */
@@ -29,6 +34,10 @@ body {
     transform: translate(110vw, 110vh);
     opacity: 0;
     background-color: rgb(225, 225, 225);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Home */
@@ -42,6 +51,19 @@ body {
     overflow-x: hidden;
 }
 
+.content-margin {
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
+@media (max-width: 768px) {
+    /* Adjust 768px to the breakpoint that suits your design */
+    .content-margin {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+}
+
 @keyframes horizontalCurtain {
     0% {
         opacity: 0;
@@ -52,7 +74,7 @@ body {
         ); /* Start with vertical slits in the center */
         opacity: 0.25;
         filter: blur(6px);
-        background-image: url("/images/webpage-square-bg.png");
+        background-image: url("/images/web-bg-v2.png");
     }
 
     30% {
@@ -60,20 +82,58 @@ body {
             50% 0% 50% 0%
         ); /* Start with vertical slits in the center */
         opacity: 0.4;
-        background-image: url("/images/webpage-square-bg.png");
+        background-image: url("/images/web-bg-v2.png");
     }
 
     100% {
         clip-path: inset(0 0 0 0); /* Curtain fully open */
-        opacity: 0.2;
+        opacity: 0.5;
         filter: blur(0px);
-        background-image: url("/images/webpage-square-bg.png");
+        background-image: url("/images/web-bg-v2.png");
     }
 }
+
+@keyframes fadeFromRightWithBlur {
+    0% {
+        opacity: 0.3;
+        filter: blur(4px);
+        transform: translate(100px, 0px);
+    }
+
+    100% {
+        opacity: 0.6;
+        filter: blur(0px);
+        background-image: url("/images/web-bg-v2.png");
+        transform: translate(0px, 0px);
+    }
+}
+
+@keyframes fadeFromRightWithBlurSmallerMedia {
+    0% {
+        opacity: 0.2;
+        filter: blur(4px);
+        transform: translate(100px, 0px);
+    }
+
+    100% {
+        opacity: 0.3;
+        filter: blur(0px);
+        background-image: url("/images/web-bg-v2.png");
+        transform: translate(0px, 0px);
+    }
+}
+
 .animated-element {
-    animation-name: horizontalCurtain;
+    animation-name: fadeFromRightWithBlur;
     animation-duration: 4s; /* Set the duration of the animation */
     animation-fill-mode: both; /* Make sure the final state (opacity: 1) is retained after the animation completes */
+}
+
+@media (max-width: 768px) {
+    /* Adjust 768px to the breakpoint that suits your design */
+    .animated-element {
+        animation-name: fadeFromRightWithBlurSmallerMedia;
+    }
 }
 
 .bg-image {
@@ -83,141 +143,9 @@ body {
     z-index: -1;
     object-fit: cover;
     opacity: 0;
+    top: 0;
     background-repeat: no-repeat;
     background-position: right 40%;
-    background-size: 100vmax;
-}
-
-#introduction {
-    color: white;
-    height: 100vh;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    font-family: "Ibarra Real Nova", serif;
-    font-size: clamp(1rem, 2vw, 4rem);
-    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
-    text-decoration: none;
-    transition: opacity 400ms linear;
-}
-
-/* SECTION 1 */
-
-.shine-text {
-    --bg-size: 400%;
-    font-size: clamp(3rem, 8rem);
-    background: linear-gradient(
-            90deg,
-            var(--super-light-purple),
-            var(--light-purple),
-            var(--super-light-purple)
-        )
-        0 0 / var(--bg-size) 10%;
-    text-shadow: 0 0 16px var(--light-purple);
-    color: transparent;
-    background-clip: text;
-    animation: shine 10s linear infinite reverse;
-}
-
-@keyframes shine {
-    to {
-        background-position: var(--bg-size) 0;
-    }
-}
-
-#section-one {
-    opacity: 0;
-    transition: opacity 3000ms ease;
-}
-
-.introduction-content {
-    margin-left: clamp(3rem, 15vw, 10rem);
-    margin-right: clamp(3rem, 15vw, 10rem);
-}
-
-.animate-purple {
-    animation: purpleToRed 3s linear forwards;
-}
-
-.animate-code {
-    animation-delay: 1.5s; /* Starts halfway through the purple animation */
-    animation: glowBlue 1.5s linear forwards;
-}
-
-.animate-red {
-    animation-delay: 3s; /* Starts after the purple animation finishes */
-    animation: redGlow 3s linear forwards;
-}
-
-@keyframes purpleToRed {
-    0% {
-        color: var(--purple);
-    }
-    50% {
-        color: var(--purple);
-    }
-    100% {
-        color: var(--red);
-    }
-}
-
-@keyframes glowBlue {
-    0%,
-    100% {
-        text-shadow: none;
-    }
-    50% {
-        text-shadow: 0 0 8px #007bff;
-    }
-}
-
-@keyframes redGlow {
-    0%,
-    100% {
-        color: black;
-    }
-    50% {
-        color: var(--red);
-    }
-}
-
-@keyframes glowingBlue {
-    0%,
-    100% {
-        text-shadow: 0 0 1vh #007bff;
-        color: #007bff;
-        opacity: 0.7;
-    }
-    50% {
-        text-shadow: 0 0 2vh #007bff, 0 0 4vh #007bff, 0 0 6vh #007bff,
-            0 0 8vh #007bff, 0 0 10vh #007bff;
-        color: #00bfff; /* Lighter shade for more intense glow */
-        opacity: 1;
-    }
-}
-@keyframes glowingRed {
-    0%,
-    100% {
-        text-shadow: 0 0 1vh var(--red);
-        color: var(--red);
-        opacity: 0.7;
-    }
-    50% {
-        text-shadow: 0 0 2vh var(--red), 0 0 4vh var(--red), 0 0 6vh var(--red),
-            0 0 8vh var(--red), 0 0 10vh var(--red);
-        color: #ff517a; /* Lighter shade for more intense glow */
-        opacity: 1;
-    }
-}
-
-.highlight.blue {
-    color: #007bff;
-    animation: glowingBlue 2s infinite;
-}
-
-.highlight.red {
-    color: var(--red);
-    animation: glowingRed 2s infinite;
 }
 
 /* components/Menu */
@@ -238,7 +166,6 @@ body {
     color: white;
     cursor: pointer;
     display: block;
-    font-family: "Ibarra Real Nova", serif;
     font-size: clamp(3rem, 6vw, 8rem);
     padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
     text-decoration: none;
