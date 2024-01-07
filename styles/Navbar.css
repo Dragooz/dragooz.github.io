@@ -5,6 +5,7 @@
     backdrop-filter: blur(6px); /* Blur effect */
     z-index: 1000;
     display: flex;
+    justify-content: space-between;
 }
 
 .nav-list {
@@ -12,6 +13,7 @@
     display: flex;
     gap: 24px;
     padding: 16px 0px;
+    align-items: center;
 }
 
 .nav-list li {
@@ -19,4 +21,11 @@
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.8);
     /* Add more styles as needed */
+}
+
+.navbar > .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
 }

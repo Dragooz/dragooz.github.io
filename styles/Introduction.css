@@ -1,12 +1,28 @@
 #introduction {
     color: white;
-    height: 100vh;
     box-sizing: border-box;
     display: flex;
     align-items: left;
     justify-content: center;
     flex-direction: column;
     gap: 8px;
+}
+
+@keyframes fadeWithBlur {
+    0% {
+        opacity: 0;
+        filter: blur(3px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+#introduction > .content {
+    animation-name: fadeWithBlur;
+    animation-duration: 2s; /* Set the duration of the animation */
 }
 
 #introduction .meet-him {

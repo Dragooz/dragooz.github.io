@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 
-const SectionOne = ({ className = "" }: { className: string }) => {
+const Introduction = ({ className = "" }: { className?: string }) => {
     const divRef = useRef<HTMLHeadingElement>(null); // Using useRef to reference the h1 element.
     const intervalRef = useRef<number | null>(null); // Using useRef to keep track of the interval ID.
 
@@ -109,4 +109,4 @@ const SectionOne = ({ className = "" }: { className: string }) => {
                     <span className="highlight red">Creativity</span> */
 }
 
-export default SectionOne;
+export default Introduction;

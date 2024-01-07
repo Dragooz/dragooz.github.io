@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
-const What = () => {
-    // Core Values & Philosophy
-    // Describe what matters to you in your work and life.What are your core values, your work ethic, and your professional philosophy ? This is about what drives your decisions and actions in your career.
-    return <div>What</div>;
+const What = ({ className = "" }: { className?: string }) => {
+    return (
+        <div id="what" className={className}>
+            <div>Forecasting Estimated Fetal Weight</div>
+            <div>Map System for farmer in agriculture domain</div>
+            <div>Huawei Malaysia Sales Elite Challenge - Team Spark</div>
+        </div>
+    );
 };
 
 export default What;
