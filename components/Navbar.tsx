@@ -12,7 +12,10 @@ const Navbar: React.FC = () => {
     return (
         <nav className="navbar ">
             <div className="nav-list content-margin">
-                <li className="logo" />
+                <li
+                    onClick={() => scrollToSection("introduction")}
+                    className="logo"
+                />
                 <li onClick={() => scrollToSection("who")}>Who</li>
                 <li onClick={() => scrollToSection("when")}>When</li>
                 <li onClick={() => scrollToSection("where")}>Where</li>

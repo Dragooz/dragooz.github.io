@@ -20,7 +20,7 @@
     }
 }
 
-#introduction > .content {
+#introduction > .introduction-content {
     animation-name: fadeWithBlur;
     animation-duration: 2s; /* Set the duration of the animation */
 }

@@ -89,7 +89,7 @@ const Introduction = ({ className = "" }: { className?: string }) => {
     const third_description = "Passionate with Code & Creativity!";
     return (
         <div id="introduction" className={className}>
-            <div>
+            <div className={"introduction-content"}>
                 <div className="meet-him shine-text-one">Meet Yi Chong!</div>
                 <span className="description shine-text-two">
                     —— Full Stack Developer with Expertise in AI
