@@ -1,0 +1,100 @@
+.top-side-line {
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 4rem;
+    height: 50vh;
+    width: 4px;
+    /* background-color: green; */
+    transition-duration: 900ms;
+    background: linear-gradient(
+        transparent,
+        rgb(63, 185, 80) 93%,
+        transparent 93%
+    );
+    transition-delay: 0ms;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#who-bottom-side-line-content {
+    transition: opacity 1s;
+}
+
+.bottom-side-line {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    left: 4rem;
+    height: 50vh;
+    width: 4px;
+    /* background-color: green; */
+    transition-duration: 900ms;
+    background: linear-gradient(
+        transparent,
+        transparent 7%,
+        rgb(63, 185, 80) 7%,
+        rgb(63, 185, 80),
+        transparent
+    );
+    transition-delay: 0ms;
+}
+
+/* .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(
+        circle,
+        transparent,
+        transparent 50%,
+        rgb(63, 185, 80) 50%
+    );
+    filter: blur(12px);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 1;
+} */
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: -24px;
+}
+
+.icon-wrapper::before {
+    content: "";
+    background: radial-gradient(
+        circle,
+        transparent,
+        transparent 50%,
+        rgb(63, 185, 80) 50%
+    );
+    filter: blur(12px);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Ensure the FontAwesome icon is above the pseudo-element */
+.fa-person-falling {
+    position: relative;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+}

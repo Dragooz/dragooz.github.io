@@ -27,13 +27,27 @@
 
 #introduction .meet-him {
     font-weight: bold;
-    font-size: clamp(2rem, 4vw, 4rem);
+    font-size: clamp(2rem, 4.5vw, 4rem);
 }
 
 #introduction .description {
+    font-weight: 500;
     margin-top: 10px;
-    /* margin-left: clamp(10rem, 20vw, 20rem); */
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    position: relative;
+    z-index: 2;
+}
+
+#introduction .description::before {
+    content: "";
+    position: absolute;
+    top: 10px; /* Adjust these values to control the size of the blur area */
+    left: 0px;
+    right: 0px;
+    bottom: 15px;
+    backdrop-filter: blur(2px); /* Adjust the blur radius as needed */
+    -webkit-backdrop-filter: blur(2px); /* For Safari and older browsers */
+    z-index: -1;
 }
 
 @media (max-width: 447px) {
