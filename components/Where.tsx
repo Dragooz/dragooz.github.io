@@ -5,7 +5,7 @@ const Where = ({ className = "" }: { className?: string }) => {
         <div id="where" className={className}>
             <div>Where</div>
             <div>Telecommunication</div>
-            <div>Education - Platform for Kintergarden Teacher to use</div>
+            {/* <div>Education - Platform for Kintergarden Teacher to use</div> */}
             <div>Retail - Furniture Store</div>
             <div>Finance - Estate Planning & Trust</div>
         </div>
