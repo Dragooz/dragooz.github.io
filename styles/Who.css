@@ -156,9 +156,10 @@
     bottom: 0;
     right: 0;
     padding: 0.5rem 0rem 0.5rem 0rem;
-    font-size: clamp(0.75rem, 2vw, 5rem);
+    font-size: clamp(0.75rem, 1.75vw, 4rem);
     font-weight: 500;
     z-index: 1;
+    padding-right: 0.5rem;
     /* Add font styling properties here, e.g., color, font-size, etc. */
 }
 
