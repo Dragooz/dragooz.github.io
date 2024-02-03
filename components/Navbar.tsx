@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
                     className="logo"
                 />
                 <li onClick={() => scrollToSection("who")}>Who</li>
-                <li onClick={() => scrollToSection("when")}>When</li>
-                <li onClick={() => scrollToSection("where")}>Where</li>
+                <li onClick={() => scrollToSection("when")}>When & Where</li>
+                {/* <li onClick={() => scrollToSection("where")}></li> */}
                 <li onClick={() => scrollToSection("what")}>What</li>
                 <li onClick={() => scrollToSection("why")}>Why</li>
                 <li onClick={() => scrollToSection("how")}>How</li>

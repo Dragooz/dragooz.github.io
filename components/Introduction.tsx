@@ -1,4 +1,64 @@
 import React, { useRef, useEffect } from "react";
+export const handleScroll = (
+    topElementWrapperId: string,
+    topElementId: string,
+    bottomElementId: string,
+    bottomElementContentId: string,
+    multiplier: number
+) => {
+    const topSectionWrapper = document.getElementById(topElementWrapperId);
+    const topSection = document.getElementById(topElementId);
+
+    if (topSection && topSectionWrapper) {
+        console.log("topSectionWrapper: ", topSectionWrapper.scrollHeight);
+        const topSectionWrapperHeight =
+            topSectionWrapper.clientHeight * multiplier;
+        const topScrollPosition = window.scrollY;
+
+        console.log(">>>>>>>>>", topElementId);
+        console.log("topSectionWrapperHeight: ", topSectionWrapperHeight);
+        console.log("topScrollPosition: ", topScrollPosition);
+        console.log(
+            "topScrollPosition > topSectionWrapperHeight / 2: ",
+            topScrollPosition > topSectionWrapperHeight / 2
+        );
+
+        let clipPercent = Math.min(
+            (topScrollPosition / topSectionWrapperHeight) * 165,
+            100
+        );
+        if (topScrollPosition > topSectionWrapperHeight / 3) {
+            // Adjust the clip-path style to reveal a portion of the section
+            topSection.style.clipPath = `inset(0 0 ${100 - clipPercent}% 0)`;
+        } else {
+            // Reset the clip-path to hide the section
+            topSection.style.clipPath = "inset(0 0 100% 0)";
+        }
+
+        console.log("clipPercent: ", clipPercent);
+        const bottomSectionLine = document.getElementById(bottomElementId);
+        if (bottomSectionLine) {
+            if (clipPercent == 100) {
+                // Adjust the clip-path style to reveal a portion of the section
+                bottomSectionLine.style.clipPath = `inset(0 0 0 0)`;
+            } else {
+                // Reset the clip-path to hide the section
+                bottomSectionLine.style.clipPath = "inset(0 0 100% 0)";
+            }
+        }
+
+        const bottomSection = document.getElementById(bottomElementContentId);
+        if (bottomSection) {
+            if (clipPercent == 100) {
+                // Adjust the clip-path style to reveal a portion of the section
+                bottomSection.style.opacity = "1";
+            } else {
+                // Reset the clip-path to hide the section
+                bottomSection.style.opacity = "0";
+            }
+        }
+    }
+};
 
 const Introduction = ({ className = "" }: { className?: string }) => {
     const divRef = useRef<HTMLHeadingElement>(null); // Using useRef to reference the h1 element.

@@ -1,0 +1,5 @@
+#when-bottom-side-line-content {
+    position: relative;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+}

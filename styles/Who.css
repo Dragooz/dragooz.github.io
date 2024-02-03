@@ -81,7 +81,7 @@
         circle,
         transparent,
         transparent 50%,
-        rgb(63, 185, 80) 50%
+        var(--super-light-purple) 50%
     );
     filter: blur(12px);
     border-radius: 50%;
@@ -93,7 +93,7 @@
     z-index: 1;
 }
 
-.who-wrapper {
+.w-wrapper {
     margin-left: 4rem;
     display: flex;
     flex-direction: row;
@@ -104,11 +104,12 @@
     flex: 1;
 }
 
-.who-am-i {
+.w-bottom-right {
     font-size: 10vw;
     position: absolute;
     bottom: 1vw;
     right: 1vw;
+    margin-right: 2vw;
     opacity: 0.5;
     color: var(--light-yellow);
     font-weight: bold;
@@ -123,7 +124,7 @@
     height: 30px;
 }
 
-.who-image {
+.w-image {
     border: 4px solid white;
     border-radius: 20px;
     overflow: hidden;
@@ -159,7 +160,7 @@
     font-size: clamp(0.75rem, 1.75vw, 4rem);
     font-weight: 500;
     z-index: 1;
-    padding-right: 0.5rem;
+    padding-right: 0.75rem;
     /* Add font styling properties here, e.g., color, font-size, etc. */
 }
 
@@ -167,20 +168,25 @@
     content: "";
     position: absolute;
     top: 0px;
-    left: 0;
-    right: 0; /* or specific width */
-    bottom: 0px; /* or specific height */
+    left: 12px;
+    right: 4px; /* or specific width */
+    bottom: 5px; /* or specific height */
     background-color: rgba(8, 8, 4, 0.445);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
     z-index: -1;
+    border-radius: 20px;
 }
 
 @media (max-width: 600px) {
-    .who-wrapper {
+    .w-wrapper {
         flex-direction: column;
         gap: 2vh;
     }
+    .position {
+        max-height: 225px;
+    }
+
     .position-one {
         display: flex;
         flex-direction: row;
@@ -188,7 +194,7 @@
         transform: translateY(0);
     }
 
-    .who-image {
+    .w-image {
         border: 4px solid white;
         border-radius: 20px;
         flex: 0.6;

@@ -50,7 +50,7 @@ const When = ({ className = "" }: { className?: string }) => {
                             "linear-gradient(transparent,transparent 7%,rgb(144, 63, 185) 7%,rgb(144, 63, 185),transparent)",
                     }}
                 />
-                <div className="icon-wrapper">
+                <div className="icon-wrapper" style={{}}>
                     <FontAwesomeIcon
                         style={{
                             position: "absolute",
@@ -71,13 +71,12 @@ const When = ({ className = "" }: { className?: string }) => {
 
                 <div className={className}>
                     <div className="w-wrapper">
-                        <div className="w-bottom-right">When & Where</div>
-
+                        <div className="when-am-i">When</div>
                         <div className="position position-one">
                             <div className="w-image">
                                 <Image
-                                    src="/images/topglove-logo.png"
-                                    alt="TopGlove Logo"
+                                    src="/images/um.png"
+                                    alt="UM Image"
                                     quality={75}
                                     style={{
                                         width: "100%",
@@ -88,15 +87,15 @@ const When = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Data Science Intern</span>
+                                <span>University Malaya</span>
                                 <br />
-                                <span>— 2019-2022</span>
+                                <span>— Artificial Intelligence</span>
                             </div>
                         </div>
                         <div className="position position-two">
                             <div className="w-image">
                                 <Image
-                                    src="/images/deloitte-logo-square.png"
+                                    src="/images/problem-solving.png"
                                     alt="Logic Image"
                                     quality={75}
                                     style={{
@@ -108,15 +107,15 @@ const When = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Consulting TS&T</span> <br />
-                                <span>— 2022 - 2022</span>
+                                <span>Problem Solver</span> <br />
+                                <span>— Loves Challenges</span>
                             </div>
                         </div>
 
                         <div className="position position-three">
                             <div className="w-image">
                                 <Image
-                                    src="/images/reluvate-logo.png"
+                                    src="/images/logic.png"
                                     alt="Logic Image"
                                     quality={75}
                                     style={{
@@ -128,8 +127,8 @@ const When = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Software Engineer</span> <br />
-                                <span>— 2022-Present</span>
+                                <span>Logical Thinker</span> <br />
+                                <span>— Structural Mindset</span>
                             </div>
                         </div>
                     </div>
