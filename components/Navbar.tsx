@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 const Navbar: React.FC = () => {
     const scrollToSection = (sectionId: string) => {
@@ -23,7 +24,21 @@ const Navbar: React.FC = () => {
                 <li onClick={() => scrollToSection("why")}>Why</li>
                 <li onClick={() => scrollToSection("how")}>How</li>
             </div>
-            <div className="button content-margin">Contact Me!</div>
+
+            <div
+                id="contactMe"
+                className="button content-margin"
+                style={{ cursor: "pointer" }}
+            >
+                <a
+                    id="contactMe"
+                    target="_blank"
+                    href="https://www.linkedin.com/in/yi-chong-yc-9803901a4/"
+                    style={{ color: "inherit", textDecoration: "none" }}
+                >
+                    Contact Me!
+                </a>
+            </div>
         </nav>
     );
 };
