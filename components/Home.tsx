@@ -3,9 +3,9 @@ import Introduction from "./Introduction";
 import Who from "./Who";
 import When from "./When";
 import Where from "./Where";
+import What from "./What";
 import Why from "./Why";
 import How from "./How";
-import What from "./What";
 
 const Home = () => {
     return (

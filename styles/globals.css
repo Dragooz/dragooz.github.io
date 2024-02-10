@@ -1,9 +1,11 @@
 /* general */
 @import "./Navbar.css"; /* Import Navbar styles */
 @import "./Introduction.css";
+@import "./Why.css";
 @import "./Who.css";
 @import "./When.css";
 @import "./What.css";
+@import "./How.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Work+Sans&display=swap");
 

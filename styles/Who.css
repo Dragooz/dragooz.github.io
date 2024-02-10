@@ -142,6 +142,18 @@
     transform: translateY(-10vh);
 }
 
+/* .hover-content {
+    opacity: 0;
+}
+
+.position.position-one:hover .normal-content {
+    opacity: 0; 
+}
+
+.position.position-one:hover .hover-content {
+    opacity: 1;
+} */
+
 .position-two {
     transform: translateY(10vh);
 }
