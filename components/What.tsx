@@ -117,7 +117,7 @@ const What = ({ className = "" }: { className?: string }) => {
                             <div className="w-image">
                                 <Image
                                     src="/images/uu-logo.png"
-                                    alt="UtterUnicorn"
+                                    alt="Next Generation Chatbot"
                                     quality={75}
                                     style={{
                                         width: "100%",
@@ -128,7 +128,7 @@ const What = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>UtterUnicorn</span> <br />
+                                <span>Next Generation Chatbot</span> <br />
                                 <span>— 2023-Present</span>
                             </div>
                         </div>
