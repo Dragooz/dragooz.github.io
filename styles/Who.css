@@ -195,6 +195,9 @@
         flex-direction: column;
         gap: 2vh;
     }
+    .w-bottom-right {
+        font-size: 6vw;
+    }
     .position {
         max-height: 225px;
     }

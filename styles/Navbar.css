@@ -4,7 +4,7 @@
     width: 100vw;
     overflow: hidden;
     backdrop-filter: blur(6px); /* Blur effect */
-    z-index: 1000;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
 }
@@ -14,7 +14,10 @@
     display: flex;
     gap: 24px;
     padding: 16px 0px;
-    align-items: center;
+}
+
+.nav-reverse {
+    flex-direction: row-reverse;
 }
 
 .nav-list li {

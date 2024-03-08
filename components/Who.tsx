@@ -52,21 +52,21 @@ const Who = ({ className = "" }: { className?: string }) => {
                     <div className="w-wrapper">
                         <div className="w-bottom-right">Who</div>
                         <div className="position position-one">
-                            <div className="normal-content">
-                                <div className="w-image">
-                                    <CustomResponsiveImage
-                                        src="/images/um.png"
-                                        alt="UM Image"
-                                        width={350}
-                                        height={350}
-                                    />
-                                </div>
-                                <div className="card-font-style">
-                                    <span>University Malaya</span>
-                                    <br />
-                                    <span>— Artificial Intelligence</span>
-                                </div>
+                            {/* <div className="normal-content"> */}
+                            <div className="w-image">
+                                <CustomResponsiveImage
+                                    src="/images/um.png"
+                                    alt="UM Image"
+                                    width={350}
+                                    height={350}
+                                />
                             </div>
+                            <div className="card-font-style">
+                                <span>University Malaya</span>
+                                <br />
+                                <span>— Artificial Intelligence</span>
+                            </div>
+                            {/* </div> */}
                             {/* <div className="hover-content">
                                 <div>Hackathon</div>
                             </div> */}

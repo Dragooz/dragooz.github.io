@@ -6,6 +6,8 @@
 @import "./When.css";
 @import "./What.css";
 @import "./How.css";
+@import "./scrollbar.css";
+@import "./MenuDrawer.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Work+Sans&display=swap");
 
@@ -81,6 +83,8 @@ html {
 .content-margin {
     margin-left: 4rem;
     margin-right: 4rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {

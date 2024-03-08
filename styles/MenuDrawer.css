@@ -1,0 +1,41 @@
+/* Drawer.css */
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: -400px; /* Adjust width based on your preference */
+    width: 250px;
+    height: 100%;
+    background: rgb(37, 37, 37);
+    transition: right 0.3s ease;
+    z-index: 4; /* Ensure it's above other content */
+}
+
+.drawer.open {
+    right: 0;
+}
+
+.hamburger-icon {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: 5; /* Above the drawer */
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 3; /* Below the drawer, above everything else */
+}
+
+/* Additional styles for the list items and logo */
+.drawer li {
+    list-style-type: none;
+    margin: 20px 0;
+    cursor: pointer;
+}
