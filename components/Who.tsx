@@ -31,7 +31,7 @@ const Who = ({ className = "" }: { className?: string }) => {
     }, []);
 
     return (
-        <div id="who" style={{ position: "relative", overflow: "hidden" }}>
+        <div id="who">
             <div id="who-top-side-line" className={`top-side-line`} />
 
             <div id="who-bottom-side-line-content">
@@ -51,9 +51,9 @@ const Who = ({ className = "" }: { className?: string }) => {
                 <div className={className}>
                     <div className="w-wrapper">
                         <div className="w-bottom-right">Who</div>
-                        <div className="position position-one">
+                        <div className="position position-one" id="umImage">
                             {/* <div className="normal-content"> */}
-                            <div className="w-image">
+                            <div className="border-clickable w-image">
                                 <CustomResponsiveImage
                                     src="/images/um.png"
                                     alt="UM Image"
@@ -72,7 +72,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                             </div> */}
                         </div>
                         <div className="position position-two">
-                            <div className="w-image">
+                            <div className="border-clickable w-image">
                                 <CustomResponsiveImage
                                     src="/images/problem-solving.png"
                                     alt="Problem Solving"
@@ -87,7 +87,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                         </div>
 
                         <div className="position position-three">
-                            <div className="w-image">
+                            <div className="border-clickable w-image">
                                 <CustomResponsiveImage
                                     src="/images/logic.png"
                                     alt="Logic Image"

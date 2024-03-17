@@ -10,18 +10,18 @@ export const handleScroll = (
     const topSection = document.getElementById(topElementId);
 
     if (topSection && topSectionWrapper) {
-        console.log("topSectionWrapper: ", topSectionWrapper.scrollHeight);
+        // console.log("topSectionWrapper: ", topSectionWrapper.scrollHeight);
         const topSectionWrapperHeight =
             topSectionWrapper.clientHeight * multiplier;
         const topScrollPosition = window.scrollY;
 
-        console.log(">>>>>>>>>", topElementId);
-        console.log("topSectionWrapperHeight: ", topSectionWrapperHeight);
-        console.log("topScrollPosition: ", topScrollPosition);
-        console.log(
-            "topScrollPosition > topSectionWrapperHeight / 2: ",
-            topScrollPosition > topSectionWrapperHeight / 2
-        );
+        // console.log(">>>>>>>>>", topElementId);
+        // console.log("topSectionWrapperHeight: ", topSectionWrapperHeight);
+        // console.log("topScrollPosition: ", topScrollPosition);
+        // console.log(
+        //     "topScrollPosition > topSectionWrapperHeight / 2: ",
+        //     topScrollPosition > topSectionWrapperHeight / 2
+        // );
 
         let clipPercent = Math.min(
             (topScrollPosition / topSectionWrapperHeight) * 165,
@@ -35,7 +35,7 @@ export const handleScroll = (
             topSection.style.clipPath = "inset(0 0 100% 0)";
         }
 
-        console.log("clipPercent: ", clipPercent);
+        // console.log("clipPercent: ", clipPercent);
         const bottomSectionLine = document.getElementById(bottomElementId);
         if (bottomSectionLine) {
             if (clipPercent == 100) {

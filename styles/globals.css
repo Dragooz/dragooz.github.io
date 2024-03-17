@@ -1,5 +1,6 @@
 /* general */
 @import "./Navbar.css"; /* Import Navbar styles */
+@import "./5W1H.css";
 @import "./Introduction.css";
 @import "./Why.css";
 @import "./Who.css";
@@ -85,6 +86,7 @@ html {
     margin-right: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    pointer-events: none;
 }
 
 @media (max-width: 768px) {
