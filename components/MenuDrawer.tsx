@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { scrollToSection } from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
 const MenuDrawer = ({
     isOpen,
@@ -12,29 +12,24 @@ const MenuDrawer = ({
 }) => {
     return (
         <div>
+            {isOpen ? (
+                <FontAwesomeIcon
+                    style={{
+                        position: "absolute",
+                        right: "30px",
+                        zIndex: 999,
+                        width: "30px",
+                        height: "30px",
+                    }}
+                    icon={faCircleXmark}
+                    onClick={() => setIsOpen(false)}
+                />
+            ) : null}
+
             <div
                 className={`drawer ${isOpen ? "open" : ""} `}
                 style={{ padding: "16px 32px" }}
             >
-                <li
-                    style={{
-                        height: 30,
-                        width: 30,
-                        float: "right",
-                    }}
-                    onClick={() => setIsOpen(false)}
-                >
-                    <FontAwesomeIcon
-                        style={{
-                            position: "absolute",
-                            zIndex: 2,
-                            width: "30px",
-                            height: "30px",
-                        }}
-                        icon={faBars}
-                    />
-                </li>
-
                 <li
                     onClick={() => {
                         scrollToSection("who");
