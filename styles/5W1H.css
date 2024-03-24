@@ -9,11 +9,6 @@
     width: 4px;
     /* background-color: green; */
     transition-duration: 900ms;
-    background: linear-gradient(
-        transparent,
-        rgb(63, 185, 80) 93%,
-        transparent 93%
-    );
     transition-delay: 0ms;
     transition: opacity 0.3s, visibility 0.3s;
 }
@@ -29,13 +24,6 @@
     width: 4px;
     /* background-color: green; */
     transition-duration: 900ms;
-    background: linear-gradient(
-        transparent,
-        transparent 7%,
-        rgb(63, 185, 80) 7%,
-        rgb(63, 185, 80),
-        transparent
-    );
     transition: clip-path 0.5s ease-out;
 }
 
@@ -99,14 +87,14 @@
 }
 
 .border-clickable {
-    border: 4px solid transparent;
+    border: 12px solid transparent;
     border-radius: 20px; /* Adjusted to maintain the original style */
     overflow: hidden;
     background-size: 150% 150%; /* Enlarged to enhance the square movement effect */
-    animation: rainbowSquare 6s linear infinite; /* Slowed down for smoother transition */
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: rainbowSquare 2s linear infinite; /* Slowed down for smoother transition */
 }
 
 @keyframes rainbowSquare {
@@ -164,23 +152,38 @@
     position: absolute;
     top: 0px;
     left: 12px;
-    right: 4px; /* or specific width */
-    bottom: 5px; /* or specific height */
+    right: 0px; /* or specific width */
+    bottom: 0px; /* or specific height */
     background-color: rgba(8, 8, 4, 0.445);
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     z-index: -1;
-    border-radius: 20px;
 }
 
 @media (max-width: 600px) {
+    .top-side-line {
+        left: 2.5rem;
+    }
+
+    .bottom-side-line {
+        left: 2.5rem;
+    }
+    .icon-wrapper {
+        left: 1rem;
+    }
+
     .w-wrapper {
         flex-direction: column;
         gap: 2vh;
+        margin-left: 2rem;
     }
     .w-bottom-right {
         font-size: 6vw;
+        top: auto;
+        bottom: auto;
+        max-width: 20vw;
     }
+
     .position {
         max-height: 225px;
     }
@@ -214,5 +217,8 @@
     }
     .card-font-style {
         font-size: clamp(1rem, 4vw, 5rem);
+    }
+    .border-clickable {
+        border: 8px solid transparent;
     }
 }

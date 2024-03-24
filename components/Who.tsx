@@ -32,10 +32,16 @@ const Who = ({ className = "" }: { className?: string }) => {
 
     return (
         <div id="who">
-            <div id="who-top-side-line" className={`top-side-line`} />
+            <div
+                id="who-top-side-line"
+                className={`top-side-line top-side-line-who`}
+            />
 
             <div id="who-bottom-side-line-content">
-                <div id="who-bottom-side-line" className={`bottom-side-line`} />
+                <div
+                    id="who-bottom-side-line"
+                    className={`bottom-side-line bottom-side-line-who`}
+                />
                 <div className="icon-wrapper">
                     <FontAwesomeIcon
                         style={{
@@ -53,7 +59,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                         <div className="w-bottom-right">Who</div>
                         <div className="position position-one" id="umImage">
                             {/* <div className="normal-content"> */}
-                            <div className="border-clickable w-image">
+                            <div className="border-clickable w-image border-clickable-who">
                                 <CustomResponsiveImage
                                     src="/images/um.png"
                                     alt="UM Image"
@@ -72,7 +78,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                             </div> */}
                         </div>
                         <div className="position position-two">
-                            <div className="border-clickable w-image">
+                            <div className="border-clickable w-image border-clickable-who">
                                 <CustomResponsiveImage
                                     src="/images/problem-solving.png"
                                     alt="Problem Solving"
@@ -87,7 +93,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                         </div>
 
                         <div className="position position-three">
-                            <div className="border-clickable w-image">
+                            <div className="border-clickable w-image border-clickable-who">
                                 <CustomResponsiveImage
                                     src="/images/logic.png"
                                     alt="Logic Image"

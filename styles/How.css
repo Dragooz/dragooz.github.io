@@ -3,3 +3,29 @@
     transition: opacity 1s ease-out;
     opacity: 0;
 }
+
+.top-side-line-how {
+    background: linear-gradient(
+        transparent,
+        rgb(197, 158, 66) 93%,
+        transparent 93%
+    );
+}
+
+.bottom-side-line-how {
+    background: linear-gradient(
+        transparent,
+        transparent 7%,
+        rgb(197, 158, 66) 7%,
+        rgb(197, 158, 66),
+        transparent
+    );
+}
+
+.border-clickable-how {
+    background-image: radial-gradient(
+        circle farthest-corner,
+        rgb(255, 255, 255),
+        rgb(197, 158, 66)
+    );
+}

@@ -17,10 +17,28 @@
     height: 30px;
 }
 
-.border-clickable.w-image {
+.top-side-line-who {
+    background: linear-gradient(
+        transparent,
+        rgb(63, 185, 80) 93%,
+        transparent 93%
+    );
+}
+
+.bottom-side-line-who {
+    background: linear-gradient(
+        transparent,
+        transparent 7%,
+        rgb(63, 185, 80) 7%,
+        rgb(63, 185, 80),
+        transparent
+    );
+}
+
+.border-clickable-who {
     background-image: radial-gradient(
         circle farthest-corner,
         rgb(255, 255, 255),
-        rgb(63, 185, 80)
+        rgb(0, 103, 14)
     );
 }

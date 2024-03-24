@@ -3,3 +3,29 @@
     transition: opacity 1s ease-out;
     opacity: 0;
 }
+
+.top-side-line-when {
+    background: linear-gradient(
+        transparent,
+        rgb(144, 63, 185) 93%,
+        transparent 93%
+    );
+}
+
+.bottom-side-line-when {
+    background: linear-gradient(
+        transparent,
+        transparent 7%,
+        rgb(144, 63, 185) 7%,
+        rgb(144, 63, 185),
+        transparent
+    );
+}
+
+.border-clickable-when {
+    background-image: radial-gradient(
+        circle farthest-corner,
+        rgb(255, 255, 255),
+        rgb(94, 13, 135)
+    );
+}

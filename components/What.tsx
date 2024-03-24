@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiagramProject } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
+import CustomResponsiveImage from "./CustomResponsiveImage";
 
 const What = ({ className = "" }: { className?: string }) => {
     useEffect(() => {
@@ -34,21 +35,13 @@ const What = ({ className = "" }: { className?: string }) => {
         <div id="what" style={{ position: "relative", overflow: "hidden" }}>
             <div
                 id="what-top-side-line"
-                className={`top-side-line`}
-                style={{
-                    background:
-                        "linear-gradient(transparent, rgb(63, 77, 185) 93%,transparent 93%)",
-                }}
+                className={`top-side-line top-side-line-what`}
             />
 
             <div id="what-bottom-side-line-content">
                 <div
                     id="what-bottom-side-line"
-                    className={`bottom-side-line`}
-                    style={{
-                        background:
-                            "linear-gradient(transparent,transparent 7%,rgb(63, 77, 185) 7%,rgb(63, 77, 185),transparent)",
-                    }}
+                    className={`bottom-side-line bottom-side-line-what`}
                 />
                 <div className="icon-wrapper">
                     <FontAwesomeIcon
@@ -61,30 +54,17 @@ const What = ({ className = "" }: { className?: string }) => {
                         icon={faDiagramProject}
                     />
                 </div>
-                {/* <div id="what" className={className}>
-                    <div></div>
-                    <div>Map System for farmer in agriculture domain</div>
-                    <div>
-                        
-                    </div>
-                </div> */}
-
                 <div className={className}>
                     <div className="w-wrapper">
                         <div className="w-bottom-right">What</div>
 
                         <div className="position position-one">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-what">
+                                <CustomResponsiveImage
                                     src="/images/forecast-efw.png"
                                     alt="Forecasting Estimated Fetal Weight"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">
@@ -94,17 +74,12 @@ const What = ({ className = "" }: { className?: string }) => {
                             </div>
                         </div>
                         <div className="position position-two">
-                            <div className="w-image">
-                                <Image
-                                    src="/images/ainari-logo-square.png"
+                            <div className="border-clickable w-image border-clickable-what">
+                                <CustomResponsiveImage
+                                    src="/images/ainari-logo-square-whitebg.png"
                                     alt="AINari"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">
@@ -114,17 +89,12 @@ const What = ({ className = "" }: { className?: string }) => {
                         </div>
 
                         <div className="position position-three">
-                            <div className="w-image">
-                                <Image
-                                    src="/images/uu-logo.png"
-                                    alt="Next Generation Chatbot"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
+                            <div className="border-clickable w-image border-clickable-what">
+                                <CustomResponsiveImage
+                                    src="/images/uu-logo-whitebg.png"
+                                    alt="AINari"
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">

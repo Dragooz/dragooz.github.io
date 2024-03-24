@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPersonFalling, faClock } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
+import CustomResponsiveImage from "./CustomResponsiveImage";
 
 const When = ({ className = "" }: { className?: string }) => {
     useEffect(() => {
@@ -34,21 +35,13 @@ const When = ({ className = "" }: { className?: string }) => {
         <div id="when" style={{ position: "relative", overflow: "hidden" }}>
             <div
                 id="when-top-side-line"
-                className={`top-side-line`}
-                style={{
-                    background:
-                        "linear-gradient(transparent, rgb(144, 63, 185) 93%,transparent 93%)",
-                }}
+                className={`top-side-line top-side-line-when`}
             />
 
             <div id="when-bottom-side-line-content">
                 <div
                     id="when-bottom-side-line"
-                    className={`bottom-side-line`}
-                    style={{
-                        background:
-                            "linear-gradient(transparent,transparent 7%,rgb(144, 63, 185) 7%,rgb(144, 63, 185),transparent)",
-                    }}
+                    className={`bottom-side-line bottom-side-line-when`}
                 />
                 <div className="icon-wrapper">
                     <FontAwesomeIcon
@@ -61,32 +54,20 @@ const When = ({ className = "" }: { className?: string }) => {
                         icon={faClock}
                     />
                 </div>
-                {/* <div>When</div>
-                <div>Top Glove Data Science Team Intern</div>
-                <div>
-                    Deloitte Consulting - Technology Strategy & Transformation -
-                    Analyst
-                </div>
-                <div>Reluvate Technologies - Software Engineer</div> */}
 
                 <div className={className}>
                     <div className="w-wrapper">
                         <div className="w-bottom-right">When & Where</div>
-
                         <div className="position position-one">
-                            <div className="w-image">
-                                <Image
-                                    src="/images/topglove-logo.png"
+                            <div className="border-clickable w-image border-clickable-when">
+                                <CustomResponsiveImage
+                                    src="/images/topglove-whitebg.png"
                                     alt="TopGlove Logo"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
+
                             <div className="card-font-style">
                                 <span>Data Science Intern</span>
                                 <br />
@@ -94,19 +75,15 @@ const When = ({ className = "" }: { className?: string }) => {
                             </div>
                         </div>
                         <div className="position position-two">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-when">
+                                <CustomResponsiveImage
                                     src="/images/deloitte-logo-square.png"
                                     alt="Logic Image"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
+
                             <div className="card-font-style">
                                 <span>Consulting TS&T</span> <br />
                                 <span>— 2022 - 2022</span>
@@ -114,17 +91,12 @@ const When = ({ className = "" }: { className?: string }) => {
                         </div>
 
                         <div className="position position-three">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-when">
+                                <CustomResponsiveImage
                                     src="/images/reluvate-logo.png"
                                     alt="Logic Image"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">

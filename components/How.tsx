@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
+import CustomResponsiveImage from "./CustomResponsiveImage";
 
 const How = ({ className = "" }: { className?: string }) => {
     useEffect(() => {
@@ -34,21 +35,13 @@ const How = ({ className = "" }: { className?: string }) => {
         <div id="how" style={{ position: "relative", overflow: "hidden" }}>
             <div
                 id="how-top-side-line"
-                className={`top-side-line`}
-                style={{
-                    background:
-                        "linear-gradient(transparent, rgb(66, 171, 197) 93%,transparent 93%)",
-                }}
+                className={`top-side-line top-side-line-how`}
             />
 
             <div id="how-bottom-side-line-content">
                 <div
                     id="how-bottom-side-line"
-                    className={`bottom-side-line`}
-                    style={{
-                        background:
-                            "linear-gradient(transparent,transparent 7%,rgb(66, 171, 197) 7%,rgb(66, 171, 197),transparent)",
-                    }}
+                    className={`bottom-side-line bottom-side-line-how`}
                 />
                 <div className="icon-wrapper">
                     <FontAwesomeIcon
@@ -61,36 +54,20 @@ const How = ({ className = "" }: { className?: string }) => {
                         icon={faScrewdriverWrench}
                     />
                 </div>
-                {/* <div id="how" className={className}>
-                    <div>How</div>
-                    <div>1. </div>
-                    <div>
-                        2. Get an overall picture of the problem and solution
-                    </div>
-                    <div>3. Breakdown the big problems to smaller problems</div>
-            <div>4. Solve + Test one by one.</div>
-            <div>5. Done! </div>
-                    <div>Next JS (FE) + Django (BE)</div>
-                </div> */}
-
                 <div className={className}>
                     <div className="w-wrapper">
                         <div className="w-bottom-right">How</div>
 
                         <div className="position position-one">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-how">
+                                <CustomResponsiveImage
                                     src="/images/big-picture.png"
                                     alt="Big Picture"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
+
                             <div className="card-font-style">
                                 <span>Understand & Big Picture</span>
                                 <br />
@@ -98,17 +75,12 @@ const How = ({ className = "" }: { className?: string }) => {
                             </div>
                         </div>
                         <div className="position position-two">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-how">
+                                <CustomResponsiveImage
                                     src="/images/break-down-2.png"
                                     alt="Break down"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">
@@ -119,17 +91,12 @@ const How = ({ className = "" }: { className?: string }) => {
                         </div>
 
                         <div className="position position-three">
-                            <div className="w-image">
-                                <Image
+                            <div className="border-clickable w-image border-clickable-how">
+                                <CustomResponsiveImage
                                     src="/images/solve-test.png"
                                     alt="Solve & Test"
-                                    quality={75}
-                                    style={{
-                                        width: "100%",
-                                        height: "auto",
-                                    }}
-                                    height={350}
                                     width={350}
+                                    height={350}
                                 />
                             </div>
                             <div className="card-font-style">

@@ -3,3 +3,29 @@
     transition: opacity 1s ease-out;
     opacity: 0;
 }
+
+.top-side-line-why {
+    background: linear-gradient(
+        transparent,
+        rgb(66, 171, 197) 93%,
+        transparent 93%
+    );
+}
+
+.bottom-side-line-why {
+    background: linear-gradient(
+        transparent,
+        transparent 7%,
+        rgb(66, 171, 197) 7%,
+        rgb(66, 171, 197),
+        transparent
+    );
+}
+
+.border-clickable-why {
+    background-image: radial-gradient(
+        circle farthest-corner,
+        rgb(255, 255, 255),
+        rgb(66, 171, 197)
+    );
+}
