@@ -125,7 +125,7 @@ const MouseFollower: React.FC = () => {
 
             // Check if the mouse/touch is over a target element
             const interactElement = document.elementFromPoint(x, y);
-            console.log("interactElement: ", interactElement);
+            // console.log("interactElement: ", interactElement);
 
             let interactedElement = null; // Flag to track if a match is found
 
@@ -159,7 +159,7 @@ const MouseFollower: React.FC = () => {
             });
         }
     };
-    console.log("interactedElement: ", interactedElement);
+    // console.log("interactedElement: ", interactedElement);
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             handleInteraction(e.clientX, e.clientY);
