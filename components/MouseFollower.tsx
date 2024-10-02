@@ -67,7 +67,7 @@ const hoverElementDictionary: HoverElementDictionary = {
                 />
 
                 <div style={{ position: "absolute", top: "50px" }}>
-                    yichong99@gmail.com
+                    byichonggoh@gmail.com
                 </div>
             </>
         ),
