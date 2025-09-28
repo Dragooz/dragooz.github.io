@@ -10,7 +10,7 @@ const Menu = () => {
                 {/*Where: Learning Path & Growth
         Focus on where your learning has taken place and where you've grown. This could include your educational background, self-taught skills, and professional development experiences. It's about the places, both physical and metaphorical, that have shaped your skills and knowledge.*/}
                 {/*When: Career Timeline & Milestones
-        Outline the key when moments of your career. When did you start your tech journey? When did you achieve significant milestones or face pivotal moments? This chronological perspective can give viewers a sense of your career progression and timeline.*/}
+        Outline the key when moments of your career. WhenAndWhere did you start your tech journey? WhenAndWhere did you achieve significant milestones or face pivotal moments? This chronological perspective can give viewers a sense of your career progression and timeline.*/}
                 {/*Why: Motivations & Passions
         Explain why you do what you do. What motivates you in your career? Why are you passionate about tech and full-stack development? This section delves into your inner motivations and the reasons behind your career choices.*/}
                 {/*How: Teamwork & Collaborative Approach

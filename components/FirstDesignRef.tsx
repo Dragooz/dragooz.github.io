@@ -5,7 +5,7 @@ import { faPersonFalling, faClock } from "@fortawesome/free-solid-svg-icons";
 
 import Image from "next/image";
 
-const When = ({ className = "" }: { className?: string }) => {
+const WhenAndWhere = ({ className = "" }: { className?: string }) => {
     useEffect(() => {
         window.addEventListener("scroll", () =>
             handleScroll(
@@ -61,14 +61,6 @@ const When = ({ className = "" }: { className?: string }) => {
                         icon={faClock}
                     />
                 </div>
-                {/* <div>When</div>
-                <div>Top Glove Data Science Team Intern</div>
-                <div>
-                    Deloitte Consulting - Technology Strategy & Transformation -
-                    Analyst
-                </div>
-                <div>Reluvate Technologies - Software Engineer</div> */}
-
                 <div className={className}>
                     <div className="w-wrapper">
                         <div className="when-am-i">When</div>
@@ -138,4 +130,4 @@ const When = ({ className = "" }: { className?: string }) => {
     );
 };
 
-export default When;
+export default WhenAndWhere;

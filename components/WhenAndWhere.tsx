@@ -6,7 +6,7 @@ import { faPersonFalling, faClock } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import CustomResponsiveImage from "./CustomResponsiveImage";
 
-const When = ({ className = "" }: { className?: string }) => {
+const WhenAndWhere = ({ className = "" }: { className?: string }) => {
     useEffect(() => {
         window.addEventListener("scroll", () =>
             handleScroll(
@@ -61,22 +61,6 @@ const When = ({ className = "" }: { className?: string }) => {
                         <div className="position position-one">
                             <div className="border-clickable w-image border-clickable-when">
                                 <CustomResponsiveImage
-                                    src="/images/topglove-whitebg.png"
-                                    alt="TopGlove Logo"
-                                    width={350}
-                                    height={350}
-                                />
-                            </div>
-
-                            <div className="card-font-style">
-                                <span>Data Science Intern</span>
-                                <br />
-                                <span>— 2019-2022</span>
-                            </div>
-                        </div>
-                        <div className="position position-two">
-                            <div className="border-clickable w-image border-clickable-when">
-                                <CustomResponsiveImage
                                     src="/images/deloitte-logo-square.png"
                                     alt="Logic Image"
                                     width={350}
@@ -89,9 +73,14 @@ const When = ({ className = "" }: { className?: string }) => {
                                 <span>— 2022 - 2022</span>
                             </div>
                         </div>
-
-                        <div className="position position-three">
-                            <div className="border-clickable w-image border-clickable-when">
+                        <div className="position position-two">
+                            <div
+                                className="border-clickable w-image border-clickable-when"
+                                style={{
+                                    backgroundImage:
+                                        "radial-gradient(circle farthest-corner, rgb(255, 255, 255), rgba(174, 237, 254))",
+                                }}
+                            >
                                 <CustomResponsiveImage
                                     src="/images/reluvate-logo.png"
                                     alt="Logic Image"
@@ -101,7 +90,28 @@ const When = ({ className = "" }: { className?: string }) => {
                             </div>
                             <div className="card-font-style">
                                 <span>Software Engineer</span> <br />
-                                <span>— 2022-Present</span>
+                                <span>— 2022-2024</span>
+                            </div>
+                        </div>
+
+                        <div className="position position-three">
+                            <div
+                                className="border-clickable w-image"
+                                style={{
+                                    backgroundImage:
+                                        "radial-gradient(circle farthest-corner, rgb(255, 255, 255), rgba(38, 216, 178))",
+                                }}
+                            >
+                                <CustomResponsiveImage
+                                    src="/images/swipey-square-logo.png"
+                                    alt="Logic Image"
+                                    width={350}
+                                    height={350}
+                                />
+                            </div>
+                            <div className="card-font-style">
+                                <span>Fullstack Engineer</span> <br />
+                                <span>— 2024-Present</span>
                             </div>
                         </div>
                     </div>
@@ -111,4 +121,4 @@ const When = ({ className = "" }: { className?: string }) => {
     );
 };
 
-export default When;
+export default WhenAndWhere;

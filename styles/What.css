@@ -29,3 +29,8 @@
         rgb(14, 25, 111)
     );
 }
+
+/* Fix for clickable items - override pointer-events: none from content-margin */
+.position {
+    pointer-events: auto;
+}

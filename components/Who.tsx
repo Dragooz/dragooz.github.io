@@ -13,7 +13,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                 "who-top-side-line",
                 "who-bottom-side-line",
                 "who-bottom-side-line-content",
-                1
+                2
             )
         );
 
@@ -24,7 +24,7 @@ const Who = ({ className = "" }: { className?: string }) => {
                     "who-top-side-line",
                     "who-bottom-side-line",
                     "who-bottom-side-line-content",
-                    1
+                    2
                 )
             );
         };
