@@ -306,12 +306,34 @@ const MouseFollower: React.FC = () => {
     const TechIcon = currentTech.icon;
     const complementColor = getComplementaryColor(currentTech.color);
 
+    // Check if the icon color is too dark and use a lighter alternative
+    const getVisibleIconColor = (color: string): string => {
+        const r = parseInt(color.slice(1, 3), 16);
+        const g = parseInt(color.slice(3, 5), 16);
+        const b = parseInt(color.slice(5, 7), 16);
+        const brightness = r + g + b;
+
+        // If color is too dark (nearly black), use a lighter version
+        if (brightness < 100) {
+            // For very dark colors, use white or a bright complementary color
+            if (color === "#000000") {
+                return "#FFFFFF"; // Pure white for Next.js
+            }
+            // For other dark colors, brighten them significantly
+            const [h, s, l] = hexToHsl(color);
+            return hslToHex(h, Math.max(s, 70), Math.max(l, 60));
+        }
+        return color;
+    };
+
+    const visibleIconColor = getVisibleIconColor(currentTech.color);
+
     return (
         <>
             <div id="mouse-follower" ref={mouseFollowerRef}>
                 {interactedElement && interactedElement.content ? (
                     interactedElement.content
-                ) : !isInteracting ? (
+                ) : (
                     <div
                         style={{
                             display: "flex",
@@ -353,10 +375,10 @@ const MouseFollower: React.FC = () => {
                             style={{
                                 width: "28px",
                                 height: "28px",
-                                color: currentTech.color,
+                                color: visibleIconColor,
                                 filter: `
                                     drop-shadow(0 0 3px ${complementColor}35)
-                                    drop-shadow(0 0 1px ${currentTech.color}60)
+                                    drop-shadow(0 0 1px ${visibleIconColor}60)
                                     brightness(1.15)
                                     contrast(1.5)
                                     saturate(1.1)
@@ -374,7 +396,7 @@ const MouseFollower: React.FC = () => {
                                 bottom: "-22px",
                                 fontSize: "9px",
                                 fontWeight: "500",
-                                color: currentTech.color,
+                                color: visibleIconColor,
                                 textShadow: `0 0 2px ${complementColor}30, 0 1px 3px rgba(0, 0, 0, 0.9)`,
                                 whiteSpace: "nowrap",
                                 opacity: 0.85,
@@ -386,7 +408,7 @@ const MouseFollower: React.FC = () => {
                             {currentTech.name}
                         </div>
                     </div>
-                ) : null}
+                )}
             </div>
 
             <style jsx>{`
