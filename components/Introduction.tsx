@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 export const handleScroll = (
     topElementWrapperId: string,
     topElementId: string,
@@ -63,6 +63,9 @@ export const handleScroll = (
 const Introduction = ({ className = "" }: { className?: string }) => {
     const divRef = useRef<HTMLHeadingElement>(null); // Using useRef to reference the h1 element.
     const intervalRef = useRef<number | null>(null); // Using useRef to keep track of the interval ID.
+    const [typedText, setTypedText] = useState(""); // For typing animation
+    const [showCursor, setShowCursor] = useState(true); // Show/hide cursor
+    const fullText = "Meet Yi Chong!";
 
     const scramble = () => {
         const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -134,6 +137,23 @@ const Introduction = ({ className = "" }: { className?: string }) => {
         };
     }, []);
 
+    // Typing animation effect
+    useEffect(() => {
+        let currentIndex = 0;
+        const typingInterval = setInterval(() => {
+            if (currentIndex <= fullText.length) {
+                setTypedText(fullText.slice(0, currentIndex));
+                currentIndex++;
+            } else {
+                clearInterval(typingInterval);
+                // Hide cursor after a brief pause
+                setTimeout(() => setShowCursor(false), 500);
+            }
+        }, 100); // Adjust typing speed here (lower = faster)
+
+        return () => clearInterval(typingInterval);
+    }, []);
+
     // useEffect(() => {
     //     const script = document.createElement("script");
     //     script.src =
@@ -150,10 +170,13 @@ const Introduction = ({ className = "" }: { className?: string }) => {
     return (
         <div id="introduction" className={className}>
             <div className={"introduction-content"}>
-                <div className="meet-him shine-text-one">Meet Yi Chong!</div>
-                <span className="description shine-text-two">
+                <div className="meet-him shine-text-one">
+                    {typedText}
+                    {showCursor && <span className="typing-cursor">|</span>}
+                </div>
+                <div className="description shine-text-two">
                     —— Full Stack Developer with AI Expertise
-                </span>
+                </div>
                 <div className="consulting-description">
                     Open for technical consulting & freelance opportunities
                 </div>

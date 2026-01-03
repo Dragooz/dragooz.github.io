@@ -11,6 +11,7 @@ import CustomResponsiveImage from "./CustomResponsiveImage";
 
 const What = ({ className = "" }: { className?: string }) => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const [isMobile, setIsMobile] = useState(false);
 
     const items = [
         {
@@ -43,6 +44,12 @@ const What = ({ className = "" }: { className?: string }) => {
     ];
 
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 600);
+        };
+
+        checkMobile();
+
         window.addEventListener("scroll", () =>
             handleScroll(
                 "what",
@@ -52,6 +59,8 @@ const What = ({ className = "" }: { className?: string }) => {
                 1
             )
         );
+
+        window.addEventListener("resize", checkMobile);
 
         return () => {
             window.removeEventListener("scroll", () =>
@@ -63,6 +72,7 @@ const What = ({ className = "" }: { className?: string }) => {
                     1
                 )
             );
+            window.removeEventListener("resize", checkMobile);
         };
     }, []);
 
@@ -90,7 +100,7 @@ const What = ({ className = "" }: { className?: string }) => {
         };
 
         const position = items[index].position as keyof typeof translateYValues;
-        const translateY = translateYValues[position];
+        const translateY = isMobile ? "0" : translateYValues[position];
 
         return `translateY(${translateY}) scale(${scale})`;
     };

@@ -10,25 +10,92 @@
 @import "./scrollbar.css";
 @import "./MenuDrawer.css";
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
 :root {
     --white: #ffffff;
-    --super-light-purple: #e8d4e6;
-    --light-purple: #d1a9cd;
-    --medium-purple: #ba7eb4;
-    --purple: #c27ed2;
-    --deep-purple: #a562b9;
-    --blue: #007bff;
-    --red: #ff073a;
-    --light-yellow: #d0ceb2;
+    --background: #000000;
+    --background-secondary: #0a0a0a;
+    --text-primary: #C9D1D9;
+    --text-secondary: #8B949E;
+
+    /* Professional Developer Palette - Inspired by VS Code & GitHub */
+    --primary: #58A6FF;
+    --primary-light: #79C0FF;
+    --primary-dark: #1F6FEB;
+
+    --secondary: #F85149;
+    --secondary-light: #FF7B72;
+    --secondary-dark: #DA3633;
+
+    --accent: #56D364;
+    --accent-light: #7EE787;
+    --accent-dark: #3FB950;
+
+    --code-purple: #D2A8FF;
+    --code-yellow: #E3B341;
+    --code-cyan: #76E3EA;
+
+    /* Legacy support */
+    --super-light-purple: #79C0FF;
+    --light-purple: #58A6FF;
+    --medium-purple: #58A6FF;
+    --purple: #58A6FF;
+    --deep-purple: #1F6FEB;
+    --blue: #58A6FF;
+    --red: #F85149;
+    --light-yellow: #56D364;
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: var(--background);
+    background-image:
+        linear-gradient(rgba(88, 166, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(ellipse at top, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(86, 211, 100, 0.05) 0%, transparent 50%);
+    background-size:
+        50px 50px,
+        50px 50px,
+        100% 100%,
+        100% 100%;
+    background-position:
+        -1px -1px,
+        -1px -1px,
+        center top,
+        center bottom;
     margin: 0px;
-    font-family: "Montserrat", sans-serif;
-    color: white;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+code, pre {
+    font-family: "JetBrains Mono", monospace;
 }
 
 /* Mouse */
@@ -36,18 +103,22 @@ body {
 #mouse-follower {
     position: fixed;
     pointer-events: none;
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     left: 0;
     top: 0px;
     transform: translate(110vw, 110vh);
     opacity: 0;
-    background-color: rgb(225, 225, 225);
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.15), rgba(86, 211, 100, 0.1));
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4),
+                0 0 30px rgba(86, 211, 100, 0.2);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: width 0.2s ease, height 0.2s ease, background 0.3s ease;
 }
 
 /* Logo */
@@ -61,6 +132,56 @@ body {
 
 html {
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: pan-y;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Floating Code Snippets - Developer Signature */
+.container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ctext x='20' y='40' font-family='JetBrains Mono, monospace' font-size='14' fill='%2358A6FF' opacity='0.08'%3Econst developer = %7B%3C/text%3E%3Ctext x='40' y='60' font-family='JetBrains Mono, monospace' font-size='14' fill='%2356D364' opacity='0.08'%3Eskills: ['React',%3C/text%3E%3Ctext x='40' y='80' font-family='JetBrains Mono, monospace' font-size='14' fill='%23D2A8FF' opacity='0.08'%3E'TypeScript',%3C/text%3E%3Ctext x='40' y='100' font-family='JetBrains Mono, monospace' font-size='14' fill='%2376E3EA' opacity='0.08'%3E'Next.js'],%3C/text%3E%3Ctext x='40' y='120' font-family='JetBrains Mono, monospace' font-size='14' fill='%23E3B341' opacity='0.08'%3Epassion: true%3C/text%3E%3Ctext x='20' y='140' font-family='JetBrains Mono, monospace' font-size='14' fill='%2358A6FF' opacity='0.08'%3E%7D%3B%3C/text%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 400px 400px;
+    animation: floatCode 120s linear infinite;
+    opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .container::before {
+        opacity: 0.15;
+        background-size: 300px 300px;
+        animation-duration: 180s;
+    }
+}
+
+@media (max-width: 480px) {
+    .container::before {
+        opacity: 0.1;
+        background-size: 250px 250px;
+        animation: none;
+    }
+}
+
+@keyframes floatCode {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-400px) translateX(-200px);
+    }
 }
 
 /* Home */
@@ -160,10 +281,12 @@ html {
     position: absolute;
     z-index: -1;
     object-fit: cover;
-    opacity: 0;
+    opacity: 0.03;
     top: 0;
     background-repeat: no-repeat;
     background-position: right 40%;
+    filter: grayscale(100%) contrast(0.5);
+    mix-blend-mode: luminosity;
 }
 
 /* components/Menu */
@@ -181,13 +304,38 @@ html {
 }
 
 .menuItem {
-    color: white;
+    color: var(--text-primary);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
     cursor: pointer;
     display: block;
     font-size: clamp(3rem, 6vw, 8rem);
     padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
     text-decoration: none;
-    transition: opacity 400ms ease;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.02em;
+    position: relative;
+}
+
+.menuItem::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: width 0.4s ease;
+}
+
+.menuItem:hover {
+    color: var(--primary);
+    transform: translateX(20px);
+}
+
+.menuItem:hover::before {
+    width: 60px;
 }
 
 @media (min-width: 1920px) {
@@ -197,6 +345,14 @@ html {
 }
 
 @media (max-width: 768px) {
+    body {
+        background-size:
+            30px 30px,
+            30px 30px,
+            100% 100%,
+            100% 100%;
+    }
+
     /* Adjust 768px to the breakpoint that suits your design */
     .animated-element {
         animation-name: fadeFromRightWithBlurSmallerMedia;
@@ -206,5 +362,65 @@ html {
     .content-margin {
         margin-left: 2rem;
         margin-right: 2rem;
+    }
+
+    .menuItem {
+        padding: clamp(0.5rem, 1vw, 1.5rem) 0rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .menuItem:active {
+        color: var(--primary-light);
+        transform: translateX(15px);
+    }
+
+    .menuItem::before {
+        left: -15px;
+    }
+
+    /* Better typography scaling on mobile */
+    h1 {
+        font-size: clamp(2rem, 10vw, 4rem);
+        line-height: 1.1;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
+    }
+
+    h3 {
+        font-size: clamp(1.25rem, 4vw, 2rem);
+    }
+
+    /* Reduce navbar height on mobile */
+    .navbar {
+        padding: 8px 0;
+    }
+
+    /* Optimize scrollbar for mobile */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+}
+
+/* Extra small devices optimization */
+@media (max-width: 480px) {
+    body {
+        background-size:
+            20px 20px,
+            20px 20px,
+            100% 100%,
+            100% 100%;
+    }
+
+    .content-margin {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    h1 {
+        font-size: clamp(1.75rem, 12vw, 3rem);
     }
 }
