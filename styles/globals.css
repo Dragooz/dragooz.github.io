@@ -103,21 +103,22 @@ code, pre {
 #mouse-follower {
     position: fixed;
     pointer-events: none;
-    width: 24px;
-    height: 24px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     left: 0;
     top: 0px;
     transform: translate(110vw, 110vh);
     opacity: 0;
-    background: radial-gradient(circle, var(--primary), var(--accent));
-    box-shadow: 0 0 20px rgba(88, 166, 255, 0.6),
-                0 0 30px rgba(86, 211, 100, 0.3);
+    background: radial-gradient(circle, rgba(88, 166, 255, 0.15), rgba(86, 211, 100, 0.1));
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4),
+                0 0 30px rgba(86, 211, 100, 0.2);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: width 0.2s ease, height 0.2s ease;
+    transition: width 0.2s ease, height 0.2s ease, background 0.3s ease;
 }
 
 /* Logo */

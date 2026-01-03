@@ -71,6 +71,16 @@
     }
 }
 
+.typing-cursor {
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: blink 1s step-end infinite;
+    margin-left: 2px;
+    font-weight: 700;
+}
+
 @keyframes gradientShift {
     0%, 100% {
         background-position: 0% 50%;
