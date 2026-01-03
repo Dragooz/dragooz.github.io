@@ -294,6 +294,7 @@
         gap: 0.75rem;
         align-items: center;
         transform: translateY(0) !important;
+        max-height: 140px;
     }
 
     .w-image {
@@ -320,6 +321,7 @@
         gap: 0.75rem;
         align-items: center;
         transform: translateY(0) !important;
+        max-height: 140px;
     }
 
     .position-three {
@@ -328,6 +330,7 @@
         gap: 0.75rem;
         align-items: center;
         transform: translateY(0) !important;
+        max-height: 140px;
     }
 
     .border-clickable {
