@@ -235,7 +235,7 @@
 
 .card-font-style span:first-child {
     display: block;
-    margin-bottom: 0.1rem;
+    margin-bottom: 0.3rem;
 }
 
 .card-font-style span:last-child {
@@ -378,7 +378,7 @@
     }
 
     .card-font-style span:first-child {
-        margin-bottom: 0.08rem;
+        margin-bottom: 0.25rem;
     }
 
     /* Adjust section headers for mobile */
@@ -436,7 +436,7 @@
     }
 
     .card-font-style span:first-child {
-        margin-bottom: 0.05rem;
+        margin-bottom: 0.2rem;
     }
 
     .top-side-line {
