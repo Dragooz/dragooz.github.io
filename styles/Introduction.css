@@ -28,7 +28,7 @@
 #introduction .meet-him {
     font-family: "JetBrains Mono", "Space Grotesk", monospace, sans-serif;
     font-weight: 700;
-    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-size: clamp(2rem, 4.5vw, 4.5rem);
     background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -83,7 +83,7 @@
 #introduction .description {
     font-family: "JetBrains Mono", "Inter", monospace, sans-serif;
     font-weight: 500;
-    margin-top: 16px;
+    margin-top: 8px;
     font-size: clamp(1.125rem, 2.5vw, 2.25rem);
     position: relative;
     z-index: 2;
@@ -102,8 +102,8 @@
     }
 
     #introduction .meet-him {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-        margin-bottom: 12px;
+        font-size: clamp(1.75rem, 7vw, 3rem);
+        margin-bottom: 8px;
     }
 
     #introduction .meet-him::before {
