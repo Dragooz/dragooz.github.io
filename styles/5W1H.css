@@ -89,7 +89,7 @@
     bottom: 1vw;
     right: 1vw;
     margin-right: 2vw;
-    opacity: 0.08;
+    opacity: 0.15;
     background: linear-gradient(
         135deg,
         var(--primary) 0%,
@@ -228,14 +228,14 @@
     font-weight: 600;
     z-index: 1;
     color: var(--text-primary);
-    line-height: 1.4;
+    line-height: 1.2;
     letter-spacing: -0.01em;
     transition: all 0.3s ease;
 }
 
 .card-font-style span:first-child {
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.1rem;
 }
 
 .card-font-style span:last-child {
@@ -272,7 +272,7 @@
     .w-wrapper {
         flex-direction: column;
         gap: 1.5rem;
-        margin-left: 2rem;
+        margin-left: 3rem;
         margin-right: 1rem;
     }
     .w-bottom-right {
@@ -359,11 +359,12 @@
     /* Better spacing for cards */
     .card-font-style {
         position: relative;
-        padding: 0.75rem 0.5rem;
-        font-size: clamp(0.85rem, 3.5vw, 1.2rem);
+        padding: 0.5rem 0.35rem;
+        font-size: clamp(0.8rem, 3.2vw, 1.1rem);
         text-align: left;
         bottom: auto;
         right: auto;
+        line-height: 1.2;
     }
 
     .card-font-style::before {
@@ -373,10 +374,14 @@
         bottom: 0;
     }
 
+    .card-font-style span:first-child {
+        margin-bottom: 0.08rem;
+    }
+
     /* Adjust section headers for mobile */
     .w-bottom-right {
         font-size: clamp(3rem, 15vw, 8rem);
-        opacity: 0.05;
+        opacity: 0.12;
         right: 0;
         margin-right: 1vw;
     }
@@ -384,7 +389,7 @@
     /* Optimize wrapper for mobile */
     .w-wrapper {
         padding: 3rem 0;
-        margin-left: 2rem;
+        margin-left: 4rem;
         margin-right: 1rem;
     }
 }
@@ -417,12 +422,18 @@
 
     .w-wrapper {
         gap: 1.25rem;
-        margin-left: 1.5rem;
+        margin-left: 3rem;
         margin-right: 0.5rem;
     }
 
     .card-font-style {
-        font-size: clamp(0.75rem, 3vw, 1rem);
+        font-size: clamp(0.7rem, 2.8vw, 0.95rem);
+        padding: 0.4rem 0.3rem;
+        line-height: 1.15;
+    }
+
+    .card-font-style span:first-child {
+        margin-bottom: 0.05rem;
     }
 
     .top-side-line {

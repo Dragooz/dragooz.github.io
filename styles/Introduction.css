@@ -40,6 +40,17 @@
     display: inline-block;
 }
 
+#introduction .meet-him::before {
+    content: '$ ';
+    position: relative;
+    background: var(--accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-right: 8px;
+    font-weight: 700;
+}
+
 #introduction .meet-him::after {
     content: '_';
     position: absolute;
@@ -80,17 +91,23 @@
     line-height: 1.5;
 }
 
-#introduction .description::before {
-    content: '$ ';
-    color: var(--accent);
-    margin-right: 8px;
-    font-weight: 700;
-}
 
 @media (max-width: 768px) {
+    #introduction .introduction-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
     #introduction .meet-him {
         font-size: clamp(2rem, 8vw, 3.5rem);
         margin-bottom: 12px;
+    }
+
+    #introduction .meet-him::before {
+        display: none;
     }
 
     #introduction .meet-him::after {
@@ -100,10 +117,7 @@
     #introduction .description {
         font-size: clamp(1rem, 4vw, 1.5rem);
         line-height: 1.4;
-    }
-
-    #introduction .description::before {
-        content: '';
+        text-align: center;
     }
 
     #introduction .consulting-description {
@@ -133,12 +147,6 @@
     }
 }
 
-@media (max-width: 447px) {
-    /* Adjust 768px to the breakpoint that suits your design */
-    #introduction .description {
-        margin-left: 8vw;
-    }
-}
 
 #introduction .consulting-description {
     font-family: "JetBrains Mono", "Inter", monospace, sans-serif;
@@ -187,13 +195,14 @@
 
 @media (max-width: 768px) {
     #introduction .consulting-description {
-        margin-left: 8vw;
-        margin-right: 8vw;
+        margin-left: auto;
+        margin-right: auto;
         font-size: clamp(0.8rem, 2vw, 1.2rem);
         padding: 12px 16px;
         min-height: 44px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     #introduction .consulting-description::before {

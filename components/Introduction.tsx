@@ -151,9 +151,9 @@ const Introduction = ({ className = "" }: { className?: string }) => {
         <div id="introduction" className={className}>
             <div className={"introduction-content"}>
                 <div className="meet-him shine-text-one">Meet Yi Chong!</div>
-                <span className="description shine-text-two">
+                <div className="description shine-text-two">
                     —— Full Stack Developer with AI Expertise
-                </span>
+                </div>
                 <div className="consulting-description">
                     Open for technical consulting & freelance opportunities
                 </div>

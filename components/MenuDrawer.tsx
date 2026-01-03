@@ -32,6 +32,14 @@ const MenuDrawer = ({
             >
                 <li
                     onClick={() => {
+                        scrollToSection("what");
+                        setIsOpen(false);
+                    }}
+                >
+                    What
+                </li>
+                <li
+                    onClick={() => {
                         scrollToSection("who");
                         setIsOpen(false);
                     }}
@@ -47,14 +55,7 @@ const MenuDrawer = ({
                     When & Where
                 </li>
                 {/* <li onClick={() => scrollToSection("where")}>Where</li> */}
-                <li
-                    onClick={() => {
-                        scrollToSection("what");
-                        setIsOpen(false);
-                    }}
-                >
-                    What
-                </li>
+
                 <li
                     onClick={() => {
                         scrollToSection("why");
