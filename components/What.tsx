@@ -106,7 +106,7 @@ const What = ({ className = "" }: { className?: string }) => {
     };
 
     return (
-        <div id="what" style={{ position: "relative" }}>
+        <div id="what" style={{ position: "relative", overflow: "hidden" }}>
             <div
                 id="what-top-side-line"
                 className={`top-side-line top-side-line-what`}
