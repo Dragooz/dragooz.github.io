@@ -70,7 +70,6 @@ const How = ({ className = "" }: { className?: string }) => {
 
                             <div className="card-font-style">
                                 <span>Understand & Big Picture</span>
-                                <br />
                                 <span>— Step 1</span>
                             </div>
                         </div>
@@ -85,7 +84,6 @@ const How = ({ className = "" }: { className?: string }) => {
                             </div>
                             <div className="card-font-style">
                                 <span>Breakdown Problem & Solution</span>
-                                <br />
                                 <span>— Step 2</span>
                             </div>
                         </div>
@@ -100,7 +98,7 @@ const How = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Solve & Test!</span> <br />
+                                <span>Solve & Test!</span>
                                 <span>— Step 3</span>
                             </div>
                         </div>

@@ -80,7 +80,6 @@ const WhenAndWhere = ({ className = "" }: { className?: string }) => {
                             </div>
                             <div className="card-font-style">
                                 <span>University Malaya</span>
-                                <br />
                                 <span>— Artificial Intelligence</span>
                             </div>
                         </div>
@@ -99,7 +98,7 @@ const WhenAndWhere = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Problem Solver</span> <br />
+                                <span>Problem Solver</span>
                                 <span>— Loves Challenges</span>
                             </div>
                         </div>
@@ -119,7 +118,7 @@ const WhenAndWhere = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Logical Thinker</span> <br />
+                                <span>Logical Thinker</span>
                                 <span>— Structural Mindset</span>
                             </div>
                         </div>

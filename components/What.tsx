@@ -197,7 +197,6 @@ const What = ({ className = "" }: { className?: string }) => {
                                 </div>
                                 <div className="card-font-style">
                                     <span>{item.title}</span>
-                                    <br />
                                     <span>{item.period}</span>
                                 </div>
                             </div>

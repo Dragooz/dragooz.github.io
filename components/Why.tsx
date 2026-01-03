@@ -67,7 +67,6 @@ const Why = ({ className = "" }: { className?: string }) => {
                             </div>
                             <div className="card-font-style">
                                 <span>Puzzle Solving!</span>
-                                <br />
                                 <span>— Satisfaction</span>
                             </div>
                         </div>
@@ -82,7 +81,6 @@ const Why = ({ className = "" }: { className?: string }) => {
                             </div>
                             <div className="card-font-style">
                                 <span>Building up Good Product!</span>
-                                <br />
                                 <span>— Enjoyable</span>
                             </div>
                         </div>
@@ -97,7 +95,7 @@ const Why = ({ className = "" }: { className?: string }) => {
                                 />
                             </div>
                             <div className="card-font-style">
-                                <span>Keen In Learning!</span> <br />
+                                <span>Keen In Learning!</span>
                                 <span>— Growth</span>
                             </div>
                         </div>
