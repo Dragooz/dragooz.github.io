@@ -15,20 +15,11 @@ const What = ({ className = "" }: { className?: string }) => {
 
     const items = [
         {
-            src: "/images/ainari-logo-square-blackbg.png",
-            alt: "AINari",
-            title: "Agriculture Map System",
-            period: "— 2022",
-            position: "position-one",
-            clickable: false,
-            url: "",
-        },
-        {
             src: "/images/uu-logo-blackbg.png",
             alt: "AINari",
             title: "Next Generation Chatbot",
             period: "— 2023",
-            position: "position-two",
+            position: "position-one",
             clickable: false,
             url: "",
         },
@@ -37,9 +28,18 @@ const What = ({ className = "" }: { className?: string }) => {
             alt: "AnotherGPT",
             title: "AnotherGPT",
             period: "— 2025",
-            position: "position-three",
+            position: "position-two",
             clickable: true,
             url: "https://app.anothergpt.yichonggoh.com",
+        },
+        {
+            src: "/images/mirra-logo-black.png",
+            alt: "Mirra",
+            title: "Mirra",
+            period: "— 2026",
+            position: "position-three",
+            clickable: true,
+            url: "https://app.mirra.yichonggoh.com",
         },
     ];
 
@@ -174,22 +174,33 @@ const What = ({ className = "" }: { className?: string }) => {
                                                 top: "10px",
                                                 right: "10px",
                                                 backgroundColor:
-                                                    "rgba(0, 0, 0, 0.7)",
+                                                    hoveredIndex === index
+                                                        ? "rgb(34, 211, 238)"
+                                                        : "rgba(34, 211, 238, 0.8)",
                                                 borderRadius: "50%",
-                                                padding: "8px",
+                                                padding: "10px",
                                                 opacity:
                                                     hoveredIndex === index
                                                         ? 1
-                                                        : 0.6,
-                                                transition: "opacity 0.3s ease",
+                                                        : 0.7,
+                                                transform:
+                                                    hoveredIndex === index
+                                                        ? "scale(1.15)"
+                                                        : "scale(1)",
+                                                transition:
+                                                    "all 0.3s ease",
+                                                boxShadow:
+                                                    hoveredIndex === index
+                                                        ? "0 0 20px rgba(34, 211, 238, 0.8), 0 0 40px rgba(34, 211, 238, 0.4)"
+                                                        : "0 0 10px rgba(34, 211, 238, 0.3)",
                                             }}
                                         >
                                             <FontAwesomeIcon
                                                 icon={faExternalLinkAlt}
                                                 style={{
-                                                    color: "white",
-                                                    width: "12px",
-                                                    height: "12px",
+                                                    color: "rgb(15, 23, 42)",
+                                                    width: "16px",
+                                                    height: "16px",
                                                 }}
                                             />
                                         </div>
