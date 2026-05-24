@@ -382,6 +382,17 @@
     margin-bottom: 12px;
 }
 
+.ss-philosophy {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    border-left: 2px solid rgba(86, 211, 100, 0.4);
+    padding-left: 14px;
+    margin: 16px 0 4px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
 .ss-traits {
     display: flex;
     gap: 16px;

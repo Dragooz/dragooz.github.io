@@ -26,11 +26,11 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
                         <span className="ss-case-name">Pengrow</span>
                         <a
                             className="ss-case-link"
-                            href="https://github.com/Dragooz/Pengrow"
+                            href="https://pengrow.vercel.app/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            GitHub ↗
+                            Live Demo ↗
                         </a>
                     </div>
                     <p className="ss-case-built">
@@ -80,6 +80,9 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
             <p className="ss-bio">
                 I speak business first, code second. If you can describe your problem, I can build the solution.
             </p>
+            <p className="ss-philosophy">
+                Clean code. Simple solutions. MVP first — no fancy tools, just real results.
+            </p>
             <div className="ss-traits">
                 <div className="ss-trait">
                     <span className="ss-trait-icon">🧩</span>
@@ -92,6 +95,10 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
                 <div className="ss-trait">
                     <span className="ss-trait-icon">⚡</span>
                     <span>Ships fast</span>
+                </div>
+                <div className="ss-trait">
+                    <span className="ss-trait-icon">🎯</span>
+                    <span>MVP-oriented</span>
                 </div>
             </div>
         </div>
@@ -244,8 +251,7 @@ const SolarSystem: React.FC<SolarSystemProps> = ({ activeNode: controlledNode, s
                 <div className="ss-orbit-area" ref={orbitRef}>
                     {/* Center */}
                     <div className="ss-center">
-                        <div className="ss-center-icon">5W1H</div>
-                        <div className="ss-center-subtitle">The Framework</div>
+                        <div className="ss-center-icon">YC</div>
                     </div>
 
                     {/* Orbit path visual */}

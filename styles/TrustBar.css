@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 24px;
-    padding: 40px 4rem;
+    gap: 32px;
+    padding: 48px 4rem;
     border-top: 1px solid rgba(88, 166, 255, 0.1);
     border-bottom: 1px solid rgba(88, 166, 255, 0.1);
 }
@@ -17,38 +17,123 @@
     opacity: 0.7;
 }
 
-#trust-bar .trust-logos {
+#trust-bar .trust-cards {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1100px;
+    width: 100%;
+}
+
+#trust-bar .trust-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid rgba(88, 166, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(22, 27, 34, 0.6);
+    flex: 1 1 300px;
+    max-width: 360px;
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+#trust-bar .trust-card:hover {
+    border-color: rgba(88, 166, 255, 0.3);
+    background: rgba(22, 27, 34, 0.9);
+}
+
+#trust-bar .trust-card-logo {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 48px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+#trust-bar .trust-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+#trust-bar .trust-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     flex-wrap: wrap;
 }
 
-#trust-bar .trust-logo {
-    filter: grayscale(100%) brightness(0.6);
-    opacity: 0.5;
-    transition: all 0.3s ease;
+#trust-bar .trust-card-name {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
 }
 
-#trust-bar .trust-logo:hover {
-    filter: grayscale(0%) brightness(1);
-    opacity: 1;
+#trust-bar .trust-card-industry {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(88, 166, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+#trust-bar .trust-card-role {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+#trust-bar .trust-card-desc {
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.7;
+    line-height: 1.5;
+    margin: 4px 0 0;
 }
 
 @media (max-width: 768px) {
     #trust-bar {
-        padding: 20px 2rem;
+        padding: 32px 1.5rem;
+        gap: 24px;
+    }
+
+    #trust-bar .trust-cards {
         gap: 16px;
     }
 
-    #trust-bar .trust-logos {
-        gap: 32px;
+    #trust-bar .trust-card {
+        max-width: 100%;
+        flex: 1 1 100%;
     }
 }
 
 @media (max-width: 480px) {
-    #trust-bar .trust-logos {
-        gap: 24px;
+    #trust-bar {
+        padding: 24px 1rem;
+    }
+
+    #trust-bar .trust-card {
+        padding: 16px;
+    }
+
+    #trust-bar .trust-card-logo {
+        width: 48px;
+        height: 48px;
     }
 }

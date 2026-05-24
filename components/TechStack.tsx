@@ -40,7 +40,7 @@ const CATEGORIES = [
     {
         name: "Deploy & Infra",
         icons: [
-            { icon: SiRailway, name: "Railway", color: "#0B0D0E" },
+            { icon: SiRailway, name: "Railway", color: "#FFFFFF" },
             { icon: SiVercel, name: "Vercel", color: "#FFFFFF" },
             { icon: SiDocker, name: "Docker", color: "#2496ED" },
             { icon: SiSupabase, name: "Supabase", color: "#3FCF8E" },
