@@ -1,10 +1,9 @@
-import Image from "next/image";
 import React, { useState } from "react";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { useBetterMediaQuery } from "../pages";
 import MenuDrawer from "./MenuDrawer";
+import type { NodeId } from "./SolarSystem";
 
 export const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -13,15 +12,35 @@ export const scrollToSection = (sectionId: string) => {
     }
 };
 
-const Navbar: React.FC = () => {
+const NAV_ITEMS: { label: string; nodeId: NodeId }[] = [
+    { label: "Work",    nodeId: "what" },
+    { label: "Me",      nodeId: "who" },
+    { label: "Journey", nodeId: "when" },
+    { label: "Drive",   nodeId: "why" },
+    { label: "Process", nodeId: "how" },
+];
+
+interface NavbarProps {
+    activeNode: NodeId | null;
+    setActiveNode: (node: NodeId | null) => void;
+    openContact: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ activeNode, setActiveNode, openContact }) => {
     const isMobile = useBetterMediaQuery("(max-width: 767px)");
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenuDrawer = () => setIsOpen(!isOpen);
+
+    const handleNavClick = (nodeId: NodeId) => {
+        setActiveNode(nodeId);
+        scrollToSection("solar-system");
+    };
+
     return (
         <>
             {isMobile ? (
-                <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} />
+                <MenuDrawer isOpen={isOpen} setIsOpen={setIsOpen} setActiveNode={setActiveNode} />
             ) : (
                 <> </>
             )}
@@ -50,29 +69,23 @@ const Navbar: React.FC = () => {
                             onClick={() => scrollToSection("introduction")}
                             className="logo"
                         />
-                        <li onClick={() => scrollToSection("who")}>Who</li>
-                        <li onClick={() => scrollToSection("when")}>
-                            When & Where
-                        </li>
-                        {/* <li onClick={() => scrollToSection("where")}></li> */}
-                        <li onClick={() => scrollToSection("what")}>What</li>
-                        <li onClick={() => scrollToSection("why")}>Why</li>
-                        <li onClick={() => scrollToSection("how")}>How</li>
+                        {NAV_ITEMS.map(item => (
+                            <li
+                                key={item.nodeId}
+                                className={activeNode === item.nodeId ? "nav-active" : ""}
+                                onClick={() => handleNavClick(item.nodeId)}
+                            >
+                                {item.label}
+                            </li>
+                        ))}
                     </div>
                 )}
                 <div
-                    id="contactMe"
                     className="button"
                     style={{ cursor: "pointer", padding: "16px 32px" }}
+                    onClick={openContact}
                 >
-                    <a
-                        id="contactMe"
-                        target="_blank"
-                        href="https://www.linkedin.com/in/yi-chong-yc-9803901a4/"
-                        style={{ color: "inherit", textDecoration: "none" }}
-                    >
-                        Contact Me!
-                    </a>
+                    Get In Touch
                 </div>
             </div>
         </>

@@ -56,8 +56,13 @@
     transform: translateX(-50%);
 }
 
-.nav-list li:hover::after {
+.nav-list li:hover::after,
+.nav-list li.nav-active::after {
     width: 80%;
+}
+
+.nav-list li.nav-active {
+    color: var(--primary);
 }
 
 .navbar > .button {

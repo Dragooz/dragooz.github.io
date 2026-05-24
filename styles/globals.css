@@ -1,14 +1,13 @@
 /* general */
 @import "./Navbar.css"; /* Import Navbar styles */
-@import "./5W1H.css";
 @import "./Introduction.css";
-@import "./Why.css";
-@import "./Who.css";
-@import "./WhenAndWhere.css";
-@import "./What.css";
-@import "./How.css";
+@import "./TrustBar.css";
+@import "./TechStack.css";
+@import "./SolarSystem.css";
+@import "./Footer.css";
 @import "./scrollbar.css";
 @import "./MenuDrawer.css";
+@import "./ContactModal.css";
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
 
@@ -51,19 +50,9 @@ body {
     background-color: var(--background);
     background-image:
         linear-gradient(rgba(88, 166, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px),
-        radial-gradient(ellipse at top, rgba(88, 166, 255, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at bottom, rgba(86, 211, 100, 0.05) 0%, transparent 50%);
-    background-size:
-        50px 50px,
-        50px 50px,
-        100% 100%,
-        100% 100%;
-    background-position:
-        -1px -1px,
-        -1px -1px,
-        center top,
-        center bottom;
+        linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: -1px -1px;
     margin: 0px;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     color: var(--text-primary);
@@ -135,58 +124,16 @@ html {
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     touch-action: pan-y;
+    scroll-behavior: smooth;
 }
 
 * {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* Floating Code Snippets - Developer Signature */
-.container::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ctext x='20' y='40' font-family='JetBrains Mono, monospace' font-size='14' fill='%2358A6FF' opacity='0.08'%3Econst developer = %7B%3C/text%3E%3Ctext x='40' y='60' font-family='JetBrains Mono, monospace' font-size='14' fill='%2356D364' opacity='0.08'%3Eskills: ['React',%3C/text%3E%3Ctext x='40' y='80' font-family='JetBrains Mono, monospace' font-size='14' fill='%23D2A8FF' opacity='0.08'%3E'TypeScript',%3C/text%3E%3Ctext x='40' y='100' font-family='JetBrains Mono, monospace' font-size='14' fill='%2376E3EA' opacity='0.08'%3E'Next.js'],%3C/text%3E%3Ctext x='40' y='120' font-family='JetBrains Mono, monospace' font-size='14' fill='%23E3B341' opacity='0.08'%3Epassion: true%3C/text%3E%3Ctext x='20' y='140' font-family='JetBrains Mono, monospace' font-size='14' fill='%2358A6FF' opacity='0.08'%3E%7D%3B%3C/text%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 400px 400px;
-    animation: floatCode 120s linear infinite;
-    opacity: 0.4;
-}
-
-@media (max-width: 768px) {
-    .container::before {
-        opacity: 0.15;
-        background-size: 300px 300px;
-        animation-duration: 180s;
-    }
-}
-
-@media (max-width: 480px) {
-    .container::before {
-        opacity: 0.1;
-        background-size: 250px 250px;
-        animation: none;
-    }
-}
-
-@keyframes floatCode {
-    0% {
-        transform: translateY(0) translateX(0);
-    }
-    100% {
-        transform: translateY(-400px) translateX(-200px);
-    }
-}
-
 /* Home */
 .container {
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     max-width: 100%;
     position: relative;
@@ -207,177 +154,17 @@ html {
     margin-right: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    pointer-events: none;
 }
 
-@keyframes horizontalCurtain {
-    0% {
-        opacity: 0;
-    }
-    20% {
-        clip-path: inset(
-            75% 0% 75% 0%
-        ); /* Start with vertical slits in the center */
-        opacity: 0.25;
-        filter: blur(6px);
-        background-image: url("/images/web-bg-v2.png");
-    }
-
-    30% {
-        clip-path: inset(
-            50% 0% 50% 0%
-        ); /* Start with vertical slits in the center */
-        opacity: 0.4;
-        background-image: url("/images/web-bg-v2.png");
-    }
-
-    100% {
-        clip-path: inset(0 0 0 0); /* Curtain fully open */
-        opacity: 0.5;
-        filter: blur(0px);
-        background-image: url("/images/web-bg-v2.png");
-    }
-}
-
-@keyframes fadeFromRightWithBlur {
-    0% {
-        opacity: 0.3;
-        filter: blur(4px);
-        transform: translate(100px, 0px);
-    }
-
-    100% {
-        opacity: 0.75;
-        filter: blur(0px);
-        background-image: url("/images/web-bg-v2.png");
-        transform: translate(0px, 0px);
-    }
-}
-
-@keyframes fadeFromRightWithBlurSmallerMedia {
-    0% {
-        opacity: 0.2;
-        filter: blur(4px);
-        transform: translate(100px, 0px);
-    }
-
-    100% {
-        opacity: 0.3;
-        filter: blur(0px);
-        background-image: url("/images/web-bg-v2.png");
-        transform: translate(0px, 0px);
-    }
-}
-
-.animated-element {
-    animation-name: fadeFromRightWithBlur;
-    animation-duration: 3s; /* Set the duration of the animation */
-    animation-fill-mode: both; /* Make sure the final state (opacity: 1) is retained after the animation completes */
-}
-
-.bg-image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    object-fit: cover;
-    opacity: 0.03;
-    top: 0;
-    background-repeat: no-repeat;
-    background-position: right 40%;
-    filter: grayscale(100%) contrast(0.5);
-    mix-blend-mode: luminosity;
-}
-
-/* components/Menu */
-#menu {
-    align-items: center;
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-}
-
-#menuItems {
-    margin-left: clamp(4rem, 20vw, 48rem);
-    position: relative;
-    z-index: 2;
-}
-
-.menuItem {
-    color: var(--text-primary);
-    font-family: "Space Grotesk", sans-serif;
-    font-weight: 700;
-    cursor: pointer;
-    display: block;
-    font-size: clamp(3rem, 6vw, 8rem);
-    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
-    text-decoration: none;
-    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    letter-spacing: -0.02em;
-    position: relative;
-}
-
-.menuItem::before {
-    content: '';
-    position: absolute;
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--accent));
-    transition: width 0.4s ease;
-}
-
-.menuItem:hover {
-    color: var(--primary);
-    transform: translateX(20px);
-}
-
-.menuItem:hover::before {
-    width: 60px;
-}
-
-@media (min-width: 1920px) {
-    .bg-image {
-        background-size: auto 120%; /* This will scale the background image up */
-    }
-}
 
 @media (max-width: 768px) {
     body {
-        background-size:
-            30px 30px,
-            30px 30px,
-            100% 100%,
-            100% 100%;
+        background-size: 30px 30px;
     }
 
-    /* Adjust 768px to the breakpoint that suits your design */
-    .animated-element {
-        animation-name: fadeFromRightWithBlurSmallerMedia;
-    }
-
-    /* Adjust 768px to the breakpoint that suits your design */
     .content-margin {
         margin-left: 2rem;
         margin-right: 2rem;
-    }
-
-    .menuItem {
-        padding: clamp(0.5rem, 1vw, 1.5rem) 0rem;
-        min-height: 44px;
-        display: flex;
-        align-items: center;
-    }
-
-    .menuItem:active {
-        color: var(--primary-light);
-        transform: translateX(15px);
-    }
-
-    .menuItem::before {
-        left: -15px;
     }
 
     /* Better typography scaling on mobile */
@@ -408,11 +195,7 @@ html {
 /* Extra small devices optimization */
 @media (max-width: 480px) {
     body {
-        background-size:
-            20px 20px,
-            20px 20px,
-            100% 100%,
-            100% 100%;
+        background-size: 20px 20px;
     }
 
     .content-margin {
