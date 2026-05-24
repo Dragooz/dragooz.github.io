@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
-import Menu from "../components/Menu";
+import { useEffect, useState, useCallback } from "react";
 import Home from "../components/Home";
 import MouseFollower from "../components/MouseFollower";
 import Navbar from "../components/Navbar";
+import ContactModal from "../components/ContactModal";
+import type { NodeId } from "../components/SolarSystem";
 
 export function useBetterMediaQuery(mediaQueryString: string): boolean | null {
     const [matches, setMatches] = useState<boolean | null>(null);
@@ -19,13 +20,17 @@ export function useBetterMediaQuery(mediaQueryString: string): boolean | null {
 }
 
 export default function Page() {
-    const [isMenu, setIsMenu] = useState(false);
     const isMobile = useBetterMediaQuery("(max-width: 767px)");
+    const [activeNode, setActiveNode] = useState<NodeId | null>(null);
+    const [showContact, setShowContact] = useState(false);
+    const openContact = useCallback(() => setShowContact(true), []);
+
     return (
         <>
-            <Navbar />
+            <Navbar activeNode={activeNode} setActiveNode={setActiveNode} openContact={openContact} />
             {isMobile ? null : <MouseFollower />}
-            {isMenu ? <Menu /> : <Home />}
+            <Home activeNode={activeNode} setActiveNode={setActiveNode} openContact={openContact} />
+            <ContactModal isOpen={showContact} onClose={() => setShowContact(false)} />
         </>
     );
 }

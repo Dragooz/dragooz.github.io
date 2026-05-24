@@ -1,0 +1,54 @@
+#trust-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 4rem;
+    border-top: 1px solid rgba(88, 166, 255, 0.1);
+    border-bottom: 1px solid rgba(88, 166, 255, 0.1);
+}
+
+#trust-bar .trust-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+#trust-bar .trust-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+#trust-bar .trust-logo {
+    filter: grayscale(100%) brightness(0.6);
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+#trust-bar .trust-logo:hover {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    #trust-bar {
+        padding: 20px 2rem;
+        gap: 16px;
+    }
+
+    #trust-bar .trust-logos {
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    #trust-bar .trust-logos {
+        gap: 24px;
+    }
+}

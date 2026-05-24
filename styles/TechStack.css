@@ -1,0 +1,88 @@
+/* ── Tech Stack Section ── */
+
+.tech-stack {
+    padding: 36px 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tech-stack-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tech-stack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.tech-category {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tech-category-name {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    opacity: 0.7;
+}
+
+.tech-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tech-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tech-icon-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.tech-stack-tagline {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0.6;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .tech-stack {
+        padding: 28px 2rem;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack {
+        padding: 24px 1rem;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}

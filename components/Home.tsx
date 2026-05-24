@@ -1,20 +1,26 @@
-import React, { useRef, WheelEvent } from "react";
+import React from "react";
 import Introduction from "./Introduction";
-import Who from "./Who";
-import WhenAndWhere from "./WhenAndWhere";
-import What from "./What";
-import Why from "./Why";
-import How from "./How";
+import TrustBar from "./TrustBar";
+import TechStack from "./TechStack";
+import SolarSystem from "./SolarSystem";
+import type { NodeId } from "./SolarSystem";
+import Footer from "./Footer";
 import Head from "next/head";
 
-const Home = () => {
+interface HomeProps {
+    activeNode: NodeId | null;
+    setActiveNode: (node: NodeId | null) => void;
+    openContact: () => void;
+}
+
+const Home: React.FC<HomeProps> = ({ activeNode, setActiveNode, openContact }) => {
     return (
         <>
             <Head>
-                <title>Yi Chong</title>
+                <title>I build what you need</title>
                 <meta
                     name="description"
-                    content="Know about Yi Chong - explore the journey, insights, and expertise that define my online presence."
+                    content="Solo full-stack engineer. I automate the boring, build the complex, and ship fast. Available for freelance and SME projects."
                 />
                 <link
                     rel="icon"
@@ -31,17 +37,11 @@ const Home = () => {
             </Head>
 
             <div className="container">
-                <Introduction className={"content-margin container-content"} />
-
-                <What className={"content-margin container-content content"} />
-                <Who className={"content-margin container-content content"} />
-                <WhenAndWhere
-                    className={"content-margin container-content content"}
-                />
-                <Why className={"content-margin container-content content"} />
-                <How className={"content-margin container-content content"} />
-
-                <div className="bg-image animated-element" />
+                <Introduction className={"content-margin container-content"} openContact={openContact} />
+                <TrustBar />
+                <SolarSystem activeNode={activeNode} setActiveNode={setActiveNode} />
+                <TechStack />
+                <Footer openContact={openContact} />
             </div>
         </>
     );
