@@ -2,10 +2,25 @@
     color: white;
     box-sizing: border-box;
     display: flex;
-    align-items: left;
+    align-items: stretch;
     justify-content: center;
     flex-direction: column;
-    gap: 8px;
+    min-height: 100vh;
+    height: auto;
+    padding: 72px 0 36px;
+}
+
+#introduction .introduction-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(440px, 0.92fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 88px);
+    width: 100%;
+}
+
+#introduction .introduction-content {
+    position: relative;
+    z-index: 2;
 }
 
 @keyframes fadeWithBlur {
@@ -20,7 +35,7 @@
     }
 }
 
-#introduction > .introduction-content {
+#introduction .introduction-layout {
     animation-name: fadeWithBlur;
     animation-duration: 2s; /* Set the duration of the animation */
 }
@@ -38,7 +53,12 @@
     font-family: "JetBrains Mono", "Space Grotesk", monospace, sans-serif;
     font-weight: 700;
     font-size: clamp(2rem, 4.5vw, 4.5rem);
-    background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent),
+        var(--secondary)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -50,7 +70,7 @@
 }
 
 #introduction .meet-him::before {
-    content: '$ ';
+    content: "$ ";
     position: relative;
     background: var(--accent);
     -webkit-background-clip: text;
@@ -61,10 +81,12 @@
 }
 
 @keyframes blink {
-    0%, 50% {
+    0%,
+    50% {
         opacity: 1;
     }
-    50.1%, 100% {
+    50.1%,
+    100% {
         opacity: 0;
     }
 }
@@ -80,7 +102,8 @@
 }
 
 @keyframes gradientShift {
-    0%, 100% {
+    0%,
+    100% {
         background-position: 0% 50%;
     }
     50% {
@@ -99,6 +122,643 @@
     line-height: 1.5;
 }
 
+/* Automation engine */
+
+.automation-engine-visual {
+    position: relative;
+    width: 100%;
+    height: min(520px, 68vh);
+    min-height: 440px;
+    perspective: 1100px;
+    perspective-origin: 50% 48%;
+    isolation: isolate;
+}
+
+.automation-engine-aura {
+    position: absolute;
+    inset: 4% -8% 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle at 58% 48%,
+            rgba(88, 166, 255, 0.3),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 36% 64%,
+            rgba(86, 211, 100, 0.18),
+            transparent 44%
+        );
+    filter: blur(40px);
+    opacity: 0.9;
+    animation: automationAura 4s ease-in-out infinite;
+}
+
+.automation-engine-float {
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 11px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(7, 11, 17, 0.82);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
+    backdrop-filter: blur(12px);
+    font-family: "JetBrains Mono", monospace;
+    pointer-events: none;
+}
+
+.automation-engine-float span {
+    font-size: 0.5rem;
+    letter-spacing: 0.14em;
+    color: var(--primary);
+}
+
+.automation-engine-float strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.7rem;
+    color: var(--text-primary);
+}
+
+.automation-engine-float-design {
+    top: 14%;
+    right: 10%;
+    animation: automationFloat 4.2s ease-in-out infinite;
+}
+
+.automation-engine-float-code {
+    bottom: 12%;
+    left: 12%;
+    animation: automationFloat 4.8s ease-in-out -1.4s infinite;
+}
+
+@keyframes automationFloat {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0.5deg);
+    }
+    50% {
+        transform: translateY(-8px) rotate(-0.5deg);
+    }
+}
+
+@keyframes automationAura {
+    0%,
+    100% {
+        opacity: 0.68;
+        scale: 0.96;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.03;
+    }
+}
+
+.automation-engine-stack {
+    --engine-rotate-x: 2deg;
+    --engine-rotate-y: -5deg;
+    --engine-light-x: 50%;
+    --engine-light-y: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    width: min(510px, 94%);
+    height: 340px;
+    transform: translate(-50%, -50%) rotateX(var(--engine-rotate-x))
+        rotateY(var(--engine-rotate-y));
+    transform-style: preserve-3d;
+    will-change: transform;
+    animation: automationStackFloat 5s ease-in-out infinite;
+}
+
+@keyframes automationStackFloat {
+    0%,
+    100% {
+        transform: translate(-50%, calc(-50% + 7px))
+            rotateX(var(--engine-rotate-x)) rotateY(var(--engine-rotate-y))
+            rotateZ(-0.4deg);
+    }
+    50% {
+        transform: translate(-50%, calc(-50% - 9px))
+            rotateX(var(--engine-rotate-x)) rotateY(var(--engine-rotate-y))
+            rotateZ(0.4deg);
+    }
+}
+
+.automation-engine-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition:
+        transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        opacity 0.4s ease;
+}
+
+.automation-engine-layer-label {
+    padding: 15px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.16em;
+    color: rgba(121, 192, 255, 0.72);
+}
+
+.automation-engine-blueprint {
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    background: rgba(5, 12, 20, 0.72);
+    transform: translate3d(-48px, -48px, -100px) rotateZ(-3deg);
+    opacity: 0.72;
+}
+
+.automation-engine-blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(88, 166, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 166, 255, 0.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+.automation-engine-blueprint-grid::before,
+.automation-engine-blueprint-grid::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(88, 166, 255, 0.7),
+        transparent
+    );
+    transform-origin: left center;
+}
+
+.automation-engine-blueprint-grid::before {
+    top: 42%;
+    left: 16%;
+    width: 66%;
+    transform: rotate(16deg);
+}
+
+.automation-engine-blueprint-grid::after {
+    top: 68%;
+    left: 24%;
+    width: 54%;
+    transform: rotate(-24deg);
+}
+
+.automation-engine-blueprint-grid span {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    border: 1px solid rgba(88, 166, 255, 0.8);
+    border-radius: 50%;
+    background: #07101a;
+    box-shadow: 0 0 12px rgba(88, 166, 255, 0.5);
+}
+
+.automation-engine-blueprint-grid span:nth-child(1) {
+    top: 36%;
+    left: 16%;
+}
+.automation-engine-blueprint-grid span:nth-child(2) {
+    top: 51%;
+    left: 48%;
+}
+.automation-engine-blueprint-grid span:nth-child(3) {
+    top: 31%;
+    right: 17%;
+}
+.automation-engine-blueprint-grid span:nth-child(4) {
+    bottom: 18%;
+    left: 32%;
+    border-color: var(--accent);
+}
+
+.automation-engine-code {
+    border: 1px solid rgba(210, 168, 255, 0.25);
+    background: rgba(8, 10, 15, 0.94);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+    transform: translate3d(-24px, -22px, -38px) rotateZ(-1.4deg);
+    opacity: 0.88;
+}
+
+.automation-engine-code-header {
+    height: 48px;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    color: rgba(201, 209, 217, 0.55);
+}
+
+.automation-engine-window-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.automation-engine-window-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(248, 81, 73, 0.7);
+}
+
+.automation-engine-window-dots span:nth-child(2) {
+    background: rgba(227, 179, 65, 0.7);
+}
+.automation-engine-window-dots span:nth-child(3) {
+    background: rgba(86, 211, 100, 0.7);
+}
+
+.automation-engine-code-body {
+    padding: 23px 24px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.79rem;
+    line-height: 2;
+    color: rgba(201, 209, 217, 0.72);
+}
+
+.automation-engine-code-body .code-indent {
+    padding-left: 20px;
+}
+.automation-engine-code-body .code-purple {
+    color: var(--code-purple);
+}
+.automation-engine-code-body .code-blue {
+    color: var(--primary-light);
+}
+.automation-engine-code-body .code-green {
+    color: var(--accent);
+}
+
+.automation-engine-result {
+    border: 1px solid rgba(88, 166, 255, 0.46);
+    background:
+        linear-gradient(145deg, rgba(16, 24, 34, 0.98), rgba(4, 8, 13, 0.98)),
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(86, 211, 100, 0.12),
+            transparent 36%
+        );
+    box-shadow:
+        0 34px 90px rgba(0, 0, 0, 0.7),
+        0 0 65px rgba(88, 166, 255, 0.12);
+    transform: translate3d(20px, 22px, 58px);
+}
+
+.automation-engine-result::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at var(--engine-light-x) var(--engine-light-y),
+        rgba(121, 192, 255, 0.14),
+        transparent 38%
+    );
+    pointer-events: none;
+    z-index: 4;
+}
+
+.automation-engine-result::after {
+    content: "";
+    position: absolute;
+    z-index: 5;
+    top: -20%;
+    bottom: -20%;
+    left: -55%;
+    width: 28%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(121, 192, 255, 0.13),
+        transparent
+    );
+    transform: skewX(-16deg);
+    animation: automationFaceSweep 5.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes automationFaceSweep {
+    0%,
+    55% {
+        transform: translateX(0) skewX(-16deg);
+        opacity: 0;
+    }
+    65% {
+        opacity: 1;
+    }
+    88%,
+    100% {
+        transform: translateX(620%) skewX(-16deg);
+        opacity: 0;
+    }
+}
+
+.automation-engine-visual:hover .automation-engine-blueprint {
+    transform: translate3d(-78px, -72px, -142px) rotateZ(-4.5deg);
+    opacity: 0.9;
+}
+
+.automation-engine-visual:hover .automation-engine-code {
+    transform: translate3d(-42px, -36px, -56px) rotateZ(-2.2deg);
+}
+
+.automation-engine-visual:hover .automation-engine-result {
+    transform: translate3d(36px, 38px, 86px);
+}
+
+.automation-engine-result-header {
+    height: 54px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(88, 166, 255, 0.12);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    color: rgba(201, 209, 217, 0.66);
+}
+
+.automation-engine-prompt {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.automation-engine-live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    letter-spacing: 0.09em;
+    font-size: 0.64rem;
+}
+
+.automation-engine-live i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(86, 211, 100, 0.9);
+    animation: engineLivePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes engineLivePulse {
+    0%,
+    100% {
+        opacity: 0.5;
+        scale: 0.8;
+    }
+    50% {
+        opacity: 1;
+        scale: 1.15;
+    }
+}
+
+.automation-engine-pipeline {
+    display: grid;
+    grid-template-columns: 1fr 28px 1.12fr 28px 1fr;
+    align-items: center;
+    padding: 30px 20px 23px;
+}
+
+.automation-engine-pipeline-step {
+    min-width: 0;
+    height: 82px;
+    padding: 11px 9px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid rgba(88, 166, 255, 0.14);
+    border-radius: 10px;
+    background: rgba(88, 166, 255, 0.035);
+}
+
+.automation-engine-pipeline-step > span {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.53rem;
+    letter-spacing: 0.12em;
+    color: var(--primary);
+}
+
+.automation-engine-pipeline-step strong {
+    margin-top: 4px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.2;
+    color: var(--text-primary);
+}
+
+.automation-engine-pipeline-step small {
+    margin-top: 5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.55rem;
+    color: var(--text-secondary);
+}
+
+.automation-engine-pipeline-core {
+    height: 116px;
+    padding: 0;
+    align-items: center;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.automation-engine-pipeline-core small {
+    color: var(--accent);
+}
+
+.automation-engine-core-mark {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(86, 211, 100, 0.64);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(86, 211, 100, 0.22),
+        rgba(86, 211, 100, 0.04) 56%,
+        transparent 58%
+    );
+    box-shadow:
+        inset 0 0 22px rgba(86, 211, 100, 0.14),
+        0 0 34px rgba(86, 211, 100, 0.22);
+}
+
+.automation-engine-core-mark::before,
+.automation-engine-core-mark::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(88, 166, 255, 0.3);
+    border-radius: 50%;
+    animation: engineCoreSpin 7s linear infinite;
+}
+
+.automation-engine-core-mark::before {
+    inset: -8px;
+    border-top-color: var(--primary-light);
+    border-bottom-color: transparent;
+}
+
+.automation-engine-core-mark::after {
+    inset: -15px;
+    border-right-color: var(--accent);
+    border-left-color: transparent;
+    animation-direction: reverse;
+    animation-duration: 10s;
+}
+
+.automation-engine-core-mark i {
+    position: absolute;
+    inset: 7px;
+    border-radius: 50%;
+    border: 1px dashed rgba(86, 211, 100, 0.34);
+    animation: engineCoreSpin 5s linear infinite;
+}
+
+.automation-engine-core-mark span {
+    position: relative;
+    z-index: 1;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-shadow: 0 0 12px rgba(86, 211, 100, 0.8);
+}
+
+@keyframes engineCoreSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.automation-engine-pipeline-core strong {
+    margin-top: 14px;
+}
+
+.automation-engine-pipeline-core small {
+    margin-top: 2px;
+}
+
+.automation-engine-connector {
+    position: relative;
+    height: 1px;
+    overflow: visible;
+    background: rgba(88, 166, 255, 0.2);
+}
+
+.automation-engine-connector::after {
+    content: "›";
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    color: rgba(88, 166, 255, 0.8);
+    transform: translateY(-55%);
+}
+
+.automation-engine-connector i {
+    position: absolute;
+    top: -2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    box-shadow: 0 0 8px var(--primary);
+    animation: engineSignal 2s linear infinite;
+}
+
+@keyframes engineSignal {
+    from {
+        left: 0;
+        opacity: 0;
+    }
+    20%,
+    80% {
+        opacity: 1;
+    }
+    to {
+        left: calc(100% - 5px);
+        opacity: 0;
+    }
+}
+
+.automation-engine-impact {
+    margin: 0 20px;
+    padding-top: 17px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.automation-engine-impact > div {
+    display: flex;
+    align-items: baseline;
+    gap: 9px;
+}
+
+.automation-engine-impact strong {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 2.35rem;
+    line-height: 1;
+    color: var(--accent);
+    text-shadow: 0 0 24px rgba(86, 211, 100, 0.28);
+}
+
+.automation-engine-impact div span {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.62rem;
+    color: var(--text-secondary);
+}
+
+.automation-engine-complete {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.6rem;
+    color: rgba(86, 211, 100, 0.76);
+}
+
+@media (max-width: 1050px) {
+    #introduction .introduction-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(370px, 0.85fr);
+        gap: 28px;
+    }
+
+    .automation-engine-stack {
+        width: min(450px, 94%);
+    }
+}
+
+@media (max-width: 900px) {
+    #introduction {
+        padding-top: 96px;
+        padding-bottom: 42px;
+    }
+
+    #introduction .introduction-layout {
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    .automation-engine-visual {
+        width: min(100%, 560px);
+        height: 400px;
+        min-height: 400px;
+        margin: 0 auto;
+    }
+}
 
 @media (max-width: 768px) {
     #introduction .introduction-content {
@@ -123,6 +783,11 @@
         line-height: 1.4;
         text-align: center;
     }
+
+    .automation-engine-visual {
+        height: 370px;
+        min-height: 370px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -132,6 +797,125 @@
 
     #introduction .description {
         font-size: clamp(0.9rem, 4.5vw, 1.25rem);
+    }
+
+    #introduction {
+        min-height: auto;
+        padding-top: 88px;
+        padding-bottom: 32px;
+    }
+
+    .automation-engine-visual {
+        height: 310px;
+        min-height: 310px;
+    }
+
+    .automation-engine-stack {
+        width: min(330px, 88vw);
+        height: 235px;
+    }
+
+    .automation-engine-blueprint {
+        transform: translate3d(-18px, -20px, -55px) rotateZ(-3deg);
+    }
+
+    .automation-engine-code {
+        transform: translate3d(-9px, -18px, -20px) rotateZ(-1.4deg);
+    }
+
+    .automation-engine-result {
+        transform: translate3d(8px, 10px, 28px);
+    }
+
+    .automation-engine-layer {
+        border-radius: 14px;
+    }
+
+    .automation-engine-code-header,
+    .automation-engine-result-header {
+        height: 42px;
+        padding: 0 12px;
+    }
+
+    .automation-engine-code-body {
+        padding: 16px;
+        font-size: 0.65rem;
+        line-height: 1.8;
+    }
+
+    .automation-engine-pipeline {
+        grid-template-columns: 1fr 14px 1fr 14px 1fr;
+        padding: 17px 11px 14px;
+    }
+
+    .automation-engine-pipeline-step {
+        height: 66px;
+        padding: 7px 6px;
+        border-radius: 8px;
+    }
+
+    .automation-engine-pipeline-step > span {
+        font-size: 0.43rem;
+    }
+
+    .automation-engine-pipeline-step strong {
+        font-size: 0.62rem;
+    }
+
+    .automation-engine-pipeline-step small {
+        font-size: 0.46rem;
+    }
+
+    .automation-engine-core-mark {
+        width: 46px;
+        height: 46px;
+    }
+
+    .automation-engine-core-mark::before {
+        inset: -5px;
+    }
+
+    .automation-engine-core-mark::after {
+        inset: -9px;
+    }
+
+    .automation-engine-core-mark span {
+        font-size: 0.52rem;
+    }
+
+    .automation-engine-pipeline-core strong {
+        margin-top: 8px;
+    }
+
+    .automation-engine-float {
+        padding: 8px 10px;
+    }
+
+    .automation-engine-float-design {
+        top: 0%;
+        right: 4%;
+    }
+
+    .automation-engine-float-code {
+        bottom: 0%;
+        left: 3%;
+    }
+
+    .automation-engine-impact {
+        margin: 0 11px;
+        padding-top: 11px;
+    }
+
+    .automation-engine-impact strong {
+        font-size: 1.5rem;
+    }
+
+    .automation-engine-impact div span {
+        font-size: 0.51rem;
+    }
+
+    .automation-engine-complete {
+        display: none;
     }
 
     /* Reduce animation complexity on small screens */
@@ -144,6 +928,57 @@
     }
 }
 
+@media (hover: none) {
+    .automation-engine-visual:hover .automation-engine-blueprint {
+        transform: translate3d(-48px, -48px, -100px) rotateZ(-3deg);
+        opacity: 0.72;
+    }
+
+    .automation-engine-visual:hover .automation-engine-code {
+        transform: translate3d(-24px, -22px, -38px) rotateZ(-1.4deg);
+    }
+
+    .automation-engine-visual:hover .automation-engine-result {
+        transform: translate3d(20px, 22px, 58px);
+    }
+}
+
+@media (hover: none) and (max-width: 480px) {
+    .automation-engine-visual:hover .automation-engine-blueprint {
+        transform: translate3d(-18px, -20px, -55px) rotateZ(-3deg);
+    }
+
+    .automation-engine-visual:hover .automation-engine-code {
+        transform: translate3d(-9px, -9px, -20px) rotateZ(-1.4deg);
+    }
+
+    .automation-engine-visual:hover .automation-engine-result {
+        transform: translate3d(8px, 10px, 28px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .automation-engine-aura,
+    .automation-engine-float,
+    .automation-engine-stack,
+    .automation-engine-result::after,
+    .automation-engine-live i,
+    .automation-engine-connector i,
+    .automation-engine-core-mark::before,
+    .automation-engine-core-mark::after,
+    .automation-engine-core-mark i {
+        animation: none;
+    }
+
+    .automation-engine-stack {
+        transform: translate(-50%, -50%) rotateX(var(--engine-rotate-x))
+            rotateY(var(--engine-rotate-y));
+    }
+
+    .automation-engine-layer {
+        transition: none;
+    }
+}
 
 #introduction .hero-ctas {
     display: flex;
@@ -196,7 +1031,6 @@
     #introduction .hero-ctas {
         justify-content: center;
     }
-
 }
 
 /* Scroll indicator */
@@ -214,11 +1048,11 @@
 }
 
 @keyframes bounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(8px);
     }
 }
-

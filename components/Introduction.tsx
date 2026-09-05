@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import AutomationEngine from "./AutomationEngine";
 
 interface IntroductionProps {
     className?: string;
@@ -29,39 +30,42 @@ const Introduction = ({ className = "", openContact, openWork }: IntroductionPro
 
     return (
         <div id="introduction" className={className}>
-            <div className={"introduction-content"}>
-                <div className="hero-intro">
-                    Hi, I&apos;m Yi Chong — solo full-stack engineer.
+            <div className="introduction-layout">
+                <div className="introduction-content">
+                    <div className="hero-intro">
+                        Hi, I&apos;m Yi Chong — solo full-stack engineer.
+                    </div>
+                    <div className="meet-him shine-text-one">
+                        {typedText}
+                        {showCursor && <span className="typing-cursor">|</span>}
+                    </div>
+                    <div className="description">
+                        If your team does it 10+ times a week &mdash; I build the
+                        system that replaces it.
+                    </div>
+                    <div className="hero-ctas">
+                        <button
+                            className="cta-primary"
+                            onClick={openContact}
+                        >
+                            Get In Touch
+                        </button>
+                        <button
+                            className="cta-secondary"
+                            onClick={() => {
+                                openWork();
+                                const el = document.getElementById("solar-system");
+                                if (el) el.scrollIntoView({ behavior: "smooth" });
+                            }}
+                        >
+                            See My Work ↓
+                        </button>
+                    </div>
+                    <div className="scroll-indicator" aria-hidden="true">
+                        <span className="scroll-arrow">↓</span>
+                    </div>
                 </div>
-                <div className="meet-him shine-text-one">
-                    {typedText}
-                    {showCursor && <span className="typing-cursor">|</span>}
-                </div>
-                <div className="description">
-                    If your team does it 10+ times a week &mdash; I build the
-                    system that replaces it.
-                </div>
-                <div className="hero-ctas">
-                    <button
-                        className="cta-primary"
-                        onClick={openContact}
-                    >
-                        Get In Touch
-                    </button>
-                    <button
-                        className="cta-secondary"
-                        onClick={() => {
-                            openWork();
-                            const el = document.getElementById("solar-system");
-                            if (el) el.scrollIntoView({ behavior: "smooth" });
-                        }}
-                    >
-                        See My Work ↓
-                    </button>
-                </div>
-                <div className="scroll-indicator" aria-hidden="true">
-                    <span className="scroll-arrow">↓</span>
-                </div>
+                <AutomationEngine />
             </div>
         </div>
     );
