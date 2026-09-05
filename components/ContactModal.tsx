@@ -13,11 +13,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
 
     useEffect(() => {
         if (!isOpen) {
-            setStatus("idle");
-            return;
+            const resetStatusTimer = window.setTimeout(() => setStatus("idle"), 0);
+            return () => window.clearTimeout(resetStatusTimer);
         }
-        const handleEsc = (e: KeyboardEvent) => {
-            if (e.key === "Escape") onClose();
+        const handleEsc = (event: KeyboardEvent): void => {
+            if (event.key === "Escape") onClose();
         };
         document.addEventListener("keydown", handleEsc);
         return () => document.removeEventListener("keydown", handleEsc);
@@ -30,10 +30,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         }
     }, [status, onClose]);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
+        event.preventDefault();
         setStatus("submitting");
-        const form = e.currentTarget;
+        const form = event.currentTarget;
         const data = new FormData(form);
 
         try {
