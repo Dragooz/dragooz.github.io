@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-const Introduction = ({ className = "", openContact }: { className?: string; openContact?: () => void }) => {
+interface IntroductionProps {
+    className?: string;
+    openContact?: () => void;
+    openWork: () => void;
+}
+
+const Introduction = ({ className = "", openContact, openWork }: IntroductionProps) => {
     const [typedText, setTypedText] = useState("");
     const [showCursor, setShowCursor] = useState(true);
     const fullText = "I build what you need.";
@@ -45,6 +51,7 @@ const Introduction = ({ className = "", openContact }: { className?: string; ope
                     <button
                         className="cta-secondary"
                         onClick={() => {
+                            openWork();
                             const el = document.getElementById("solar-system");
                             if (el) el.scrollIntoView({ behavior: "smooth" });
                         }}

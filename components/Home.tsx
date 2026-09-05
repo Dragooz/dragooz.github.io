@@ -37,7 +37,11 @@ const Home: React.FC<HomeProps> = ({ activeNode, setActiveNode, openContact }) =
             </Head>
 
             <div className="container">
-                <Introduction className={"content-margin container-content"} openContact={openContact} />
+                <Introduction
+                    className={"content-margin container-content"}
+                    openContact={openContact}
+                    openWork={() => setActiveNode("what")}
+                />
                 <TrustBar />
                 <SolarSystem activeNode={activeNode} setActiveNode={setActiveNode} />
                 <TechStack />

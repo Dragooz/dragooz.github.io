@@ -1,4 +1,5 @@
 import React from "react";
+import { BsOpenai } from "react-icons/bs";
 import {
     SiReact,
     SiNextdotjs,
@@ -9,7 +10,6 @@ import {
     SiPostgresql,
     SiDocker,
     SiGit,
-    SiOpenai,
     SiNodedotjs,
     SiFastapi,
     SiRailway,
@@ -49,7 +49,7 @@ const CATEGORIES = [
     {
         name: "AI & Data",
         icons: [
-            { icon: SiOpenai, name: "OpenAI", color: "#FFFFFF" },
+            { icon: BsOpenai, name: "OpenAI", color: "#FFFFFF" },
             { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
             { icon: SiRedis, name: "Redis", color: "#DC382D" },
             { icon: SiGit, name: "Git", color: "#F05032" },
