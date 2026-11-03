@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import AutomationEngine from "./AutomationEngine";
+import { WHATSAPP_CHAT_URL } from "./whatsappLink";
 
 interface IntroductionProps {
     className?: string;
-    openContact?: () => void;
-    openWork: () => void;
 }
 
-const Introduction = ({ className = "", openContact, openWork }: IntroductionProps) => {
+const Introduction = ({ className = "" }: IntroductionProps) => {
     const [typedText, setTypedText] = useState("");
     const [showCursor, setShowCursor] = useState(true);
-    const fullText = "I build what you need.";
+    const fullText = "You run the business. I run the tech.";
 
     // Typing animation effect
     useEffect(() => {
@@ -23,7 +23,7 @@ const Introduction = ({ className = "", openContact, openWork }: IntroductionPro
                 clearInterval(typingInterval);
                 setTimeout(() => setShowCursor(false), 500);
             }
-        }, 100);
+        }, 70);
 
         return () => clearInterval(typingInterval);
     }, []);
@@ -33,32 +33,33 @@ const Introduction = ({ className = "", openContact, openWork }: IntroductionPro
             <div className="introduction-layout">
                 <div className="introduction-content">
                     <div className="hero-intro">
-                        Hi, I&apos;m Yi Chong — solo full-stack engineer.
+                        Hi, I&apos;m Yi Chong. Engineer.
                     </div>
                     <div className="meet-him shine-text-one">
                         {typedText}
                         {showCursor && <span className="typing-cursor">|</span>}
                     </div>
                     <div className="description">
-                        If your team does it 10+ times a week &mdash; I build the
-                        system that replaces it.
+                        I know business and engineering. You get the result.
                     </div>
                     <div className="hero-ctas">
-                        <button
+                        <a
                             className="cta-primary"
-                            onClick={openContact}
+                            href={WHATSAPP_CHAT_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                         >
-                            Get In Touch
-                        </button>
+                            <FaWhatsapp aria-hidden="true" />
+                            WhatsApp me
+                        </a>
                         <button
                             className="cta-secondary"
                             onClick={() => {
-                                openWork();
-                                const el = document.getElementById("solar-system");
+                                const el = document.getElementById("how-i-work");
                                 if (el) el.scrollIntoView({ behavior: "smooth" });
                             }}
                         >
-                            See My Work ↓
+                            How it works ↓
                         </button>
                     </div>
                     <div className="scroll-indicator" aria-hidden="true">

@@ -23,6 +23,16 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
             <div className="ss-cases">
                 <div className="ss-case">
                     <div className="ss-case-header">
+                        <span className="ss-case-name">F&amp;B Order Automation</span>
+                        <span className="ss-case-anon">Anonymous client</span>
+                    </div>
+                    <p className="ss-case-built">
+                        Orders typed in by hand every night, now automated end to end. 80% less manual work.
+                    </p>
+                </div>
+
+                <div className="ss-case">
+                    <div className="ss-case-header">
                         <span className="ss-case-name">Pengrow</span>
                         <a
                             className="ss-case-link"
@@ -34,34 +44,7 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
                         </a>
                     </div>
                     <p className="ss-case-built">
-                        Multi-appraiser performance review platform. Django + React + PostgreSQL.
-                    </p>
-                </div>
-
-                <div className="ss-case">
-                    <div className="ss-case-header">
-                        <span className="ss-case-name">LLM CS Helper</span>
-                        <a
-                            className="ss-case-link"
-                            href="https://github.com/Dragooz/llm-highlighter"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            GitHub ↗
-                        </a>
-                    </div>
-                    <p className="ss-case-built">
-                        Browser extension that highlights relevant context for CS agents in real time.
-                    </p>
-                </div>
-
-                <div className="ss-case">
-                    <div className="ss-case-header">
-                        <span className="ss-case-name">F&amp;B Order Automation</span>
-                        <span className="ss-case-anon">Anonymous client</span>
-                    </div>
-                    <p className="ss-case-built">
-                        End-to-end order processing automation. 80% less manual work.
+                        Performance reviews with several reviewers per person, in one place instead of email and spreadsheets.
                     </p>
                 </div>
             </div>
@@ -111,7 +94,7 @@ const CONTENT: Record<NodeId, React.ReactNode> = {
                 <div className="ss-timeline-item">
                     <div className="ss-tl-dot" />
                     <div className="ss-tl-body">
-                        <div className="ss-tl-role">Consulting — Technology Strategy &amp; Transformation</div>
+                        <div className="ss-tl-role">Technology Analyst</div>
                         <div className="ss-tl-company">Deloitte</div>
                         <div className="ss-tl-period">2022</div>
                     </div>

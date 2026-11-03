@@ -52,7 +52,7 @@
 #introduction .meet-him {
     font-family: "JetBrains Mono", "Space Grotesk", monospace, sans-serif;
     font-weight: 700;
-    font-size: clamp(2rem, 4.5vw, 4.5rem);
+    font-size: clamp(1.5rem, 3vw, 3rem);
     background: linear-gradient(
         135deg,
         var(--primary),
@@ -770,7 +770,7 @@
     }
 
     #introduction .meet-him {
-        font-size: clamp(1.75rem, 7vw, 3rem);
+        font-size: clamp(1.4rem, 5.5vw, 2.25rem);
         margin-bottom: 8px;
     }
 
@@ -788,11 +788,15 @@
         height: 370px;
         min-height: 370px;
     }
+
+    .automation-engine-aura {
+        inset: 4% 0 0;
+    }
 }
 
 @media (max-width: 480px) {
     #introduction .meet-him {
-        font-size: clamp(1.75rem, 10vw, 2.5rem);
+        font-size: clamp(1.4rem, 7.5vw, 1.9rem);
     }
 
     #introduction .description {
@@ -988,6 +992,9 @@
 }
 
 #introduction .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 600;
     font-size: clamp(0.9rem, 1.5vw, 1.05rem);

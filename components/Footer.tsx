@@ -1,20 +1,30 @@
 import React from "react";
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import { WHATSAPP_CHAT_URL } from "./whatsappLink";
 
 const Footer: React.FC<{ openContact?: () => void }> = ({ openContact }) => {
     return (
         <footer className="site-footer">
             <div className="footer-cta">
                 <h3 className="footer-heading">
-                    Wasting hours on repetitive work?
+                    Got a problem worth fixing?
                 </h3>
-                <button
+                <a
                     className="footer-cta-button"
-                    onClick={openContact}
+                    href={WHATSAPP_CHAT_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
-                    Get In Touch
+                    <FaWhatsapp aria-hidden="true" />
+                    WhatsApp me
+                </a>
+                <button className="footer-form-link" onClick={openContact}>
+                    or send a message instead
                 </button>
             </div>
             <div className="footer-links">
+                <Link href="/blog">Writing</Link>
                 <a
                     href="https://github.com/Dragooz"
                     target="_blank"

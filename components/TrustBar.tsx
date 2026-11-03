@@ -5,24 +5,24 @@ const companies = [
     {
         name: "Deloitte",
         role: "Technology Analyst",
-        description:
-            "Big 4 consulting firm. Audit, consulting, tax & advisory services across 150+ countries with 450,000+ professionals worldwide.",
+        period: "2022",
+        description: "Technology strategy. How large companies decide.",
         logo: "/images/deloitte-logo-square.png",
-        industry: "Consulting",
+        industry: "Strategy",
     },
     {
         name: "Reluvate Technologies",
         role: "Full Stack Engineer",
-        description:
-            "Singapore-based AI consulting company. Builds bespoke AI systems and automation solutions to help businesses operate more efficiently.",
+        period: "2022 \u2013 2024",
+        description: "AI and automation systems for businesses.",
         logo: "/images/reluvate-logo.png",
         industry: "AI & Automation",
     },
     {
         name: "Swipey",
         role: "Full Stack Engineer",
-        description:
-            "Malaysian fintech startup. CFO-in-a-box platform with corporate cards, expense tracking, and automated accounts payable for SMEs.",
+        period: "2024 \u2013 present",
+        description: "Fintech. Cards, expenses and payables for SMEs.",
         logo: "/images/swipey-square-logo.png",
         industry: "Fintech",
     },
@@ -31,7 +31,8 @@ const companies = [
 const TrustBar: React.FC = () => {
     return (
         <div id="trust-bar">
-            <span className="trust-label">Previously worked with</span>
+            <span className="pitch-eyebrow">Background</span>
+            <h2 className="pitch-title trust-title">Business and engineering. Both.</h2>
             <div className="trust-cards">
                 {companies.map((company) => (
                     <div key={company.name} className="trust-card">
@@ -54,7 +55,7 @@ const TrustBar: React.FC = () => {
                                 </span>
                             </div>
                             <span className="trust-card-role">
-                                {company.role}
+                                {company.role} · {company.period}
                             </span>
                             <p className="trust-card-desc">
                                 {company.description}

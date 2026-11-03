@@ -21,7 +21,7 @@ export function useBetterMediaQuery(mediaQueryString: string): boolean | null {
 
 export default function Page() {
     const isMobile = useBetterMediaQuery("(max-width: 767px)");
-    const [activeNode, setActiveNode] = useState<NodeId | null>(null);
+    const [activeNode, setActiveNode] = useState<NodeId | null>("what");
     const [showContact, setShowContact] = useState(false);
     const openContact = useCallback(() => setShowContact(true), []);
 

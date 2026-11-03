@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { WHATSAPP_CHAT_URL } from "./whatsappLink";
 
 const FORMSPREE_ID = "mjgzodro";
 
@@ -68,7 +69,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 </button>
                 <h3 className="contact-title">Get In Touch</h3>
                 <p className="contact-subtitle">
-                    Tell me about your project. I&apos;ll get back to you within 24 hours.
+                    Tell me the problem. I reply within one business day.
+                    Prefer WhatsApp?{" "}
+                    <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noopener noreferrer">
+                        Message me there
+                    </a>
+                    .
                 </p>
 
                 {status === "success" ? (
@@ -91,7 +97,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                         />
                         <textarea
                             name="message"
-                            placeholder="What do you need built?"
+                            placeholder="What is the problem?"
                             required
                             rows={4}
                             className="contact-input contact-textarea"

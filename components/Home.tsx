@@ -1,7 +1,10 @@
 import React from "react";
 import Introduction from "./Introduction";
 import TrustBar from "./TrustBar";
-import TechStack from "./TechStack";
+import PainPoints from "./PainPoints";
+import BuildExamples from "./BuildExamples";
+import HowIWork from "./HowIWork";
+import FoundingOffer from "./FoundingOffer";
 import SolarSystem from "./SolarSystem";
 import type { NodeId } from "./SolarSystem";
 import Footer from "./Footer";
@@ -17,10 +20,10 @@ const Home: React.FC<HomeProps> = ({ activeNode, setActiveNode, openContact }) =
     return (
         <>
             <Head>
-                <title>I build what you need</title>
+                <title>Yi Chong | Engineer for business owners</title>
                 <meta
                     name="description"
-                    content="Solo full-stack engineer. I automate the boring, build the complex, and ship fast. Available for freelance and SME projects."
+                    content="Engineer for business owners. I know business and engineering. Free diagnosis, fixed price, pay only if it worked."
                 />
                 <link
                     rel="icon"
@@ -37,14 +40,14 @@ const Home: React.FC<HomeProps> = ({ activeNode, setActiveNode, openContact }) =
             </Head>
 
             <div className="container">
-                <Introduction
-                    className={"content-margin container-content"}
-                    openContact={openContact}
-                    openWork={() => setActiveNode("what")}
-                />
+                <Introduction className={"content-margin container-content"} />
                 <TrustBar />
+                <PainPoints />
+                <BuildExamples />
+                <HowIWork />
+                <FoundingOffer />
+                <span className="pitch-eyebrow more-about-me">More about me</span>
                 <SolarSystem activeNode={activeNode} setActiveNode={setActiveNode} />
-                <TechStack />
                 <Footer openContact={openContact} />
             </div>
         </>

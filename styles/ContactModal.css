@@ -71,6 +71,12 @@
     line-height: 1.5;
 }
 
+.contact-subtitle a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
