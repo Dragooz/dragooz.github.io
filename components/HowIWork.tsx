@@ -24,16 +24,8 @@ const WORK_STEPS: WorkStep[] = [
         number: "03",
         title: "Stay",
         description: "Optional. I\u2019m your tech department. Message me, I handle it. Four hours a month.",
-        price: "From RM 1,500 / month, only if you want it",
+        price: "Sized to your business, only if you want it",
     },
-];
-
-const WONT_DO: string[] = [
-    "Waste your time.",
-    "Build big when small works.",
-    "Charge by the hour or pad the scope.",
-    "Make your staff learn a tool they\u2019ll hate.",
-    "Say it works when it doesn\u2019t.",
 ];
 
 const HowIWork: React.FC = () => (
@@ -54,17 +46,6 @@ const HowIWork: React.FC = () => (
                 </li>
             ))}
         </ol>
-        <div className="wont-do">
-            <span className="eyebrow eyebrow-muted">What I won’t do</span>
-            <ul className="wont-do-list">
-                {WONT_DO.map((item) => (
-                    <li key={item}>{item}</li>
-                ))}
-            </ul>
-            <p className="section-closing">
-                Lying makes me uncomfortable. If it’s not worth your money, <strong>I’ll say so.</strong>
-            </p>
-        </div>
     </section>
 );
 

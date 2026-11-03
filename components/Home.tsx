@@ -5,6 +5,8 @@ import SoundFamiliar from "./SoundFamiliar";
 import WhatItTakes from "./WhatItTakes";
 import BuildExamples from "./BuildExamples";
 import HowIWork from "./HowIWork";
+import Proof from "./Proof";
+import WontDo from "./WontDo";
 import MidCta from "./MidCta";
 import AboutMe from "./AboutMe";
 import FoundingOffer from "./FoundingOffer";
@@ -29,6 +31,8 @@ const Home: React.FC = () => (
             <MidCta />
             <BuildExamples />
             <HowIWork />
+            <WontDo />
+            <Proof />
             <FoundingOffer />
             <Footer />
         </main>

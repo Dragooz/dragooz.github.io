@@ -226,18 +226,27 @@
     font-size: 0.9rem;
 }
 
-.wont-do {
+/* Won't do */
+.wontdo-lines {
+    list-style: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding-top: 8px;
 }
 
-.wont-do-list {
-    padding-left: 20px;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
+.wontdo-lines li {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.wontdo-closing {
+    padding: 18px 20px;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+    font-size: 1.05rem;
 }
 
 /* Me */
@@ -296,6 +305,42 @@
     color: var(--text-secondary);
 }
 
+/* Proof */
+.proof-lines {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.proof-lines li {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.proof-link {
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.testimonials {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    font-size: 0.95rem;
+}
+
 /* Founding offer */
 .offer-card {
     display: flex;
@@ -306,46 +351,80 @@
     background: var(--accent-soft);
 }
 
+.offer-line {
+    color: var(--text-secondary);
+    margin-top: -6px;
+}
+
 .offer-terms {
     padding-left: 20px;
     line-height: 1.75;
     font-size: 0.95rem;
 }
 
-/* Footer */
-.footer {
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-    padding: 56px 0 32px;
-    border-top: 1px solid var(--border);
-}
-
+/* Shared by MidCta and the footer ask */
 .cta-row {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.footer-links {
+/* Footer: the last ask gets room; the bar below stays quiet. */
+.footer {
     display: flex;
-    gap: 20px;
-    font-size: 0.85rem;
+    flex-direction: column;
 }
 
-.footer-links a {
+.footer-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 72px 0 64px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 28px 0 40px;
+    border-top: 1px solid var(--border);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand .navbar-logo {
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nav a {
     color: var(--text-secondary);
     text-decoration: none;
 }
 
-.footer-links a:hover {
+.footer-nav a:hover {
     color: var(--accent);
 }
 
-.footer-tagline {
-    margin-left: auto;
-    color: var(--text-secondary);
-    opacity: 0.6;
+.footer-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: 0.7;
 }
 
 @media (min-width: 768px) {
@@ -397,5 +476,20 @@
         align-items: flex-end;
         justify-content: space-between;
         gap: 32px;
+    }
+
+    .footer-cta {
+        padding: 112px 0 96px;
+    }
+
+    .footer-bar {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: start;
+        gap: 48px;
+    }
+
+    .footer-meta {
+        text-align: right;
     }
 }
