@@ -4,10 +4,9 @@ import Link from "next/link";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { FaWhatsapp } from "react-icons/fa";
 import { getAllBlogPostSlugs, getBlogPostBySlug, type BlogPost } from "../../lib/blogPosts";
 import { SITE_URL } from "../../lib/siteUrl";
-import { WHATSAPP_CHAT_URL } from "../../components/whatsappLink";
+import TalkButton from "../../components/TalkButton";
 
 interface BlogPostPageProps {
     post: BlogPost;
@@ -93,19 +92,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                             </div>
                         ))}
                     </section>
-                    <aside className="blog-cta">
-                        <p className="blog-cta-text">
-                            Got a problem like this? Free diagnosis. Pay only if it worked.
-                        </p>
-                        <a
-                            className="whatsapp-cta"
-                            href={WHATSAPP_CHAT_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <FaWhatsapp aria-hidden="true" />
-                            WhatsApp me
-                        </a>
+                    <aside className="blog-cta card">
+                        <p>Got a problem like this? Free diagnosis. Pay only if it worked.</p>
+                        <TalkButton />
                         <Link href="/#founding-offer" className="blog-cta-secondary">
                             See the founding offer
                         </Link>

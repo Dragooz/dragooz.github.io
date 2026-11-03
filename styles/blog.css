@@ -1,0 +1,161 @@
+/* Blog: pages/blog/index.tsx and pages/blog/[slug].tsx */
+
+.blog-page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px var(--gutter) 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.blog-home-link {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.blog-home-link:hover {
+    color: var(--accent);
+}
+
+.blog-page-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+}
+
+.blog-page-intro {
+    color: var(--text-secondary);
+}
+
+.blog-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blog-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px;
+}
+
+.blog-list-title {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-decoration: none;
+}
+
+.blog-list-title:hover {
+    color: var(--accent);
+}
+
+.blog-list-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.blog-list-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.blog-article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.blog-article-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+}
+
+.blog-article-byline {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.blog-article-body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.blog-article-body h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    margin: 36px 0 12px;
+}
+
+.blog-article-body h3 {
+    font-size: 1.15rem;
+    margin: 24px 0 8px;
+}
+
+.blog-article-body p,
+.blog-article-body ul,
+.blog-article-body ol,
+.blog-article-body table,
+.blog-article-body blockquote {
+    margin: 0 0 16px;
+}
+
+.blog-article-body ul,
+.blog-article-body ol {
+    padding-left: 24px;
+}
+
+.blog-article-body blockquote {
+    padding-left: 16px;
+    border-left: 2px solid var(--accent);
+    color: var(--text-secondary);
+}
+
+.blog-article-body table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95rem;
+}
+
+.blog-article-body th,
+.blog-article-body td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.blog-article-body a {
+    color: var(--accent);
+}
+
+.blog-faq {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.blog-faq h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+}
+
+.blog-faq-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+}
+
+.blog-faq-item p {
+    color: var(--text-secondary);
+}
+
+.blog-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+.blog-cta-secondary {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}

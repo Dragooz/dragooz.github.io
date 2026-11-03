@@ -1,211 +1,173 @@
-/* general */
-@import "./Navbar.css"; /* Import Navbar styles */
-@import "./Introduction.css";
-@import "./TrustBar.css";
-@import "./TechStack.css";
-@import "./SolarSystem.css";
-@import "./Pitch.css";
-@import "./Blog.css";
-@import "./Footer.css";
+@import "./home.css";
+@import "./blog.css";
 @import "./scrollbar.css";
-@import "./MenuDrawer.css";
-@import "./ContactModal.css";
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap");
 
 :root {
-    --white: #ffffff;
     --background: #000000;
-    --background-secondary: #0a0a0a;
-    --text-primary: #C9D1D9;
-    --text-secondary: #8B949E;
-
-    /* Professional Developer Palette - Inspired by VS Code & GitHub */
-    --primary: #58A6FF;
-    --primary-light: #79C0FF;
-    --primary-dark: #1F6FEB;
-
-    --secondary: #F85149;
-    --secondary-light: #FF7B72;
-    --secondary-dark: #DA3633;
-
-    --accent: #56D364;
-    --accent-light: #7EE787;
-    --accent-dark: #3FB950;
-
-    --code-purple: #D2A8FF;
-    --code-yellow: #E3B341;
-    --code-cyan: #76E3EA;
-
-    /* Legacy support */
-    --super-light-purple: #79C0FF;
-    --light-purple: #58A6FF;
-    --medium-purple: #58A6FF;
-    --purple: #58A6FF;
-    --deep-purple: #1F6FEB;
-    --blue: #58A6FF;
-    --red: #F85149;
-    --light-yellow: #56D364;
+    --surface: #0b0d10;
+    --border: rgba(255, 255, 255, 0.08);
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    /* Cyan from the YC monogram (mean #c2fdfd), deepened for text contrast. */
+    --accent: #72e4f2;
+    --accent-soft: rgba(114, 228, 242, 0.06);
+    --accent-line: rgba(114, 228, 242, 0.35);
+    --broken: #f85149;
+    --max-width: 880px;
+    --gutter: 16px;
 }
 
-body {
-    background-color: var(--background);
-    background-image:
-        linear-gradient(rgba(88, 166, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88, 166, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    background-position: -1px -1px;
-    margin: 0px;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: var(--text-primary);
-    font-weight: 400;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Typography Hierarchy */
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin: 0;
-}
-
-h1 {
-    font-size: clamp(3rem, 8vw, 7rem);
-}
-
-h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-}
-
-h3 {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-}
-
-code, pre {
-    font-family: "JetBrains Mono", monospace;
-}
-
-/* Mouse */
-
-#mouse-follower {
-    position: fixed;
-    pointer-events: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    left: 0;
-    top: 0px;
-    transform: translate(110vw, 110vh);
-    opacity: 0;
-    background: radial-gradient(circle, rgba(88, 166, 255, 0.15), rgba(86, 211, 100, 0.1));
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 20px rgba(88, 166, 255, 0.4),
-                0 0 30px rgba(86, 211, 100, 0.2);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: width 0.2s ease, height 0.2s ease, background 0.3s ease;
-}
-
-/* Logo */
-.logo {
-    background-image: url("/images/yc-logo.png");
-    width: 30px;
-    height: 30px;
-    z-index: 9999;
-    background-size: cover;
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     overflow-x: hidden;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    touch-action: pan-y;
     scroll-behavior: smooth;
 }
 
-* {
-    -webkit-tap-highlight-color: transparent;
+body {
+    margin: 0;
+    background-color: var(--background);
+    background-image:
+        linear-gradient(rgba(114, 228, 242, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(114, 228, 242, 0.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    color: var(--text-primary);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Home */
-.container {
-    min-height: 100vh;
-    width: 100vw;
-    max-width: 100%;
-    position: relative;
-    z-index: 1;
+h1, h2, h3 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
-.container-content {
-    height: 100vh;
+p, ul, ol, dl {
+    margin: 0;
 }
 
-.content {
+a {
+    color: inherit;
+}
+
+strong {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+/* Small mono section marker. Titles must read without it. */
+.eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.eyebrow-muted {
+    color: var(--text-secondary);
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+/* The one action: opens WhatsApp. */
+.talk-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 12px 20px;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #000000;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.talk-button:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+}
+
+.talk-button-small {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 12px var(--gutter);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
 }
 
-.content-margin {
-    margin-left: 4rem;
-    margin-right: 4rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+.navbar-logo {
+    display: block;
+    width: 28px;
+    height: 28px;
+    background: url("/images/yc-logo.png") center / cover no-repeat;
 }
 
-
-@media (max-width: 768px) {
-    body {
-        background-size: 30px 30px;
-    }
-
-    .content-margin {
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-
-    /* Better typography scaling on mobile */
-    h1 {
-        font-size: clamp(2rem, 10vw, 4rem);
-        line-height: 1.1;
-    }
-
-    h2 {
-        font-size: clamp(1.5rem, 6vw, 2.5rem);
-    }
-
-    h3 {
-        font-size: clamp(1.25rem, 4vw, 2rem);
-    }
-
-    /* Reduce navbar height on mobile */
+@media (min-width: 768px) {
     .navbar {
-        padding: 8px 0;
-    }
-
-    /* Optimize scrollbar for mobile */
-    ::-webkit-scrollbar {
-        width: 8px;
+        padding: 12px 32px;
     }
 }
 
-/* Extra small devices optimization */
-@media (max-width: 480px) {
-    body {
-        background-size: 20px 20px;
-    }
+/* Cursor ring, see components/MouseFollower.tsx */
+.mouse-follower {
+    position: fixed;
+    top: -18px;
+    left: -18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-line);
+    background: rgba(0, 0, 0, 0.55);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    will-change: transform;
+}
 
-    .content-margin {
-        margin-left: 1rem;
-        margin-right: 1rem;
-    }
-
-    h1 {
-        font-size: clamp(1.75rem, 12vw, 3rem);
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+    .mouse-follower {
+        display: none;
     }
 }

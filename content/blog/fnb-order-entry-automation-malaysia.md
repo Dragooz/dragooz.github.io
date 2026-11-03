@@ -1,4 +1,6 @@
 ---
+# TODO: DRAFT. Every [FILL: ...] below is a fact only YiChong knows. Replace or delete each one.
+# Do not publish with placeholders in. The 80% figure and the shape of the problem are real.
 title: "How I cut 80% of manual order entry for a Malaysian F&B business without building an app"
 description: "Orders came in over WhatsApp and phone and staff retyped every one by hand each night. Here is what I changed, what it cost, and what moved."
 publishedAt: "2026-11-03"
@@ -7,18 +9,12 @@ faq:
   - question: "Do I need to build an app to automate WhatsApp orders?"
     answer: "Usually not. In this case the staff kept using WhatsApp exactly as before. The automation sat behind it and did the retyping. An app your staff must learn is the most common reason an automation project fails."
   - question: "How much does something like this cost in Malaysia?"
-    answer: "A fix of this size is capped at two weeks of my time. For founding clients in 2026 it is RM 1,000, paid after 30 days only if the number we agreed on moved. Normal rate starts from RM 4,000."
+    answer: "A fix of this size is capped at two weeks of my time, at a fixed price sized to the business. Founding clients in 2026 pay after 30 days, and only if the number we agreed on moved."
   - question: "What if my orders also come by phone, not only WhatsApp?"
     answer: "Phone orders still need a human to take them. The fix is to make the one place that human types into feed everything else, so the order is typed once, not three times."
   - question: "How do I know what to automate first?"
     answer: "Count the tasks someone does more than ten times a week by hand. The one that touches money or customers goes first. I do this count for you in a free half-day diagnosis."
 ---
-
-<!--
-DRAFT WITH PLACEHOLDERS. Every [FILL: ...] is a fact only YiChong knows.
-Replace each one with the real detail or delete the sentence. Do not publish with placeholders in.
-The 80% figure and the shape of the problem are from the existing case; everything else is scaffold.
--->
 
 **Short answer:** the business was retyping every WhatsApp and phone order into a spreadsheet by hand, every night. I put a small automation behind the WhatsApp number they already used, so orders landed in the system without anyone typing them twice. Manual order entry dropped by 80%. No new app, no training day, and the staff kept working the way they already did.
 

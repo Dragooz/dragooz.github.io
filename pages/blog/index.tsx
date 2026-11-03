@@ -38,7 +38,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
                 </p>
                 <ul className="blog-list">
                     {posts.map((post) => (
-                        <li key={post.slug} className="blog-list-item">
+                        <li key={post.slug} className="blog-list-item card">
                             <Link href={`/blog/${post.slug}`} className="blog-list-title">
                                 {post.title}
                             </Link>

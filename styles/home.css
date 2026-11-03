@@ -1,0 +1,401 @@
+/* Home page: Hero, SoundFamiliar, WhatItTakes, BuildExamples, HowIWork, Background, FoundingOffer, Footer */
+
+.page {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 48px 0;
+    border-top: 1px solid var(--border);
+}
+
+.section-title {
+    font-size: clamp(1.6rem, 4.2vw, 2.6rem);
+    max-width: 720px;
+}
+
+.section-closing {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 72px 0 56px;
+}
+
+.hero-kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    min-height: 1.4em;
+}
+
+.hero-prompt {
+    color: var(--accent);
+}
+
+.hero-caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    margin-left: 2px;
+    vertical-align: -0.15em;
+    background: var(--accent);
+    animation: caret-blink 1s step-end infinite;
+}
+
+@keyframes caret-blink {
+    50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-caret { animation: none; }
+}
+
+.hero-title {
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    max-width: 760px;
+}
+
+.hero-line {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+}
+
+/* Sound familiar: two columns of bold lead + coloured tail */
+.pain-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.pain-column {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px 4px;
+}
+
+.pain-lines {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.pain-lines li {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tail-broken {
+    color: var(--broken);
+}
+
+.tail-muted {
+    color: var(--text-secondary);
+}
+
+/* What it takes: three boxes joined by plus signs */
+.takes-strip {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.takes-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.takes-box h3 {
+    font-size: 1.15rem;
+}
+
+.takes-box p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.takes-box-me {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+}
+
+.takes-box-me .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.takes-plus {
+    align-self: center;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+}
+
+/* Build examples */
+.example-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.example-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+.example-card h3 {
+    font-size: 1.1rem;
+}
+
+.example-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.example-body dt {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.example-body dd {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+}
+
+/* How I work */
+.steps {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 16px;
+    padding: 18px 20px;
+}
+
+.step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.step h3 {
+    font-size: 1.1rem;
+}
+
+.step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.step-price {
+    grid-column: 2;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.wont-do {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 8px;
+}
+
+.wont-do-list {
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Me */
+.about {
+    position: relative;
+    overflow: hidden;
+}
+
+.about-monogram {
+    position: absolute;
+    right: -40px;
+    top: 24px;
+    width: 220px;
+    height: auto;
+    opacity: 0.06;
+    pointer-events: none;
+}
+
+.about-lines {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.95rem;
+    max-width: 560px;
+}
+
+.employers {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.employer {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border);
+}
+
+.employer-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.95rem;
+}
+
+.employer-role {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.employer-body p {
+    color: var(--text-secondary);
+}
+
+/* Founding offer */
+.offer-card {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px 24px;
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+}
+
+.offer-terms {
+    padding-left: 20px;
+    line-height: 1.75;
+    font-size: 0.95rem;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 56px 0 32px;
+    border-top: 1px solid var(--border);
+}
+
+.cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 0.85rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-tagline {
+    margin-left: auto;
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 64px 0;
+        gap: 24px;
+    }
+
+    .hero {
+        padding: 112px 0 80px;
+    }
+
+    .pain-columns,
+    .example-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .takes-strip {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .takes-plus {
+        padding: 0 4px;
+    }
+
+    .step {
+        grid-template-columns: auto 1fr auto;
+        align-items: start;
+    }
+
+    .step-price {
+        grid-column: 3;
+        white-space: nowrap;
+    }
+
+    .offer-card {
+        padding: 36px;
+    }
+
+    .about-monogram {
+        width: 320px;
+        right: -60px;
+        top: 0;
+    }
+
+    .cta-row {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+    }
+}
