@@ -37,7 +37,7 @@ const SoundFamiliar: React.FC = () => (
     <section className="section">
         <span className="eyebrow">Sound familiar?</span>
         <h2 className="section-title">
-            You don’t need more tools. You need them to <span className="accent">fit your business.</span>
+            You don’t need more tools. You need them to fit your business.
         </h2>
         <div className="pain-columns">
             <PainColumn label="You tried it yourself" lines={TRIED_IT_YOURSELF} tailClassName="tail-broken" />

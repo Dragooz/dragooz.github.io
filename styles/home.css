@@ -1,4 +1,6 @@
-/* Home page: Hero, SoundFamiliar, WhatItTakes, BuildExamples, HowIWork, Background, FoundingOffer, Footer */
+/* Home page: Hero, SoundFamiliar, WhatItTakes, HowIWork, Proof, FoundingOffer, Footer.
+   Three volumes: loud = hero + offer; medium = sound familiar + the strip; quiet = the rest.
+   Boxes only where they earn it: the two pain columns, the strip, the offer card. */
 
 .page {
     max-width: var(--max-width);
@@ -9,14 +11,14 @@
 .section {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 18px;
     padding: 48px 0;
     border-top: 1px solid var(--border);
 }
 
 .section-title {
-    font-size: clamp(1.6rem, 4.2vw, 2.6rem);
-    max-width: 720px;
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    max-width: 640px;
 }
 
 .section-closing {
@@ -24,12 +26,38 @@
     font-size: 1rem;
 }
 
-/* Hero */
+/* Reveal: hidden only once JS has marked the body, so no-JS never hides anything. */
+.reveal-ready .section,
+.reveal-ready .footer {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal-ready .section.is-visible,
+.reveal-ready .footer.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Hero: the loud one */
 .hero {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 72px 0 56px;
+    padding: 64px 0 48px;
+}
+
+.hero-monogram {
+    position: absolute;
+    right: -60px;
+    top: 0;
+    width: 260px;
+    height: auto;
+    opacity: 0.05;
+    pointer-events: none;
 }
 
 .hero-kicker {
@@ -57,21 +85,30 @@
     50% { opacity: 0; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .hero-caret { animation: none; }
-}
-
 .hero-title {
-    font-size: clamp(2rem, 6vw, 3.6rem);
-    max-width: 760px;
+    font-size: clamp(2.3rem, 7vw, 4.4rem);
+    max-width: 820px;
+    letter-spacing: -0.03em;
 }
 
 .hero-line {
     color: var(--text-secondary);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
 }
 
-/* Sound familiar: two columns of bold lead + coloured tail */
+.hero-facts {
+    list-style: none;
+    padding: 20px 0 0;
+    margin-top: 12px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px 32px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Sound familiar: two boxed columns of bold lead + coloured tail */
 .pain-columns {
     display: grid;
     grid-template-columns: 1fr;
@@ -106,7 +143,7 @@
     color: var(--text-secondary);
 }
 
-/* What it takes: three boxes joined by plus signs */
+/* What it takes: three boxes joined by plus signs. The strip is the centrepiece. */
 .takes-strip {
     display: flex;
     flex-direction: column;
@@ -119,19 +156,19 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 18px 20px;
+    padding: 20px 22px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
 }
 
 .takes-box h3 {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
 }
 
 .takes-box p {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
 .takes-box-me {
@@ -151,22 +188,134 @@
     font-size: 1.2rem;
 }
 
-/* Build examples */
-.example-grid {
+/* How it works: three equal steps in a row (desktop), then the won't-do list under its own heading. */
+.steps {
+    list-style: none;
+    padding: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 0;
 }
 
-.example-card {
+.step {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+}
+
+.step-number {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+}
+
+.step h3 {
+    font-size: 1.15rem;
+}
+
+.step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.step-price {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+.wontdo {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    padding: 20px;
+    margin-top: 24px;
 }
 
-.example-card h3 {
-    font-size: 1.1rem;
+.wontdo-title {
+    font-size: 1.15rem;
+}
+
+.wontdo-lines {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 40px;
+}
+
+.wontdo-lines li {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.wontdo-closing {
+    padding: 16px 18px;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-soft);
+    border-radius: 0 8px 8px 0;
+    font-size: 1rem;
+    max-width: 640px;
+}
+
+/* Proof: one big number, then rows */
+.proof-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+.proof-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.proof-stat-number {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: clamp(4.5rem, 14vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+}
+
+.proof-stat-caption {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 320px;
+}
+
+.proof-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.proof-lines,
+.example-lines {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.proof-lines li,
+.example-lines li {
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.example-lines h3 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
 }
 
 .example-body {
@@ -184,116 +333,7 @@
 }
 
 .example-body dd {
-    margin: 0 0 10px;
-    font-size: 0.95rem;
-}
-
-/* How I work */
-.steps {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.step {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 4px 16px;
-    padding: 18px 20px;
-}
-
-.step-body {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.step h3 {
-    font-size: 1.1rem;
-}
-
-.step p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
-.step-price {
-    grid-column: 2;
-    color: var(--accent);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-/* Won't do */
-.wontdo-lines {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.wontdo-lines li {
-    padding: 14px 0;
-    border-top: 1px solid var(--border);
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.wontdo-closing {
-    padding: 18px 20px;
-    border-left: 3px solid var(--accent);
-    background: var(--accent-soft);
-    border-radius: 0 8px 8px 0;
-    font-size: 1.05rem;
-}
-
-/* Me */
-.about {
-    position: relative;
-    overflow: hidden;
-}
-
-.about-monogram {
-    position: absolute;
-    right: -40px;
-    top: 24px;
-    width: 220px;
-    height: auto;
-    opacity: 0.06;
-    pointer-events: none;
-}
-
-.about-lines {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 0.95rem;
-    max-width: 560px;
-}
-
-/* Proof */
-.proof-lines {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.proof-lines li {
-    padding: 14px 0;
-    border-top: 1px solid var(--border);
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-.proof-link {
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
+    margin: 0 0 8px;
 }
 
 .testimonials {
@@ -311,7 +351,7 @@
     font-size: 0.95rem;
 }
 
-/* Founding offer */
+/* Founding offer: the other loud one */
 .offer-card {
     display: flex;
     flex-direction: column;
@@ -319,6 +359,10 @@
     padding: 28px 24px;
     border-color: var(--accent-line);
     background: var(--accent-soft);
+}
+
+.offer-card .section-title {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
 }
 
 .offer-line {
@@ -332,13 +376,6 @@
     font-size: 0.95rem;
 }
 
-/* Shared by MidCta and the footer ask */
-.cta-row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 /* Footer: the last ask gets room; the bar below stays quiet. */
 .footer {
     display: flex;
@@ -349,8 +386,12 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    padding: 72px 0 64px;
+    padding: 64px 0 56px;
     border-top: 1px solid var(--border);
+}
+
+.footer-cta .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
 }
 
 .footer-bar {
@@ -397,55 +438,64 @@
     opacity: 0.7;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .hero-caret { animation: none; }
+}
+
 @media (min-width: 768px) {
     .section {
-        padding: 64px 0;
-        gap: 24px;
+        padding: 72px 0;
+        gap: 22px;
     }
 
     .hero {
-        padding: 112px 0 80px;
+        padding: 120px 0 72px;
     }
 
-    .pain-columns,
-    .example-grid {
+    .hero-monogram {
+        width: 360px;
+        right: -80px;
+        top: 40px;
+    }
+
+    .hero-facts {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 24px;
+    }
+
+    .pain-columns {
         grid-template-columns: 1fr 1fr;
     }
 
     .takes-strip {
         flex-direction: row;
-        align-items: stretch;
     }
 
     .takes-plus {
         padding: 0 4px;
     }
 
+    .steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0 32px;
+    }
+
     .step {
-        grid-template-columns: auto 1fr auto;
+        padding: 20px 0 8px;
+    }
+
+    .wontdo-lines {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .proof-grid {
+        grid-template-columns: 2fr 3fr;
+        gap: 48px;
         align-items: start;
     }
 
-    .step-price {
-        grid-column: 3;
-        white-space: nowrap;
-    }
-
     .offer-card {
-        padding: 36px;
-    }
-
-    .about-monogram {
-        width: 320px;
-        right: -60px;
-        top: 0;
-    }
-
-    .cta-row {
-        flex-direction: row;
-        align-items: flex-end;
-        justify-content: space-between;
-        gap: 32px;
+        padding: 40px;
     }
 
     .footer-cta {

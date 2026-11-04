@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import TalkButton from "./TalkButton";
 
 const KICKER_TEXT = "hi, i'm yi chong. engineer.";
 const TYPING_MS_PER_CHAR = 45;
+
+// Facts an owner can check. Character lives in the won't-do list, not here.
+const HERO_FACTS: string[] = [
+    "Full-stack engineer, Malaysian fintech. 2024 to present.",
+    "Before that: AI consultancy, Big Four strategy.",
+    "AI graduate, University Malaya.",
+    "Last automation shipped: 80% less manual work.",
+];
 
 // Terminal-style kicker, typed once on load. Reduced motion shows it whole.
 const TypedKicker: React.FC = () => {
@@ -36,12 +45,18 @@ const TypedKicker: React.FC = () => {
 
 const Hero: React.FC = () => (
     <section className="hero">
+        <Image src="/images/yc-logo.png" alt="" width={497} height={438} className="hero-monogram" aria-hidden="true" />
         <TypedKicker />
         <h1 className="hero-title">
             Tired of tech? <span className="accent">Hand it to someone who isn’t.</span>
         </h1>
         <p className="hero-line">Free diagnosis. One fixed price. Pay only if it worked.</p>
         <TalkButton />
+        <ul className="hero-facts">
+            {HERO_FACTS.map((fact) => (
+                <li key={fact}>{fact}</li>
+            ))}
+        </ul>
     </section>
 );
 

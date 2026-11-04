@@ -7,7 +7,7 @@ const Footer: React.FC = () => (
     <footer className="footer">
         <div className="footer-cta">
             <h2 className="section-title">
-                Got a problem <span className="accent">worth fixing?</span>
+                Got a problem worth fixing?
             </h2>
             <p className="tail-muted">One message. I reply within a business day.</p>
             <TalkButton />
