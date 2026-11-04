@@ -38,9 +38,9 @@ const Hero: React.FC = () => (
     <section className="hero">
         <TypedKicker />
         <h1 className="hero-title">
-            You run the business. <span className="accent">I make it run smoother.</span>
+            Tired of tech? <span className="accent">Hand it to someone who isn’t.</span>
         </h1>
-        <p className="hero-line">No tech to learn. No tools to babysit.</p>
+        <p className="hero-line">Free diagnosis. One fixed price. Pay only if it worked.</p>
         <TalkButton />
     </section>
 );

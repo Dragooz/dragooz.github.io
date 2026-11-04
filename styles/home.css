@@ -275,36 +275,6 @@
     max-width: 560px;
 }
 
-.employers {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.employer {
-    display: flex;
-    gap: 16px;
-    padding: 16px 0;
-    border-top: 1px solid var(--border);
-}
-
-.employer-body {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    font-size: 0.95rem;
-}
-
-.employer-role {
-    color: var(--text-secondary);
-    font-size: 0.85rem;
-}
-
-.employer-body p {
-    color: var(--text-secondary);
-}
-
 /* Proof */
 .proof-lines {
     list-style: none;

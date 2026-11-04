@@ -9,7 +9,7 @@ const Footer: React.FC = () => (
             <h2 className="section-title">
                 Got a problem <span className="accent">worth fixing?</span>
             </h2>
-            <p className="tail-muted">Free diagnosis. Pay only if it worked.</p>
+            <p className="tail-muted">One message. I reply within a business day.</p>
             <TalkButton />
         </div>
         <div className="footer-bar">
