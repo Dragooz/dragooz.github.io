@@ -18,7 +18,7 @@ const Footer: React.FC = () => (
                 <span>Yi Chong · Engineer for business owners</span>
             </div>
             <nav className="footer-nav" aria-label="Footer">
-                <Link href="/blog">Writing</Link>
+                <a href="https://medium.com/@ycgoh99" target="_blank" rel="noopener noreferrer">Writing</a>
                 <a href="https://github.com/Dragooz" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/yi-chong-yc-9803901a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
