@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter, type NextRouter } from "next/router";
 import type { GetStaticProps } from "next";
 import { getAllBlogPosts, type BlogPost, type BlogPostTopic } from "../../lib/blogPosts";
 
@@ -15,6 +16,17 @@ const TOPIC_FILTERS: { filter: TopicFilter; label: string }[] = [
     { filter: "business", label: "Business" },
     { filter: "technical", label: "Technical" },
 ];
+
+// The URL is the only place the filter lives, so /blog?topic=technical can be shared.
+function readTopicFilter(topicQuery: string | string[] | undefined): TopicFilter {
+    const matchingFilter = TOPIC_FILTERS.find(({ filter }) => filter === topicQuery);
+    return matchingFilter ? matchingFilter.filter : "all";
+}
+
+function showTopic(router: NextRouter, filter: TopicFilter): void {
+    const query: Record<string, string> = filter === "all" ? {} : { topic: filter };
+    void router.replace({ pathname: "/blog", query }, undefined, { shallow: true, scroll: false });
+}
 
 interface BlogIndexProps {
     posts: BlogPostSummary[];
@@ -33,7 +45,8 @@ export const getStaticProps: GetStaticProps<BlogIndexProps> = async () => {
 };
 
 const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
-    const [activeFilter, setActiveFilter] = useState<TopicFilter>("all");
+    const router: NextRouter = useRouter();
+    const activeFilter: TopicFilter = readTopicFilter(router.query.topic);
     const visiblePosts: BlogPostSummary[] =
         activeFilter === "all" ? posts : posts.filter((post) => post.topic === activeFilter);
 
@@ -59,7 +72,7 @@ const BlogIndex: React.FC<BlogIndexProps> = ({ posts }) => {
                             type="button"
                             className="blog-filter-button"
                             aria-pressed={activeFilter === filter}
-                            onClick={() => setActiveFilter(filter)}
+                            onClick={() => showTopic(router, filter)}
                         >
                             {label}
                         </button>
