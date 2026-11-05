@@ -16,21 +16,28 @@ const WORK_STEPS: WorkStep[] = [
     {
         number: "01",
         title: "Diagnose",
-        description: "Half a day in your operations. Your top three time sinks, and whether they’re worth fixing.",
+        description: "Half a day on a call through your operations. Your top three time sinks, and whether they’re worth fixing.",
         price: "Free",
     },
     {
         number: "02",
         title: "Fix",
-        description: "The smallest tool that works. Fixed price, two weeks max.",
-        price: "Sized to your business",
+        description: "The smallest tool that works, on the Excel or Google Sheets you already use. Fixed price, two weeks max.",
+        price: "Most fixes RM2,000–6,000. Most pay for themselves within months.",
     },
     {
         number: "03",
         title: "Stay",
         description: "Optional. I’m your tech department. Message me, I handle it. Four hours a month.",
-        price: "Sized to your business, only if you want it",
+        price: "RM500–1,500 / month, only if you want it",
     },
+];
+
+// Promises YiChong confirmed he keeps (2026-11-05). Do not add one he has not confirmed.
+const COUNT_ON: WontDoLine[] = [
+    { lead: "Your data stays in your systems.", tail: "Nothing copied out. NDA signed before day one." },
+    { lead: "You own the code and every login.", tail: "If I stop, you keep it all, with a handover document." },
+    { lead: "We agree the number on day one.", tail: "One result, like hours a week on the report. It moves, or no invoice." },
 ];
 
 const WONT_DO: WontDoLine[] = [
@@ -55,6 +62,16 @@ const HowIWork: React.FC = () => (
                 </li>
             ))}
         </ol>
+        <div className="wontdo">
+            <h3 className="wontdo-title">What you can count on</h3>
+            <ul className="wontdo-lines">
+                {COUNT_ON.map((line) => (
+                    <li key={line.lead}>
+                        <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
         <div className="wontdo">
             <h3 className="wontdo-title">What I won’t do</h3>
             <ul className="wontdo-lines">

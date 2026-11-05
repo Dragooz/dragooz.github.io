@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -44,14 +45,19 @@ function buildStructuredData(post: BlogPost): object {
                 mainEntityOfPage: postUrl,
                 inLanguage: "en-MY",
             },
-            {
-                "@type": "FAQPage",
-                mainEntity: post.faq.map((item) => ({
-                    "@type": "Question",
-                    name: item.question,
-                    acceptedAnswer: { "@type": "Answer", text: item.answer },
-                })),
-            },
+            // An empty FAQPage is invalid structured data, so posts without a FAQ omit it.
+            ...(post.faq.length > 0
+                ? [
+                      {
+                          "@type": "FAQPage",
+                          mainEntity: post.faq.map((item) => ({
+                              "@type": "Question",
+                              name: item.question,
+                              acceptedAnswer: { "@type": "Answer", text: item.answer },
+                          })),
+                      },
+                  ]
+                : []),
         ],
     };
 }
@@ -76,6 +82,17 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
             <main className="blog-page">
                 <Link href="/blog" className="blog-home-link">← Writing</Link>
                 <article className="blog-article">
+                    {post.cover && (
+                        <Image
+                            src={post.cover.src}
+                            alt={post.cover.alt}
+                            width={post.cover.width}
+                            height={post.cover.height}
+                            sizes="(max-width: 720px) 100vw, 720px"
+                            preload
+                            className="blog-article-cover"
+                        />
+                    )}
                     <h1 className="blog-article-title">{post.title}</h1>
                     <p className="blog-article-byline">
                         Yi Chong · Engineer for business owners · Updated {post.updatedAt}
@@ -83,15 +100,17 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                     <div className="blog-article-body">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.markdownBody}</ReactMarkdown>
                     </div>
-                    <section className="blog-faq">
-                        <h2>Questions owners ask</h2>
-                        {post.faq.map((item) => (
-                            <div key={item.question} className="blog-faq-item">
-                                <h3>{item.question}</h3>
-                                <p>{item.answer}</p>
-                            </div>
-                        ))}
-                    </section>
+                    {post.faq.length > 0 && (
+                        <section className="blog-faq">
+                            <h2>Questions owners ask</h2>
+                            {post.faq.map((item) => (
+                                <div key={item.question} className="blog-faq-item">
+                                    <h3>{item.question}</h3>
+                                    <p>{item.answer}</p>
+                                </div>
+                            ))}
+                        </section>
+                    )}
                     <aside className="blog-cta card">
                         <p>Got a problem like this? Free diagnosis. Pay only if it worked.</p>
                         <TalkButton />

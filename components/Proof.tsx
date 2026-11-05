@@ -14,43 +14,44 @@ interface BuildExample {
 
 interface Testimonial {
     quote: string;
-    who: string; // e.g. "Owner, F&B business, Kuala Lumpur"
+    who: string; // e.g. "Owner, [business type], [city]"
 }
 
-// Only things that have actually happened.
+// Only things that have actually happened. All built as an employee, not for clients:
+// never word them as client results until a real client exists (2026-11-05).
 const DONE_BEFORE: ProofLine[] = [
-    { lead: "Business onboarding, end to end.", tail: "Sign-up to approved account at a fintech: documents, e-signing, consent, review." },
-    { lead: "Finance operations, streamlined.", tail: "Card spend, bill payments and expense exports, with the fields accountants ask for." },
+    { lead: "Payment chasing, automated.", tail: "Reminders go out on their own until the invoice is paid." },
+    { lead: "Scattered data, one source.", tail: "Records from several tools in one place, typed once." },
 ];
 
 const BUILD_EXAMPLES: BuildExample[] = [
     {
-        name: "Customer onboarding, automated",
-        now: "Sign-up, welcome, invoice, account. Four people, two days.",
-        after: "One form. Minutes.",
-        whyDiyStalls: "ChatGPT writes each step. It can’t keep five systems in sync.",
+        name: "The weekly report",
+        now: "Export, paste into Excel, fix columns, email. Every Monday.",
+        after: "Builds itself overnight. In your inbox at 8am.",
+        whyDiyStalls: "The export changes and the macro breaks quietly.",
     },
     {
-        name: "A finance dashboard from your Excel",
-        now: "“Are we making money this month?” takes an afternoon.",
-        after: "One screen. Live, from the same file.",
-        whyDiyStalls: "Templates fit everyone’s business. Not yours.",
+        name: "Who hasn’t paid yet",
+        now: "Tick bank credits against invoices, type each reminder.",
+        after: "The unpaid list updates daily. Reminders go out on their own.",
+        whyDiyStalls: "Matching payments is the hard part, not sending the email.",
     },
 ];
 
-// TODO: ask the F&B client for one sentence, then paste it here. Renders nothing while empty.
+// TODO: paste a quote only after the real client approves the wording. Renders nothing while empty.
 // Never invent one: the owner this page is for will check.
 const TESTIMONIALS: Testimonial[] = [];
 
 const Proof: React.FC = () => (
     <section className="section">
-        <span className="eyebrow">Done before</span>
-        <h2 className="section-title">Not a first attempt. A first price.</h2>
+        <span className="eyebrow">Built before</span>
+        <h2 className="section-title">Already running in production.</h2>
         <div className="proof-grid">
             <div className="proof-stat">
                 <span className="proof-stat-number">80%</span>
                 <span className="proof-stat-caption">
-                    less manual order entry. F&B business, Malaysia. Orders typed by hand every night, now automated. No new app for staff.
+                    less manual data entry. Typed in by hand every night. Now it flows in on its own.
                 </span>
             </div>
             <div className="proof-body">

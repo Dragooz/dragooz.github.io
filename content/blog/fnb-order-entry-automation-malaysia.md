@@ -4,12 +4,14 @@
 title: "How I cut 80% of manual order entry for a Malaysian F&B business without building an app"
 description: "Orders came in over WhatsApp and phone and staff retyped every one by hand each night. Here is what I changed, what it cost, and what moved."
 publishedAt: "2026-11-03"
-updatedAt: "2026-11-03"
+updatedAt: "2026-11-05"
+topic: "business"
+draft: true
 faq:
   - question: "Do I need to build an app to automate WhatsApp orders?"
     answer: "Usually not. In this case the staff kept using WhatsApp exactly as before. The automation sat behind it and did the retyping. An app your staff must learn is the most common reason an automation project fails."
   - question: "How much does something like this cost in Malaysia?"
-    answer: "A fix of this size is capped at two weeks of my time, at a fixed price sized to the business. Founding clients in 2026 pay after 30 days, and only if the number we agreed on moved."
+    answer: "A fix of this size is capped at two weeks of my time, at a fixed price. Most fixes are RM2,000–6,000. Founding clients pay RM1,000–3,000, after 30 days, and only if the number we agreed on moved."
   - question: "What if my orders also come by phone, not only WhatsApp?"
     answer: "Phone orders still need a human to take them. The fix is to make the one place that human types into feed everything else, so the order is typed once, not three times."
   - question: "How do I know what to automate first?"

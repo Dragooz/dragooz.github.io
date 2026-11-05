@@ -5,7 +5,7 @@ interface PainLine {
     tail: string;
 }
 
-// Left column: the owner who tried DIY. Right column: the owner who never wanted to.
+// Chores first: owners who never tried ChatGPT or Zapier must see themselves before the DIY column.
 const TRIED_IT_YOURSELF: PainLine[] = [
     { lead: "ChatGPT wrote the script.", tail: "It broke on real data." },
     { lead: "Zapier worked.", tail: "Until the first exception." },
@@ -13,11 +13,11 @@ const TRIED_IT_YOURSELF: PainLine[] = [
     { lead: "Three Google Sheets.", tail: "One formula nobody dares touch." },
 ];
 
-const RATHER_NOT_TOUCH_TECH: PainLine[] = [
-    { lead: "No time to learn another tool.", tail: "You have a business to run." },
-    { lead: "Not sure what to ask a developer for.", tail: "So nothing gets built." },
-    { lead: "Vendors sell software.", tail: "You wanted the problem gone." },
-    { lead: "Your team copy-pastes all day.", tail: "Between systems that don\u2019t talk." },
+const CHORES_STILL_BY_HAND: PainLine[] = [
+    { lead: "Keying in the same data twice.", tail: "Excel, then the system." },
+    { lead: "Rebuilding the same report.", tail: "Every week." },
+    { lead: "Chasing who hasn\u2019t paid.", tail: "Line by line." },
+    { lead: "Copy-paste between tools.", tail: "All day." },
 ];
 
 const PainColumn: React.FC<{ label: string; lines: PainLine[]; tailClassName: string }> = ({ label, lines, tailClassName }) => (
@@ -40,8 +40,8 @@ const SoundFamiliar: React.FC = () => (
             You don’t need more tools. You need them to fit your business.
         </h2>
         <div className="pain-columns">
+            <PainColumn label="What fills your week" lines={CHORES_STILL_BY_HAND} tailClassName="tail-muted" />
             <PainColumn label="You tried it yourself" lines={TRIED_IT_YOURSELF} tailClassName="tail-broken" />
-            <PainColumn label="You’d rather not touch tech" lines={RATHER_NOT_TOUCH_TECH} tailClassName="tail-muted" />
         </div>
         <p className="section-closing">
             Either way, the work still gets done <strong>by hand.</strong>

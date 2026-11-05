@@ -27,6 +27,33 @@
     color: var(--text-secondary);
 }
 
+.blog-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.blog-filter-button {
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: none;
+    color: var(--text-secondary);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.blog-filter-button:hover {
+    color: var(--text-primary);
+}
+
+.blog-filter-button[aria-pressed="true"] {
+    border-color: var(--text-primary);
+    background: var(--text-primary);
+    color: var(--background);
+}
+
 .blog-list {
     list-style: none;
     padding: 0;
@@ -37,9 +64,26 @@
 
 .blog-list-item {
     display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 20px;
+}
+
+.blog-list-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
     flex-direction: column;
     gap: 6px;
-    padding: 18px 20px;
+}
+
+/* Decorative: the title link beside it already names the post. */
+.blog-list-thumb {
+    flex: none;
+    width: 96px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .blog-list-title {
@@ -69,6 +113,12 @@
     gap: 24px;
 }
 
+.blog-article-cover {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
 .blog-article-title {
     font-size: clamp(1.8rem, 4.5vw, 2.6rem);
 }
@@ -81,6 +131,7 @@
 .blog-article-body {
     font-size: 1.05rem;
     line-height: 1.7;
+    overflow-wrap: anywhere; /* long URLs and inline code must not widen the page at 375px */
 }
 
 .blog-article-body h2 {
@@ -123,6 +174,10 @@
     text-align: left;
     padding: 8px 12px;
     border-bottom: 1px solid var(--border);
+}
+
+.blog-article-body pre {
+    overflow-x: auto;
 }
 
 .blog-article-body a {

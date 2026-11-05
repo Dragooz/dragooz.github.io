@@ -5,7 +5,10 @@ import TalkButton from "./TalkButton";
 const Navbar: React.FC = () => (
     <nav className="navbar">
         <Link href="/" className="navbar-logo" aria-label="Home" />
-        <TalkButton className="talk-button-small" />
+        <div className="navbar-actions">
+            <Link href="/blog" className="navbar-link">Writing</Link>
+            <TalkButton className="talk-button-small" />
+        </div>
     </nav>
 );
 

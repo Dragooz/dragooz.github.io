@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Head from "next/head";
 import Hero from "./Hero";
 import SoundFamiliar from "./SoundFamiliar";
-import WhatItTakes from "./WhatItTakes";
 import HowIWork from "./HowIWork";
 import Proof from "./Proof";
 import FoundingOffer from "./FoundingOffer";
@@ -50,7 +49,6 @@ const Home: React.FC = () => {
             <main className="page">
                 <Hero />
                 <SoundFamiliar />
-                <WhatItTakes />
                 <HowIWork />
                 <Proof />
                 <FoundingOffer />

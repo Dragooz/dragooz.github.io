@@ -1,4 +1,4 @@
-/* Home page: Hero, SoundFamiliar, WhatItTakes, HowIWork, Proof, FoundingOffer, Footer.
+/* Home page: Hero, SoundFamiliar, HowIWork, Proof, FoundingOffer, Footer.
    Three volumes: loud = hero + offer; medium = sound familiar + the strip; quiet = the rest.
    Boxes only where they earn it: the two pain columns, the strip, the offer card. */
 
@@ -65,10 +65,6 @@
     font-size: 0.85rem;
     color: var(--text-secondary);
     min-height: 1.4em;
-}
-
-.hero-prompt {
-    color: var(--accent);
 }
 
 .hero-caret {
@@ -141,51 +137,6 @@
 
 .tail-muted {
     color: var(--text-secondary);
-}
-
-/* What it takes: three boxes joined by plus signs. The strip is the centrepiece. */
-.takes-strip {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-}
-
-.takes-box {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 20px 22px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-}
-
-.takes-box h3 {
-    font-size: 1.2rem;
-}
-
-.takes-box p {
-    color: var(--text-secondary);
-    font-size: 0.92rem;
-}
-
-.takes-box-me {
-    border-color: var(--accent);
-    background: var(--accent-soft);
-}
-
-.takes-box-me .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.takes-plus {
-    align-self: center;
-    color: var(--text-secondary);
-    font-size: 1.2rem;
 }
 
 /* How it works: three equal steps in a row (desktop), then the won't-do list under its own heading. */
@@ -411,6 +362,7 @@
 }
 
 .footer-brand .navbar-logo {
+    flex-shrink: 0;
     width: 22px;
     height: 22px;
     opacity: 0.8;
@@ -436,6 +388,98 @@
     flex-direction: column;
     gap: 4px;
     opacity: 0.7;
+}
+
+/* Email button looks like the footer links beside it. */
+.footer-nav-button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-secondary);
+    font: inherit;
+    cursor: pointer;
+}
+
+.footer-nav-button:hover {
+    color: var(--accent);
+}
+
+/* Contact form: the email option inside the Let's talk popup, under WhatsApp. */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.contact-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.contact-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.95rem;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: var(--accent-line);
+}
+
+textarea.contact-input {
+    resize: vertical;
+}
+
+.contact-honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.contact-submit {
+    align-self: flex-start;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: none;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.contact-submit:hover {
+    border-color: var(--accent-line);
+    color: var(--accent);
+}
+
+.contact-submit:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.contact-failed {
+    color: var(--broken);
+    font-size: 0.85rem;
+}
+
+.contact-sent {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -467,14 +511,6 @@
         grid-template-columns: 1fr 1fr;
     }
 
-    .takes-strip {
-        flex-direction: row;
-    }
-
-    .takes-plus {
-        padding: 0 4px;
-    }
-
     .steps {
         grid-template-columns: repeat(3, 1fr);
         gap: 0 32px;
@@ -502,9 +538,10 @@
         padding: 112px 0 96px;
     }
 
+    /* Nav takes the flexible column so a revealed email wraps the links, not the brand. */
     .footer-bar {
         display: grid;
-        grid-template-columns: 1fr auto auto;
+        grid-template-columns: auto 1fr auto;
         align-items: start;
         gap: 48px;
     }

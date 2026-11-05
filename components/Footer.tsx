@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import TalkButton from "./TalkButton";
+import EmailReveal from "./EmailReveal";
 import { WHATSAPP_CHAT_URL } from "./whatsappLink";
 
 const Footer: React.FC = () => (
@@ -10,6 +11,7 @@ const Footer: React.FC = () => (
                 Got a problem worth fixing?
             </h2>
             <p className="tail-muted">One message. I reply within a business day.</p>
+            <p className="tail-muted">Not the owner? Send this page to your boss. I’ll explain it to them.</p>
             <TalkButton />
         </div>
         <div className="footer-bar">
@@ -18,13 +20,13 @@ const Footer: React.FC = () => (
                 <span>Yi Chong · Engineer for business owners</span>
             </div>
             <nav className="footer-nav" aria-label="Footer">
-                <a href="https://medium.com/@ycgoh99" target="_blank" rel="noopener noreferrer">Writing</a>
+                <Link href="/blog">Writing</Link>
                 <a href="https://github.com/Dragooz" target="_blank" rel="noopener noreferrer">GitHub</a>
                 <a href="https://www.linkedin.com/in/yi-chong-yc-9803901a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <EmailReveal />
             </nav>
             <div className="footer-meta">
-                <span>Built by hand. No templates.</span>
                 <span>© {new Date().getFullYear()} Yi Chong</span>
             </div>
         </div>
