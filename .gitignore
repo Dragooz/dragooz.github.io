@@ -36,3 +36,5 @@ yarn-error.log*
 next-env.d.ts
 
 /feedback
+# Private planning notes
+docs/next-steps.md
