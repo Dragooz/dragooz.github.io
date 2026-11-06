@@ -3,7 +3,7 @@ title: "An Anthropic researcher quit saying 2030 could be disastrous."
 description: "Last week my feed was full of one story: a researcher at Anthropic resigned and warned that the AI labs are racing toward self-improving systems and…"
 publishedAt: "2026-09-15"
 updatedAt: "2026-09-15"
-topic: "business"
+topic: "technical"
 faq: []
 coverImage: "/images/blog/an-anthropic-researcher-quit-saying-2030-could-be-disastrous/cover.webp"
 coverAlt: "An Anthropic researcher quit saying 2030 could be disastrous."

@@ -12,19 +12,22 @@ type TopicFilter = "all" | BlogPostTopic;
 
 // The filter bar. Posts stay newest first, as getAllBlogPosts returns them.
 const TOPIC_FILTERS: { filter: TopicFilter; label: string }[] = [
-    { filter: "all", label: "All" },
     { filter: "business", label: "Business" },
     { filter: "technical", label: "Technical" },
+    { filter: "all", label: "All" },
 ];
+
+// Owners land on business posts; /blog?topic=technical and ?topic=all show the rest.
+const DEFAULT_TOPIC_FILTER: TopicFilter = "business";
 
 // The URL is the only place the filter lives, so /blog?topic=technical can be shared.
 function readTopicFilter(topicQuery: string | string[] | undefined): TopicFilter {
     const matchingFilter = TOPIC_FILTERS.find(({ filter }) => filter === topicQuery);
-    return matchingFilter ? matchingFilter.filter : "all";
+    return matchingFilter ? matchingFilter.filter : DEFAULT_TOPIC_FILTER;
 }
 
 function showTopic(router: NextRouter, filter: TopicFilter): void {
-    const query: Record<string, string> = filter === "all" ? {} : { topic: filter };
+    const query: Record<string, string> = filter === DEFAULT_TOPIC_FILTER ? {} : { topic: filter };
     void router.replace({ pathname: "/blog", query }, undefined, { shallow: true, scroll: false });
 }
 

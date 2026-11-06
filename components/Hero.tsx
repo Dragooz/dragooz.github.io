@@ -20,7 +20,10 @@ const TypedKicker: React.FC = () => {
     useEffect(() => {
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             // Deferred so the effect never sets state synchronously; cleared on unmount.
-            const showAll = window.setTimeout(() => setTypedLength(KICKER_TEXT.length), 0);
+            const showAll = window.setTimeout(
+                () => setTypedLength(KICKER_TEXT.length),
+                0,
+            );
             return () => window.clearTimeout(showAll);
         }
         const interval = window.setInterval(() => {
@@ -45,12 +48,22 @@ const TypedKicker: React.FC = () => {
 
 const Hero: React.FC = () => (
     <section className="hero">
-        <Image src="/images/yc-logo.png" alt="" width={497} height={438} className="hero-monogram" aria-hidden="true" />
+        <Image
+            src="/images/yc-logo.png"
+            alt=""
+            width={497}
+            height={438}
+            className="hero-monogram"
+            aria-hidden="true"
+        />
         <TypedKicker />
         <h1 className="hero-title">
-            Tired of tech? <span className="accent">Hand it to someone who isn’t.</span>
+            The work your team still does by hand,{" "}
+            <span className="accent">automated.</span>
         </h1>
-        <p className="hero-line">Free diagnosis. One fixed price. Pay only if it worked.</p>
+        <p className="hero-line">
+            Free diagnosis. One fixed price. Pay only if it worked.
+        </p>
         <TalkButton />
         <ul className="hero-facts">
             {HERO_FACTS.map((fact) => (

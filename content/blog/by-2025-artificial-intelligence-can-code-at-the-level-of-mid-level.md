@@ -3,7 +3,7 @@ title: "By 2025, artificial intelligence can code at the level of mid-level engi
 description: "Yea. Mark Zuckerberg, the founder of Meta says that in the recent blog."
 publishedAt: "2025-01-14"
 updatedAt: "2025-01-14"
-topic: "business"
+topic: "technical"
 faq: []
 ---
 

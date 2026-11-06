@@ -16,14 +16,14 @@ const WORK_STEPS: WorkStep[] = [
     {
         number: "01",
         title: "Diagnose",
-        description: "Half a day on a call through your operations. Your top three time sinks, and whether they’re worth fixing.",
+        description: "A 30-minute call. Your top three time sinks, and whether they’re worth fixing.",
         price: "Free",
     },
     {
         number: "02",
         title: "Fix",
         description: "The smallest tool that works, on the Excel or Google Sheets you already use. Fixed price, two weeks max.",
-        price: "Most fixes RM2,000–6,000. Most pay for themselves within months.",
+        price: "RM1,000–3,000. Most pay for themselves within months.",
     },
     {
         number: "03",

@@ -115,7 +115,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                         <p>Got a problem like this? Free diagnosis. Pay only if it worked.</p>
                         <TalkButton />
                         <Link href="/#founding-offer" className="blog-cta-secondary">
-                            See the founding offer
+                            See the deal
                         </Link>
                     </aside>
                 </article>
