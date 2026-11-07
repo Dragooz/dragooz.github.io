@@ -187,7 +187,48 @@ strong {
 .navbar-actions {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 14px;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.navbar-name {
+    display: none;
+    flex-direction: column;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.15;
+}
+
+.navbar-role {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+}
+
+.navbar-icon {
+    display: inline-flex;
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+}
+
+.navbar-icon:hover {
+    color: var(--text-primary);
+}
+
+/* Smallest phones: no room for Writing next to the logo. It stays in the footer. */
+@media (max-width: 359px) {
+    .navbar-link {
+        display: none;
+    }
 }
 
 .navbar-link {
@@ -210,6 +251,14 @@ strong {
 @media (min-width: 768px) {
     .navbar {
         padding: 12px 32px;
+    }
+
+    .navbar-name {
+        display: flex;
+    }
+
+    .navbar-actions {
+        gap: 20px;
     }
 }
 
