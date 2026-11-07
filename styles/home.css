@@ -839,12 +839,43 @@ textarea.contact-input {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* Subgrid: each card shares the parent rows, so titles, text and price lines align across cards. */
     .steps {
         grid-template-columns: repeat(3, 1fr);
+        column-gap: 12px;
+        row-gap: 0;
+    }
+
+    .step {
+        display: grid;
+        grid-row: span 4;
+        grid-template-rows: subgrid;
+        row-gap: 8px;
+    }
+
+    .step-price {
+        margin-top: 4px;
     }
 
     .promise-grid {
         grid-template-columns: 1fr 1fr;
+        column-gap: 12px;
+        row-gap: 0;
+    }
+
+    .promise-card {
+        display: grid;
+        grid-row: span 6;
+        grid-template-rows: subgrid;
+        row-gap: 0;
+    }
+
+    .promise-lines {
+        display: contents;
+    }
+
+    .promise-card .wontdo-title {
+        padding-bottom: 8px;
     }
 
     .example-flow {
