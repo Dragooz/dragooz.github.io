@@ -7,7 +7,7 @@ const TYPING_MS_PER_CHAR = 45;
 
 // Facts an owner can check. Character lives in the won't-do list, not here.
 const HERO_FACTS: string[] = [
-    "I build on the tools you use now: Excel, Google Sheets, WhatsApp, AutoCount, SQL Account and Shopee.",
+    "I build on the tools you use now: Excel, Google Sheets and WhatsApp.",
     "My last automation removed 80% of the manual work.",
     "I have an AI degree from University Malaya. I worked in fintech, AI consulting and a Big Four firm.",
     "I work remotely across Malaysia, or on-site if you ask. I speak English, Bahasa Melayu and Chinese (中文).",
