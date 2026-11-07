@@ -15,7 +15,7 @@ faq:
   - question: "What if my orders also come by phone, not only WhatsApp?"
     answer: "Phone orders still need a human to take them. The fix is to make the one place that human types into feed everything else, so the order is typed once, not three times."
   - question: "How do I know what to automate first?"
-    answer: "Count the tasks someone does more than ten times a week by hand. The one that touches money or customers goes first. I do this count for you in a free half-day diagnosis."
+    answer: "Count the tasks someone does more than ten times a week by hand. The one that touches money or customers goes first. I do this count with you in a free 30-minute call."
 ---
 
 **Short answer:** the business was retyping every WhatsApp and phone order into a spreadsheet by hand, every night. I put a small automation behind the WhatsApp number they already used, so orders landed in the system without anyone typing them twice. Manual order entry dropped by 80%. No new app, no training day, and the staff kept working the way they already did.
