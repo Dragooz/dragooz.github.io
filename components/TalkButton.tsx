@@ -52,7 +52,7 @@ const TalkButton: React.FC<{ label?: string; className?: string }> = ({
                         <li key={step}>{step}</li>
                     ))}
                 </ol>
-                <p className="talk-dialog-reply">I reply in 1 business day.</p>
+                <p className="talk-dialog-reply">I reply the same business day.</p>
                 <a className="talk-button" href={WHATSAPP_CHAT_URL} target="_blank" rel="noopener noreferrer">
                     WhatsApp me <span aria-hidden="true">→</span>
                 </a>

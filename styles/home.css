@@ -87,6 +87,12 @@
     letter-spacing: -0.03em;
 }
 
+.hero-for {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
 .hero-line {
     color: var(--text-secondary);
     font-size: 1.1rem;
@@ -554,4 +560,9 @@ textarea.contact-input {
     .footer-meta {
         text-align: right;
     }
+}
+
+.footer-forward {
+    color: var(--accent);
+    text-decoration: underline;
 }
