@@ -150,6 +150,20 @@ strong {
     cursor: pointer;
 }
 
+.talk-dialog-steps {
+    margin: 0 0 8px;
+    padding-left: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.talk-dialog-reply {
+    margin: 0 0 16px;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
 .talk-dialog-divider {
     margin: 20px 0 12px;
     color: var(--text-secondary);
