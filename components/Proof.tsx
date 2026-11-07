@@ -47,39 +47,41 @@ const Proof: React.FC = () => (
     <section className="section">
         <span className="eyebrow">What I built before</span>
         <h2 className="section-title">These systems are in daily use.</h2>
-        <div className="proof-grid">
-            <div className="proof-stat">
+        <div className="proof-built">
+            <div className="card proof-stat">
                 <span className="proof-stat-number">80%</span>
                 <span className="proof-stat-caption">
                     less manual data entry. Before, staff typed it by hand every night. Now the data comes in automatically.
                 </span>
             </div>
-            <div className="proof-body">
-                <ul className="proof-lines">
-                    {DONE_BEFORE.map((line) => (
-                        <li key={line.lead}>
-                            <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
-                        </li>
-                    ))}
-                </ul>
-                <span className="eyebrow eyebrow-muted">Examples for your business</span>
-                <ul className="example-lines">
-                    {BUILD_EXAMPLES.map((example) => (
-                        <li key={example.name}>
-                            <h3>{example.name}</h3>
-                            <dl className="example-body">
-                                <dt>Now</dt>
-                                <dd>{example.now}</dd>
-                                <dt>After</dt>
-                                <dd>{example.after}</dd>
-                                <dt>Why DIY fails</dt>
-                                <dd className="tail-broken">{example.whyDiyStalls}</dd>
-                            </dl>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {DONE_BEFORE.map((line) => (
+                <div key={line.lead} className="card proof-item">
+                    <strong>{line.lead}</strong>
+                    <p className="tail-muted">{line.tail}</p>
+                </div>
+            ))}
         </div>
+        <span className="eyebrow eyebrow-muted proof-examples-label">Examples for your business</span>
+        <ul className="example-cards">
+            {BUILD_EXAMPLES.map((example) => (
+                <li key={example.name} className="card example-card">
+                    <h3>{example.name}</h3>
+                    <dl className="example-compare">
+                        <div className="example-row">
+                            <dt>Now</dt>
+                            <dd className="tail-muted">{example.now}</dd>
+                        </div>
+                        <div className="example-row example-row-after">
+                            <dt>After</dt>
+                            <dd>{example.after}</dd>
+                        </div>
+                    </dl>
+                    <p className="example-diy">
+                        <span className="example-diy-label">Why DIY fails:</span> {example.whyDiyStalls}
+                    </p>
+                </li>
+            ))}
+        </ul>
         {TESTIMONIALS.length > 0 && (
             <ul className="testimonials">
                 {TESTIMONIALS.map((testimonial) => (

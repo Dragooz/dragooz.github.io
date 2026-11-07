@@ -225,68 +225,84 @@
     max-width: 640px;
 }
 
-/* Proof: one big number, then rows */
-.proof-grid {
+/* Proof: a row of cards for past work, then 2 example cards */
+.proof-built {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 12px;
 }
 
-.proof-stat {
+.proof-stat,
+.proof-item {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    padding: 20px;
+}
+
+.proof-stat {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
 }
 
 .proof-stat-number {
     font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
-    font-size: clamp(4.5rem, 14vw, 7rem);
-    line-height: 0.95;
+    font-size: clamp(3rem, 10vw, 4rem);
+    line-height: 1;
     letter-spacing: -0.04em;
     color: var(--accent);
 }
 
-.proof-stat-caption {
+.proof-stat-caption,
+.proof-item p {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    max-width: 320px;
-}
-
-.proof-body {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.proof-lines,
-.example-lines {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.proof-lines li,
-.example-lines li {
-    padding: 14px 0;
-    border-top: 1px solid var(--border);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     line-height: 1.5;
 }
 
-.example-lines h3 {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
+.proof-item strong {
+    font-size: 1rem;
 }
 
-.example-body {
+.proof-examples-label {
+    margin-top: 16px;
+}
+
+.example-cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+.example-card {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 14px;
+    padding: 20px;
 }
 
-.example-body dt {
+.example-card h3 {
+    font-size: 1.05rem;
+}
+
+.example-compare {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 0;
+}
+
+.example-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    align-items: baseline;
+}
+
+.example-row dt {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.65rem;
     letter-spacing: 0.12em;
@@ -294,8 +310,28 @@
     color: var(--text-secondary);
 }
 
-.example-body dd {
-    margin: 0 0 8px;
+.example-row dd {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+.example-row-after dt {
+    color: var(--accent);
+}
+
+.example-diy {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.example-diy-label {
+    color: var(--broken);
+    font-weight: 600;
 }
 
 .testimonials {
@@ -535,10 +571,12 @@ textarea.contact-input {
         grid-template-columns: 1fr 1fr;
     }
 
-    .proof-grid {
-        grid-template-columns: 2fr 3fr;
-        gap: 48px;
-        align-items: start;
+    .proof-built {
+        grid-template-columns: 1.2fr 1fr 1fr;
+    }
+
+    .example-cards {
+        grid-template-columns: 1fr 1fr;
     }
 
     .offer-card {
