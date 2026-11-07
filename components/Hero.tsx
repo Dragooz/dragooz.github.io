@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import TalkButton from "./TalkButton";
 
-const KICKER_TEXT = "Hi, I'm Yi Chong. Engineer.";
+const KICKER_TEXT = "Hi, I am Yi Chong, an engineer.";
 const TYPING_MS_PER_CHAR = 45;
 
 // Facts an owner can check. Character lives in the won't-do list, not here.
 const HERO_FACTS: string[] = [
-    "Full-stack engineer. Fintech, AI consultancy, Big Four strategy.",
-    "AI graduate, University Malaya.",
-    "Last automation shipped: 80% less manual work.",
-    "Remote across Malaysia, on-site by arrangement. Boleh cakap Bahasa Melayu.",
+    "I build software from end to end. I worked in fintech, AI consulting and a Big Four firm.",
+    "I have a degree in AI from University Malaya.",
+    "My last automation removed 80% of the manual work.",
+    "I work remotely across Malaysia, or on-site if you ask. I speak English and Bahasa Melayu.",
 ];
 
 // Terminal-style kicker, typed once on load. Reduced motion shows it whole.
@@ -58,11 +58,10 @@ const Hero: React.FC = () => (
         />
         <TypedKicker />
         <h1 className="hero-title">
-            The work your team still does by hand,{" "}
-            <span className="accent">automated.</span>
+            I <span className="accent">automate</span> the work your team still does by hand.
         </h1>
         <p className="hero-line">
-            Free diagnosis. One fixed price. Pay only if it worked.
+            The first call is free. The price is fixed. You pay only if it works.
         </p>
         <TalkButton />
         <ul className="hero-facts">

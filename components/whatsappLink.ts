@@ -4,6 +4,6 @@
 const WHATSAPP_BUSINESS_NUMBER = "60173523876";
 
 // Prefilled text marks the lead as coming from the site. GA4 cannot see WhatsApp opens.
-const WHATSAPP_PREFILLED_TEXT = "Hi Yi Chong, I saw your site. I would like the free diagnosis.";
+const WHATSAPP_PREFILLED_TEXT = "Hi Yi Chong, I saw your site. I would like the free call.";
 
 export const WHATSAPP_CHAT_URL = `https://wa.me/${WHATSAPP_BUSINESS_NUMBER}?text=${encodeURIComponent(WHATSAPP_PREFILLED_TEXT)}`;
