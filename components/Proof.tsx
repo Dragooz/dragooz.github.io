@@ -20,22 +20,22 @@ interface Testimonial {
 // Only things that have actually happened. All built as an employee, not for clients:
 // never word them as client results until a real client exists (2026-11-05).
 const DONE_BEFORE: ProofLine[] = [
-    { lead: "Payment chasing, automated.", tail: "Reminders go out on their own until the invoice is paid." },
-    { lead: "Scattered data, one source.", tail: "Records from several tools in one place, typed once." },
+    { lead: "Automatic payment reminders.", tail: "The system sends reminders until the customer pays." },
+    { lead: "All data in 1 place.", tail: "Records from many tools go to 1 place. Staff type each record 1 time." },
 ];
 
 const BUILD_EXAMPLES: BuildExample[] = [
     {
         name: "The weekly report",
-        now: "Export, paste into Excel, fix columns, email. Every Monday.",
-        after: "Builds itself overnight. In your inbox at 8am.",
-        whyDiyStalls: "The export changes and the macro breaks quietly.",
+        now: "Every Monday, staff export data, paste it into Excel, correct the columns and send it.",
+        after: "The system makes the report at night. It is in your inbox at 8am.",
+        whyDiyStalls: "The export format changes. Then the macro fails and nobody sees it.",
     },
     {
-        name: "Who hasn’t paid yet",
-        now: "Tick bank credits against invoices, type each reminder.",
-        after: "The unpaid list updates daily. Reminders go out on their own.",
-        whyDiyStalls: "Matching payments is the hard part, not sending the email.",
+        name: "Who did not pay",
+        now: "Staff compare bank payments with invoices. Then they type each reminder.",
+        after: "The unpaid list updates every day. The system sends the reminders.",
+        whyDiyStalls: "Sending the email is easy. Matching payments to invoices is difficult.",
     },
 ];
 
@@ -45,13 +45,13 @@ const TESTIMONIALS: Testimonial[] = [];
 
 const Proof: React.FC = () => (
     <section className="section">
-        <span className="eyebrow">Built before</span>
-        <h2 className="section-title">Already running in production.</h2>
+        <span className="eyebrow">What I built before</span>
+        <h2 className="section-title">These systems are in daily use.</h2>
         <div className="proof-grid">
             <div className="proof-stat">
                 <span className="proof-stat-number">80%</span>
                 <span className="proof-stat-caption">
-                    less manual data entry. Typed in by hand every night. Now it flows in on its own.
+                    less manual data entry. Before, staff typed it by hand every night. Now the data comes in automatically.
                 </span>
             </div>
             <div className="proof-body">
@@ -62,7 +62,7 @@ const Proof: React.FC = () => (
                         </li>
                     ))}
                 </ul>
-                <span className="eyebrow eyebrow-muted">What it could look like for you</span>
+                <span className="eyebrow eyebrow-muted">Examples for your business</span>
                 <ul className="example-lines">
                     {BUILD_EXAMPLES.map((example) => (
                         <li key={example.name}>
@@ -72,7 +72,7 @@ const Proof: React.FC = () => (
                                 <dd>{example.now}</dd>
                                 <dt>After</dt>
                                 <dd>{example.after}</dd>
-                                <dt>Why DIY stalls</dt>
+                                <dt>Why DIY fails</dt>
                                 <dd className="tail-broken">{example.whyDiyStalls}</dd>
                             </dl>
                         </li>

@@ -8,10 +8,10 @@ const Footer: React.FC = () => (
     <footer className="footer">
         <div className="footer-cta">
             <h2 className="section-title">
-                Got a problem worth fixing?
+                Tell me what your team does by hand.
             </h2>
-            <p className="tail-muted">One message. I reply within a business day.</p>
-            <p className="tail-muted">Not the owner? Send this page to your boss. I’ll explain it to them.</p>
+            <p className="tail-muted">Send 1 message. I reply in 1 business day.</p>
+            <p className="tail-muted">Not the owner? Send this page to your boss. I will explain it to them.</p>
             <TalkButton />
         </div>
         <div className="footer-bar">

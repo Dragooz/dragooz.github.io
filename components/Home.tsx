@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                 <title>Yi Chong | Engineer for business owners</title>
                 <meta
                     name="description"
-                    content="For owners who are tired of tech. I learn how your business runs, then build what holds up on real data. Free diagnosis, pay only if it worked."
+                    content="I automate the work your team does by hand. I learn how your business works first. The first call is free. You pay only if it works."
                 />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />

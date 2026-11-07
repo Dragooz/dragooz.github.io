@@ -7,17 +7,17 @@ interface PainLine {
 
 // Chores first: owners who never tried ChatGPT or Zapier must see themselves before the DIY column.
 const TRIED_IT_YOURSELF: PainLine[] = [
-    { lead: "ChatGPT wrote the script.", tail: "It broke on real data." },
-    { lead: "Zapier worked.", tail: "Until the first exception." },
-    { lead: "The SaaS does 80%.", tail: "Not your 20%." },
-    { lead: "Three Google Sheets.", tail: "One formula nobody dares touch." },
+    { lead: "ChatGPT wrote a script.", tail: "It failed on real data." },
+    { lead: "Zapier worked.", tail: "Then the first exception stopped it." },
+    { lead: "The software does 80% of the job.", tail: "It does not do your last 20%." },
+    { lead: "You have 3 Google Sheets.", tail: "1 formula breaks if someone changes it." },
 ];
 
 const CHORES_STILL_BY_HAND: PainLine[] = [
-    { lead: "Keying in the same data twice.", tail: "Excel, then the system." },
-    { lead: "Rebuilding the same report.", tail: "Every week." },
-    { lead: "Chasing who hasn\u2019t paid.", tail: "Line by line." },
-    { lead: "Copy-paste between tools.", tail: "All day." },
+    { lead: "You type the same data 2 times.", tail: "First in Excel, then in the system." },
+    { lead: "You make the same report.", tail: "Every week." },
+    { lead: "You check who did not pay.", tail: "1 line at a time." },
+    { lead: "You copy data from 1 tool to another.", tail: "All day." },
 ];
 
 const PainColumn: React.FC<{ label: string; lines: PainLine[]; tailClassName: string }> = ({ label, lines, tailClassName }) => (
@@ -35,16 +35,16 @@ const PainColumn: React.FC<{ label: string; lines: PainLine[]; tailClassName: st
 
 const SoundFamiliar: React.FC = () => (
     <section className="section">
-        <span className="eyebrow">Sound familiar?</span>
+        <span className="eyebrow">Is this you?</span>
         <h2 className="section-title">
-            You don’t need more tools. You need them to fit your business.
+            You do not need more tools. You need tools that fit your business.
         </h2>
         <div className="pain-columns">
-            <PainColumn label="What fills your week" lines={CHORES_STILL_BY_HAND} tailClassName="tail-muted" />
-            <PainColumn label="You tried it yourself" lines={TRIED_IT_YOURSELF} tailClassName="tail-broken" />
+            <PainColumn label="Work your team does by hand" lines={CHORES_STILL_BY_HAND} tailClassName="tail-muted" />
+            <PainColumn label="Tools you tried" lines={TRIED_IT_YOURSELF} tailClassName="tail-broken" />
         </div>
         <p className="section-closing">
-            Either way, the work still gets done <strong>by hand.</strong>
+            The result is the same: your team still does the work <strong>by hand.</strong>
         </p>
     </section>
 );

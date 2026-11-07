@@ -112,10 +112,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ post }) => {
                         </section>
                     )}
                     <aside className="blog-cta card">
-                        <p>Got a problem like this? Free diagnosis. Pay only if it worked.</p>
+                        <p>Does your team do this by hand? The first call is free. You pay only if it works.</p>
                         <TalkButton />
                         <Link href="/#founding-offer" className="blog-cta-secondary">
-                            See the deal
+                            See the offer
                         </Link>
                     </aside>
                 </article>
