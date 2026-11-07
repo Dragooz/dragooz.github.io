@@ -7,7 +7,7 @@ const Navbar: React.FC = () => (
         <Link href="/" className="navbar-logo" aria-label="Home" />
         <div className="navbar-actions">
             <Link href="/blog" className="navbar-link">Writing</Link>
-            <TalkButton className="talk-button-small" />
+            <TalkButton label="WhatsApp me" className="talk-button-small" />
         </div>
     </nav>
 );

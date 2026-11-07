@@ -1,4 +1,5 @@
 import React from "react";
+import { LuCheck } from "react-icons/lu";
 import TalkButton from "./TalkButton";
 
 // One price, no "normally / launch" pair and no spot count: simulated owners read both as "he is new" (2026-11-06).
@@ -19,7 +20,10 @@ const FoundingOffer: React.FC = () => (
             <p className="offer-line">1 fix costs RM1,000–3,000. We agree on the price before I start.</p>
             <ul className="offer-terms">
                 {OFFER_TERMS.map((term) => (
-                    <li key={term}>{term}</li>
+                    <li key={term}>
+                        <LuCheck className="offer-check" aria-hidden="true" />
+                        {term}
+                    </li>
                 ))}
             </ul>
             <TalkButton />

@@ -40,7 +40,13 @@ const ContactForm: React.FC = () => {
             </label>
             <label className="contact-field">
                 <span>Message</span>
-                <textarea className="contact-input" name="message" rows={4} required />
+                <textarea
+                    className="contact-input"
+                    name="message"
+                    rows={4}
+                    placeholder="Which task takes your team the most time?"
+                    required
+                />
             </label>
             {/* Honeypot: hidden from people, filled by bots, rejected by Formspree. */}
             <input className="contact-honeypot" type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" />

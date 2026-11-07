@@ -1,4 +1,5 @@
 import React from "react";
+import { LuArrowRight, LuCircleCheck, LuClock, LuMail } from "react-icons/lu";
 
 interface ProofLine {
     lead: string;
@@ -10,7 +11,73 @@ interface BuildExample {
     now: string;
     after: string;
     whyDiyStalls: string;
+    NowMock: React.FC;
+    AfterMock: React.FC;
 }
+
+// Small drawn screens, not screenshots: they show the shape of the change, with no client data.
+const ReportNowMock: React.FC = () => (
+    <div className="mock mock-sheet" aria-hidden="true">
+        {[0, 1, 2, 3].map((row) => (
+            <div key={row} className={`mock-sheet-row${row === 0 ? " mock-sheet-head" : ""}`}>
+                <i />
+                <i className={row === 2 ? "mock-cell-bad" : ""} />
+                <i />
+            </div>
+        ))}
+        <span className="mock-tag mock-tag-bad">
+            <LuClock /> Every Monday
+        </span>
+    </div>
+);
+
+const ReportAfterMock: React.FC = () => (
+    <div className="mock mock-notify" aria-hidden="true">
+        <LuMail className="mock-notify-icon" />
+        <div className="mock-notify-text">
+            <strong>Weekly report</strong>
+            <span>In your inbox · 8:00am</span>
+        </div>
+        <LuCircleCheck className="mock-ok" />
+    </div>
+);
+
+const PaymentNowMock: React.FC = () => (
+    <div className="mock mock-match" aria-hidden="true">
+        <div className="mock-col">
+            <span>Bank</span>
+            <i />
+            <i />
+            <i />
+        </div>
+        <span className="mock-q">?</span>
+        <div className="mock-col">
+            <span>Invoices</span>
+            <i />
+            <i />
+            <i />
+        </div>
+    </div>
+);
+
+const PaymentAfterMock: React.FC = () => (
+    <ul className="mock mock-list" aria-hidden="true">
+        <li>
+            <span>Customer A</span>
+            <span className="mock-pill">Reminder sent</span>
+        </li>
+        <li>
+            <span>Customer B</span>
+            <span className="mock-pill">Reminder sent</span>
+        </li>
+        <li>
+            <span>Customer C</span>
+            <span className="mock-pill mock-pill-ok">
+                <LuCircleCheck /> Paid
+            </span>
+        </li>
+    </ul>
+);
 
 interface Testimonial {
     quote: string;
@@ -30,12 +97,16 @@ const BUILD_EXAMPLES: BuildExample[] = [
         now: "Every Monday, staff export data, paste it into Excel, correct the columns and send it.",
         after: "The system makes the report at night. It is in your inbox at 8am.",
         whyDiyStalls: "The export format changes. Then the macro fails and nobody sees it.",
+        NowMock: ReportNowMock,
+        AfterMock: ReportAfterMock,
     },
     {
         name: "Who did not pay",
         now: "Staff compare bank payments with invoices. Then they type each reminder.",
         after: "The unpaid list updates every day. The system sends the reminders.",
         whyDiyStalls: "Sending the email is easy. Matching payments to invoices is difficult.",
+        NowMock: PaymentNowMock,
+        AfterMock: PaymentAfterMock,
     },
 ];
 
@@ -47,39 +118,44 @@ const Proof: React.FC = () => (
     <section className="section">
         <span className="eyebrow">What I built before</span>
         <h2 className="section-title">These systems are in daily use.</h2>
-        <div className="proof-grid">
-            <div className="proof-stat">
+        <div className="proof-built">
+            <div className="card proof-stat">
                 <span className="proof-stat-number">80%</span>
                 <span className="proof-stat-caption">
                     less manual data entry. Before, staff typed it by hand every night. Now the data comes in automatically.
                 </span>
             </div>
-            <div className="proof-body">
-                <ul className="proof-lines">
-                    {DONE_BEFORE.map((line) => (
-                        <li key={line.lead}>
-                            <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
-                        </li>
-                    ))}
-                </ul>
-                <span className="eyebrow eyebrow-muted">Examples for your business</span>
-                <ul className="example-lines">
-                    {BUILD_EXAMPLES.map((example) => (
-                        <li key={example.name}>
-                            <h3>{example.name}</h3>
-                            <dl className="example-body">
-                                <dt>Now</dt>
-                                <dd>{example.now}</dd>
-                                <dt>After</dt>
-                                <dd>{example.after}</dd>
-                                <dt>Why DIY fails</dt>
-                                <dd className="tail-broken">{example.whyDiyStalls}</dd>
-                            </dl>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            {DONE_BEFORE.map((line) => (
+                <div key={line.lead} className="card proof-item">
+                    <strong>{line.lead}</strong>
+                    <p className="tail-muted">{line.tail}</p>
+                </div>
+            ))}
         </div>
+        <span className="eyebrow eyebrow-muted proof-examples-label">Examples for your business</span>
+        <ul className="example-cards">
+            {BUILD_EXAMPLES.map(({ name, now, after, whyDiyStalls, NowMock, AfterMock }) => (
+                <li key={name} className="card example-card">
+                    <h3>{name}</h3>
+                    <dl className="example-flow">
+                        <div className="example-pane">
+                            <dt>Now</dt>
+                            <NowMock />
+                            <dd className="tail-muted">{now}</dd>
+                        </div>
+                        <LuArrowRight className="example-arrow" aria-hidden="true" />
+                        <div className="example-pane example-pane-after">
+                            <dt>After</dt>
+                            <AfterMock />
+                            <dd>{after}</dd>
+                        </div>
+                    </dl>
+                    <p className="example-diy">
+                        <span className="example-diy-label">Why DIY fails:</span> {whyDiyStalls}
+                    </p>
+                </li>
+            ))}
+        </ul>
         {TESTIMONIALS.length > 0 && (
             <ul className="testimonials">
                 {TESTIMONIALS.map((testimonial) => (
