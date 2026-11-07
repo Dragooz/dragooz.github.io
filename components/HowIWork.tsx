@@ -1,10 +1,13 @@
 import React from "react";
+import type { IconType } from "react-icons";
+import { LuCircleCheck, LuCircleX, LuHammer, LuLifeBuoy, LuPhone } from "react-icons/lu";
 
 interface WorkStep {
     number: string;
     title: string;
     description: string;
     price: string;
+    Icon: IconType;
 }
 
 interface WontDoLine {
@@ -15,19 +18,19 @@ interface WontDoLine {
 const WORK_STEPS: WorkStep[] = [
     {
         number: "01",
-        title: "Free call",
+        title: "Free call", Icon: LuPhone,
         description: "We talk for 30 minutes. I find the 3 tasks that take the most time. I tell you if they are worth automating.",
         price: "Free",
     },
     {
         number: "02",
-        title: "Fix",
+        title: "Fix", Icon: LuHammer,
         description: "I build the smallest tool that does the job. It works with the Excel or Google Sheets you use now. The price is fixed. It takes 2 weeks or less.",
         price: "RM1,000–3,000. Most fixes save more than they cost within a few months.",
     },
     {
         number: "03",
-        title: "Support",
+        title: "Support", Icon: LuLifeBuoy,
         description: "Optional. I become your tech team. You send me a message. I do the work. Up to 4 hours each month.",
         price: "RM500–1,500 per month. Only if you want it.",
     },
@@ -48,43 +51,48 @@ const WONT_DO: WontDoLine[] = [
     { lead: "Say it works when it does not.", tail: "You get the real result, good or bad." },
 ];
 
+const PromiseList: React.FC<{ title: string; lines: WontDoLine[]; Icon: IconType; iconClassName: string }> = ({ title, lines, Icon, iconClassName }) => (
+    <div className="card promise-card">
+        <h3 className="wontdo-title">{title}</h3>
+        <ul className="promise-lines">
+            {lines.map((line) => (
+                <li key={line.lead}>
+                    <Icon className={`promise-icon ${iconClassName}`} aria-hidden="true" />
+                    <span>
+                        <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
+                    </span>
+                </li>
+            ))}
+        </ul>
+    </div>
+);
+
 const HowIWork: React.FC = () => (
     <section id="how-i-work" className="section">
         <span className="eyebrow">How it works</span>
         <h2 className="section-title">3 steps. You agree to 1 price before I start.</h2>
         <ol className="steps">
-            {WORK_STEPS.map((step) => (
-                <li key={step.number} className="step">
-                    <span className="step-number">{step.number}</span>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                    <span className="step-price">{step.price}</span>
+            {WORK_STEPS.map(({ number, title, description, price, Icon }) => (
+                <li key={number} className="card step">
+                    <div className="step-head">
+                        <span className="step-icon">
+                            <Icon aria-hidden="true" />
+                        </span>
+                        <span className="step-number">{number}</span>
+                    </div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <span className="step-price">{price}</span>
                 </li>
             ))}
         </ol>
-        <div className="wontdo">
-            <h3 className="wontdo-title">What you can count on</h3>
-            <ul className="wontdo-lines">
-                {COUNT_ON.map((line) => (
-                    <li key={line.lead}>
-                        <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
-                    </li>
-                ))}
-            </ul>
+        <div className="promise-grid">
+            <PromiseList title="What you can count on" lines={COUNT_ON} Icon={LuCircleCheck} iconClassName="promise-icon-yes" />
+            <PromiseList title="What I will not do" lines={WONT_DO} Icon={LuCircleX} iconClassName="promise-icon-no" />
         </div>
-        <div className="wontdo">
-            <h3 className="wontdo-title">What I will not do</h3>
-            <ul className="wontdo-lines">
-                {WONT_DO.map((line) => (
-                    <li key={line.lead}>
-                        <strong>{line.lead}</strong> <span className="tail-muted">{line.tail}</span>
-                    </li>
-                ))}
-            </ul>
-            <p className="wontdo-closing">
-                I do not oversell. If it is not worth your money, <strong>I will tell you.</strong>
-            </p>
-        </div>
+        <p className="wontdo-closing">
+            I do not oversell. If it is not worth your money, <strong>I will tell you.</strong>
+        </p>
     </section>
 );
 

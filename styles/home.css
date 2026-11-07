@@ -87,10 +87,63 @@
     letter-spacing: -0.03em;
 }
 
-.hero-for {
+/* Chip rows in the hero: who it is for, and the tools */
+.chip-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+}
+
+.chip-group-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.chip-row {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.chip svg {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.hero-for .chip {
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+}
+
+.hero-for .chip svg {
     color: var(--accent);
-    font-size: 1rem;
-    font-weight: 600;
+}
+
+.hero-tools {
+    margin-top: 8px;
+}
+
+.hero-tools .chip {
+    font-size: 0.8rem;
+    padding: 5px 10px;
 }
 
 .hero-line {
@@ -136,10 +189,27 @@
 }
 
 .pain-lines li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
     padding: 14px 0;
     border-top: 1px solid var(--border);
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+.pain-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    font-size: 1.05rem;
+}
+
+.pain-icon-chore {
+    color: var(--accent);
+}
+
+.pain-icon-broken {
+    color: var(--broken);
 }
 
 .tail-broken {
@@ -156,15 +226,33 @@
     padding: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 12px;
 }
 
 .step {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 18px 0;
-    border-top: 1px solid var(--border);
+    gap: 8px;
+    padding: 20px;
+}
+
+.step-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.step-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-line);
+    color: var(--accent);
+    font-size: 1.15rem;
 }
 
 .step-number {
@@ -184,36 +272,59 @@
 }
 
 .step-price {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
     color: var(--text-primary);
     font-weight: 600;
-    font-size: 0.9rem;
-    margin-top: 4px;
-}
-
-.wontdo {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 24px;
+    font-size: 0.88rem;
 }
 
 .wontdo-title {
     font-size: 1.15rem;
 }
 
-.wontdo-lines {
-    list-style: none;
-    padding: 0;
+.promise-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0 40px;
+    gap: 12px;
+    margin-top: 12px;
 }
 
-.wontdo-lines li {
+.promise-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+}
+
+.promise-lines {
+    list-style: none;
+    padding: 0;
+}
+
+.promise-lines li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
     padding: 12px 0;
     border-top: 1px solid var(--border);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     line-height: 1.5;
+}
+
+.promise-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+    font-size: 1.05rem;
+}
+
+.promise-icon-yes {
+    color: var(--accent);
+}
+
+.promise-icon-no {
+    color: var(--broken);
 }
 
 .wontdo-closing {
@@ -288,21 +399,20 @@
     font-size: 1.05rem;
 }
 
-.example-compare {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.example-flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
     margin: 0;
 }
 
-.example-row {
-    display: grid;
-    grid-template-columns: 52px 1fr;
-    gap: 12px;
-    align-items: baseline;
+.example-pane {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.example-row dt {
+.example-pane dt {
     font-family: "JetBrains Mono", monospace;
     font-size: 0.65rem;
     letter-spacing: 0.12em;
@@ -310,14 +420,164 @@
     color: var(--text-secondary);
 }
 
-.example-row dd {
-    margin: 0;
-    font-size: 0.92rem;
-    line-height: 1.5;
+.example-pane-after dt {
+    color: var(--accent);
 }
 
-.example-row-after dt {
+.example-pane dd {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.45;
+}
+
+.example-arrow {
+    justify-self: center;
+    transform: rotate(90deg);
+    color: var(--text-secondary);
+}
+
+/* Mock screens */
+.mock {
+    position: relative;
+    min-height: 104px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #050608;
+}
+
+.mock-sheet {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mock-sheet-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 6px;
+}
+
+.mock-sheet-row i {
+    height: 10px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mock-sheet-head i {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.mock-sheet-row i.mock-cell-bad {
+    background: rgba(248, 81, 73, 0.55);
+}
+
+.mock-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+}
+
+.mock-tag-bad {
+    color: var(--broken);
+    background: rgba(248, 81, 73, 0.1);
+}
+
+.mock-notify {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mock-notify-icon {
+    flex-shrink: 0;
+    font-size: 1.4rem;
     color: var(--accent);
+}
+
+.mock-notify-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 0.85rem;
+}
+
+.mock-notify-text span {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+}
+
+.mock-ok {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.mock-match {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.mock-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mock-col span {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.mock-col i {
+    height: 10px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.mock-q {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--broken);
+}
+
+.mock-list {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mock-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.78rem;
+}
+
+.mock-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.mock-pill-ok {
+    color: var(--accent);
+    background: var(--accent-soft);
 }
 
 .example-diy {
@@ -369,9 +629,25 @@
 }
 
 .offer-terms {
-    padding-left: 20px;
-    line-height: 1.75;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.offer-terms li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.offer-check {
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--accent);
 }
 
 /* Footer: the last ask gets room; the bar below stays quiet. */
@@ -560,24 +836,26 @@ textarea.contact-input {
 
     .steps {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0 32px;
     }
 
-    .step {
-        padding: 20px 0 8px;
-    }
-
-    .wontdo-lines {
+    .promise-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .example-flow {
+        grid-template-columns: 1fr auto 1fr;
+        align-items: start;
+    }
+
+    .example-arrow {
+        transform: none;
+        margin-top: 60px;
     }
 
     .proof-built {
         grid-template-columns: 1.2fr 1fr 1fr;
     }
 
-    .example-cards {
-        grid-template-columns: 1fr 1fr;
-    }
 
     .offer-card {
         padding: 40px;
