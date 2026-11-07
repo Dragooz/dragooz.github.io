@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import type { IconType } from "react-icons";
-import { LuDatabase, LuPlus, LuFileSpreadsheet, LuGraduationCap, LuShoppingBag, LuStethoscope, LuUtensils, LuWarehouse } from "react-icons/lu";
+import { LuAward, LuDatabase, LuMapPin, LuPlus, LuZap, LuFileSpreadsheet, LuGraduationCap, LuShoppingBag, LuStethoscope, LuUtensils, LuWarehouse } from "react-icons/lu";
 import { SiGooglesheets, SiShopee, SiWhatsapp } from "react-icons/si";
 import TalkButton from "./TalkButton";
 
@@ -47,10 +47,10 @@ const KICKER_TEXT = "Hi, I am Yi Chong, an engineer.";
 const TYPING_MS_PER_CHAR = 45;
 
 // Facts an owner can check. Character lives in the won't-do list, not here.
-const HERO_FACTS: string[] = [
-    "My last automation removed 80% of the manual work.",
-    "I have an AI degree from University Malaya. I worked in fintech, AI consulting and a Big Four firm.",
-    "I work remotely across Malaysia, or on-site if you ask. I speak English, Bahasa Melayu and Chinese (中文).",
+const HERO_FACTS: Chip[] = [
+    { label: "My last automation removed 80% of the manual work.", Icon: LuZap },
+    { label: "I have an AI degree from University Malaya. I worked in fintech, AI consulting and a Big Four firm.", Icon: LuAward },
+    { label: "I work remotely across Malaysia, or on-site if you ask. I speak English, Bahasa Melayu and Chinese (中文).", Icon: LuMapPin },
 ];
 
 // Terminal-style kicker, typed once on load. Reduced motion shows it whole.
@@ -108,8 +108,11 @@ const Hero: React.FC = () => (
         <p className="hero-cta-note">You send 1 message. I reply the same business day. No obligation.</p>
         <ChipRow chips={WORKS_WITH} label="I build on the tools you use now" className="hero-tools" />
         <ul className="hero-facts">
-            {HERO_FACTS.map((fact) => (
-                <li key={fact}>{fact}</li>
+            {HERO_FACTS.map(({ label, Icon }) => (
+                <li key={label}>
+                    <Icon className="hero-fact-icon" aria-hidden="true" />
+                    <span>{label}</span>
+                </li>
             ))}
         </ul>
     </section>
