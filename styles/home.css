@@ -137,6 +137,11 @@
     color: var(--accent);
 }
 
+.hero-for .chip-open {
+    border-style: dashed;
+    background: transparent;
+}
+
 .hero-tools {
     margin-top: 8px;
 }

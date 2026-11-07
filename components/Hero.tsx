@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import type { IconType } from "react-icons";
-import { LuDatabase, LuFileSpreadsheet, LuGraduationCap, LuShoppingBag, LuStethoscope, LuUtensils, LuWarehouse } from "react-icons/lu";
+import { LuDatabase, LuPlus, LuFileSpreadsheet, LuGraduationCap, LuShoppingBag, LuStethoscope, LuUtensils, LuWarehouse } from "react-icons/lu";
 import { SiGooglesheets, SiShopee, SiWhatsapp } from "react-icons/si";
 import TalkButton from "./TalkButton";
 
 interface Chip {
     label: string;
     Icon: IconType;
+    open?: boolean; // dashed chip: the list is examples, not a limit
 }
 
 const WHO_FOR: Chip[] = [
@@ -16,6 +17,7 @@ const WHO_FOR: Chip[] = [
     { label: "Clinics", Icon: LuStethoscope },
     { label: "Wholesalers", Icon: LuWarehouse },
     { label: "Online sellers", Icon: LuShoppingBag },
+    { label: "Any business that runs on Excel or WhatsApp", Icon: LuPlus, open: true },
 ];
 
 const WORKS_WITH: Chip[] = [
@@ -31,8 +33,8 @@ const ChipRow: React.FC<{ chips: Chip[]; label: string; className?: string }> = 
     <div className={`chip-group ${className}`}>
         <span className="chip-group-label">{label}</span>
         <ul className="chip-row">
-            {chips.map(({ label: chipLabel, Icon }) => (
-                <li key={chipLabel} className="chip">
+            {chips.map(({ label: chipLabel, Icon, open }) => (
+                <li key={chipLabel} className={`chip${open ? " chip-open" : ""}`}>
                     <Icon aria-hidden="true" />
                     {chipLabel}
                 </li>
@@ -98,7 +100,7 @@ const Hero: React.FC = () => (
         <h1 className="hero-title">
             I <span className="accent">automate</span> the work your team still does by hand.
         </h1>
-        <ChipRow chips={WHO_FOR} label="For" className="hero-for" />
+        <ChipRow chips={WHO_FOR} label="For example" className="hero-for" />
         <p className="hero-line">
             The first call is free. The price is fixed. You pay only if it works.
         </p>
