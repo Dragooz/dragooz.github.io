@@ -37,12 +37,12 @@ const WORK_STEPS: WorkStep[] = [
 ];
 
 // Promises YiChong confirmed he keeps (2026-11-05). Do not add one he has not confirmed.
-// Lines 4 and 5 repeat promises already made on the page: same-day reply (confirmed 2026-11-07) and the 2-week fixed-price fix.
+// Line 4 matches the site's 'holds up on real data' promise; line 5 repeats the 2-week fixed-price fix.
 const COUNT_ON: WontDoLine[] = [
     { lead: "Your data stays in your systems.", tail: "I do not copy your data out. I sign an NDA before I start." },
     { lead: "You own the code and every login.", tail: "If I stop, you keep everything. You also get a handover document." },
     { lead: "We agree on 1 result before I start.", tail: "For example, hours each week on the report. If the result does not improve, I send no invoice." },
-    { lead: "I reply the same business day.", tail: "On WhatsApp or by email." },
+    { lead: "I test it on your real data.", tail: "It must work on your files and your exceptions before you pay." },
     { lead: "1 fix takes 2 weeks or less.", tail: "The price is fixed. It does not change if the work takes me longer." },
 ];
 
