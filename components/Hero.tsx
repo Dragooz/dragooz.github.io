@@ -60,7 +60,7 @@ const Hero: React.FC = () => (
         <h1 className="hero-title">
             I <span className="accent">automate</span> the work your team still does by hand.
         </h1>
-        <p className="hero-for">For F&amp;B, tuition centres, clinics, trading companies and online sellers.</p>
+        <p className="hero-for">For F&amp;B, tuition centres, clinics, wholesalers and online sellers.</p>
         <p className="hero-line">
             The first call is free. The price is fixed. You pay only if it works.
         </p>
